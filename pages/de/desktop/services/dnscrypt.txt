@@ -1,0 +1,50 @@
+====== DNSCrypt ======
+
+
+===== Installiere auf dein Gerät =====
+
+Folge dem [[https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation#os-specific-instructions|link]] und wähle dein Betriebssystem aus.
+
+
+===== Config file =====
+
+Änder deine ''dnscrypt-proxy.toml'' Konfigurationsdatei.
+
+
+==== server_names ====
+
+<code>
+server_names = ['techsaviours.org']
+</code>
+
+
+==== Sources ====
+
+Deaktivieren alle 
+
+<code>
+[sources]
+</code>
+
+
+==== Anonymized DNS ====
+
+Gehe nach unten zu ''routes = ['' und füge hinzu:
+
+<code>
+routes = [
+    { server_name='2.dnscrypt-cert.techsaviours.org', via=['sdns://gRI0NS4xMzIuMjQ1Ljk1OjQ0MzQ'] }
+]
+</code>
+
+
+==== Static ====
+
+Scrolle nach unten und füge den TECH **SAVIOURS** server in ''static'' und ''stamp'' hinzu:
+
+<code>
+[static.'techsaviours.org']
+    stamp = 'sdns://AQcAAAAAAAAAEjQ1LjEzMi4yNDUuOTU6NDQzNCAaKOG7s_XPRo0TVYMDCtgWPemMyDThFEe1os3q_As_UCAyLmRuc2NyeXB0LWNlcnQudGVjaHNhdmlvdXJzLm9yZw'
+</code>
+
+Starte den Serivce neu oder verbinde den Client erneut. 

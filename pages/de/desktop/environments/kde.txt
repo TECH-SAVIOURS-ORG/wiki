@@ -1,0 +1,65 @@
+====== KDE ======
+
+<code>
+pacman -S plasma xorg
+</code>
+
+<code>
+systemctl enable --now sddm
+</code>
+
+Das war's eigentlich schon.
+
+Schaue dir die gesamte [[https://archlinux.org/groups/x86_64/kde-applications/|KDE-Software]] liste und die vorgeschlagenen Pakete unten an und installiere, was dir gefällt. 
+
+
+====== Empfohlene Software ======
+
+Füge die Pakete einfach dem oben genannten ''pacman''-Befehl hinzu.
+
+===== System =====
+
+<code>
+networkmanager-openvpn wireguard-tools keepassxc arch-audit konsole keditbookmarks gparted htop dolphin spectacle wget lm_sensors ark kleopatra kate kompare rsync
+</code>
+
+===== Audio =====
+
+<code>
+pulseaudio pulseaudio-alsa
+</code>
+
+===== Multimedia/Graphics =====
+
+<code>
+vlc openshot gimp inkscape
+</code>
+
+===== Office =====
+
+<code>
+thunderbird thunderbird-i18n-de wqy-zenhei ttf-liberation libreoffice-fresh cups cups-pdf xsane system-config-printer kdeconnect firefox okular gwenview
+</code>
+
+Wenn du ''cups'' installierst, müsst du auch den Dienst aktivieren:
+<code>
+systemctl enable --now cups.service
+</code>
+
+===== Sonstige =====
+
+<code>
+bash-completion cronie
+</code>
+
+Füge für ''bash-complition'' folgendes zu deiner ''.bashrc'' hinzu:
+<code>
+echo "if [ -f /etc/bash_completion ]; then          
+. /etc/bash_completion
+fi" >> ~/.bashrc
+</code>
+
+Aktiviere service für ''cronie'':
+<code>
+systemctl enable --now cronie.service
+</code>

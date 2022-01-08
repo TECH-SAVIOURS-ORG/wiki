@@ -1,0 +1,356 @@
+====== Arch Linux ======
+
+The guide is for both - server and desktop.
+
+It includes:
+
+**Server & Desktop**
+
+  * UEFI
+  * systemd-boot
+  * LVM on LUKS
+  * NetworkManager
+  * zram
+  * doas
+  * nftables
+
+**Desktop**
+
+  * Xorg
+  * KDE / Plasma
+  * SDDM
+
+===== Download the ISO =====
+
+[[https://www.archlinux.org/download/]]
+
+===== Inital setup =====
+
+If using a US keyboard:  
+
+<code>
+ls /usr/share/kbd/keymaps/**/*.map.gz
+loadkeys us
+</code>
+
+Check if system is under UEFI:  
+
+<code>
+ls /sys/firmware/efi/efivars
+</code>
+
+Connect to wifi if needed
+
+<code>
+iwctl
+device list
+station DEVICE_NAME scan
+station DEVICE_NAME get-networks
+station DEVICE_NAME connect SSID
+</code>
+
+Enable NTP and set timezone  
+
+<code>
+timedatectl set-ntp true
+timedatectl set-timezone Pacific/Auckland
+</code>
+
+Test Connection  
+
+<code>
+ping techsaviours.org -c 1
+</code>
+
+===== Format disk/s and create partitions =====
+
+Format your disks and create GPT table.  
+
+<code>
+cfdisk /dev/sd*
+</code>
+
+Typical partitions look like this:
+^ Partitions                   ^ Space  | Type                         |
+| /dev/sda1 (boot)             | 512M   | EFI System                   |
+| /dev/sda2 (root)             | xG     | Linux Filesystem (ext4,...)  |
+| /dev/sdb1 (home) (optional)  | xG     | Linux Filesystem (ext4,...)  |
+
+<alert type="info" icon="fa fa-info-circle">As an option, the home partition - ''/dev/sdb1'', if you want to use another hard drive</alert>
+
+===== LVM on LUKS =====
+
+==== Create LUKS ====
+
+**root**
+<code>
+cryptsetup luksFormat --type luks2 --cipher aes-xts-plain64 --key-size 512 /dev/sda2
+cryptsetup open /dev/sda2 root
+</code>
+
+**home**
+(Optional) Second disk (/dev/sdb1)
+
+<code>
+cryptsetup luksFormat --type luks2 --cipher aes-xts-plain64 --key-size 512 /dev/sdb1
+cryptsetup open /dev/sdb1 home
+</code>
+
+==== Create LVM ====
+
+=== Preparing the physical volumes, volume groups and logical volumes ===
+
+**root**
+<code>
+pvcreate /dev/mapper/root
+vgcreate vg0 /dev/mapper/root
+lvcreate -l 100%FREE vg0 -n root
+</code>
+
+**home** (optional)
+
+<code>
+pvcreate /dev/mapper/home
+vgcreate vg1 /dev/mapper/home
+lvcreate -l 100%FREE vg1 -n home
+</code>
+
+=== Format filesystems and mount ===
+
+**root**
+<code>
+mkfs.ext4 /dev/vg0/root
+mount /dev/vg0/root /mnt
+</code>
+
+**boot**
+<code>
+mkfs.fat -F32 /dev/sda1
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+</code>
+
+**home** (optional)
+
+<code>
+mkfs.ext4 /dev/vg1/home
+mkdir /mnt/home
+mount /dev/vg1/home /mnt/home
+</code>
+
+===== Install the base packages =====
+
+<code>
+pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh iptables-nft
+</code>
+
+===== Configure the system =====
+
+<code>
+genfstab -U /mnt > /mnt/etc/fstab
+arch-chroot /mnt
+</code>
+
+==== Timezone ====
+
+<code>
+ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
+hwclock --systohc
+</code>
+
+Uncomment your location. For example: //en_US.UTF-8 UTF-8//
+
+<code>
+nano /etc/locale.gen
+</code>
+
+<code>
+echo "LANG=en_US.UTF-8
+LC_ADDRESS=en_US.UTF-8
+LC_IDENTIFICATION=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+LC_NUMERIC=en_US.UTF-8
+LC_PAPER=en_US.UTF-8
+LC_TELEPHONE=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+LC_ALL=en_US.UTF-8" >> /etc/locale.conf
+</code>
+
+<code>
+locale-gen
+</code>
+
+====  Keyboard layout ====
+
+<code>
+ls /usr/share/kbd/keymaps/**/*.map.gz
+nano /etc/vconsole.conf
+</code>
+<code>
+KEYMAP=YOUR_KEYBOARD
+</code>
+
+==== Hostname ====
+
+<code>
+echo "arch" > /etc/hostname
+</code>
+
+
+==== Host file ====
+
+<code>
+echo "127.0.0.1 localhost
+::1 localhost
+127.0.1.1 arch.localdomain arch" >> /etc/hosts
+</code>
+
+==== root password ====
+<code>
+passwd
+</code>
+
+==== Create an initial ramdisk ====
+
+<code>
+nano /etc/mkinitcpio.conf
+</code>
+
+<code>
+HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems fsck)
+</code>
+
+<code>
+mkinitcpio -P
+</code>
+
+==== Bootloader ====
+
+<code>
+bootctl install
+</code>
+
+<code>
+echo "title Arch Linux
+linux /vmlinuz-linux-hardened
+initrd /initramfs-linux-hardened.img
+options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2):root root=/dev/vg0/root rw" >> /boot/loader/entries/arch.conf
+</code>
+
+<code>
+echo "title Arch Linux (fallback initramfs)
+linux /vmlinuz-linux-hardened
+initrd  /initramfs-linux-hardened-fallback.img
+options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2)=root root=/dev/vg0/root rw" >> /boot/loader/entries/arch-fallback.conf
+</code>
+
+==== Microcode ====
+
+Depends on your CPU - __//AMD//__ or __//Intel//__ - choose one of the following commands:
+
+<code>
+pacman -S intel-ucode
+</code>
+<code>
+pacman -S amd-ucode
+</code>
+
+and add ''initrd /**intel**-ucode.img'' or ''initrd /**amd**-ucode.img'' above ''initrd /initramfs-linux-hardened.img'', ''initrd /initramfs-linux-hardened-**fallback**.img'' in ''/boot/loader/entries/arch.conf'' and ''/boot/loader/entries/arch-**fallback**.conf''
+
+==== doas ====
+
+Allow members of group ''wheel'' to run commands:
+
+<code>
+echo "permit persist :wheel" >> /etc/doas.conf
+chown -c root:root /etc/doas.conf
+chmod -c 0400 /etc/doas.conf
+</code>
+
+<alert type="danger" icon="fa fa-warning">The ''persist'' feature is disabled by default [....] This feature is new and potentially dangerous, in the original doas, a kernel API is used to set and clear timeouts. This API is openbsd specific and no similar API is available on other operating systems.
+ </alert>
+
+=== Sudo user? ===
+
+<code>
+pacman -Rsn opendoas
+pacman -S sudo
+</code>
+
+or
+
+<code>
+echo "alias sudo='doas'
+alias sudoedit='doas rnano'" >> ~/.bashrc
+</code>
+
+==== Add user ====
+
+Change ''USER'' to your name.
+
+<code>
+useradd -m -G wheel -s /bin/bash USER
+passwd USER
+</code>
+
+==== zram ====
+
+
+=== Module ===
+
+<code>
+echo "zram" >> /etc/modules-load.d/zram.conf
+</code>
+
+=== Modprobe ===
+
+<code>
+echo "options zram num_devices=1" >> /etc/modprobe.d/zram.conf
+</code>
+
+=== Udev ===
+
+<code>
+echo 'KERNEL=="zram0", ATTR{disksize}="4GB" RUN="/usr/bin/mkswap /dev/zram0", TAG+="systemd"' >> /etc/udev/rules.d/99-zram.rules
+</code>
+
+=== Fstab ===
+
+<code>
+echo "# swap
+/dev/zram0 none swap defaults 0 0
+" >> /etc/fstab
+</code>
+
+==== Enable services ====
+
+<code>
+systemctl enable --now NetworkManager.service
+systemctl enable --now sshd.service
+</code>
+
+==== (Optional) Add key for home partition ====
+
+If you have decided to use an additional partition or drive, you can also use a key instead of entering the passphrase over and over again. This way it only stays for root to enter the passphrase.
+
+<code>
+mkdir /etc/luks-keys/
+dd bs=512 count=4 if=/dev/urandom of=/etc/luks-keys/home.bin
+chmod -cR 0400 /etc/luks-keys/
+cryptsetup luksAddKey /dev/sdb1 /etc/luks-keys/home.bin
+echo "home           /dev/sdb1                                    /etc/luks-keys/home.bin" >> /etc/crypttab
+</code>
+
+==== Reboot ====
+
+<code>
+exit
+</code>
+<code>
+umount -R /mnt
+reboot
+</code>
+
+<alert type="info">Congratulation 🍻 The server part is done! Continue with [[en:desktop:environments:kde|KDE]] if you want to install a desktop environment.</alert>

@@ -1,0 +1,43 @@
+====== Log4shell ======
+
+On December the 9th, 2021, Apache published a severe vulnerability called [[https://nvd.nist.gov/vuln/detail/CVE-2021-44228|Log4shell]] (and other Log4j-related vulnerabilities).
+
+===== Download =====
+
+How to scan your services quickly, basically with log4j-scan from fullhunt, but using cisagov:
+<code>
+git clone https://github.com/cisagov/log4j-scanner.git
+cd log4-scanner/
+</code>
+
+==== Requirements ====
+
+  * python
+  * python-requests
+  * python-termcolor
+  * python-pycryptodome
+
+
+===== Create a url list =====
+
+The easiest way is to create a list of all URLs you want to check:
+<code>
+nano urls.txt
+</code>
+<code>
+https://techsaviours.org
+https://meet.techsaviours.org
+https://searx.techsaviours.org
+</code>
+
+===== Check your urls =====
+
+<code>
+python log4j-scan.py -l urls.txt --waf-bypass --run-all-tests
+</code>
+
+or just a url
+
+<code>
+python log4j-scan.py -u https://techsaviours.org --waf-bypass --run-all-tests
+</code>

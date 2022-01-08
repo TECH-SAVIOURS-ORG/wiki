@@ -1,0 +1,40 @@
+====== TECH SAVIOURS wiki ======
+
+The wiki is powered by [[https://www.dokuwiki.org/dokuwiki|DokuWiki]] in combination with the [[https://www.dokuwiki.org/template:bootstrap3?s[]=bootstrap3|Bootstrap3]] template.
+
+===== Contributing to wiki =====
+
+Like any open source project, it lives from the efforts of its users.
+
+The documentation can always be improved, or you can create more tutorials. But they must be easy to read and generally understandable to a complete newcomer who want more digital privacy but don't know how to achieve it.
+
+===== GitHub or registration =====
+
+<alert type="danger">{{icon>exclamation}} GitHub currently not working.</alert>
+The normal procedure fork/pull requests on [[https://github.com/TECH-SAVIOURS-ORG/wiki/|GitHub]] or send us an email to [[wiki@techsaviours.org?Subject=Registration%20Request|wiki@techsaviours.org]]  if you prefer to register on the [[https://wiki.techsaviours.org|wiki website]] itself, as we do not have registration enabled.
+
+===== Syntax =====
+
+You can use the [[en:wiki:syntax|DokuWiki's syntax]]. We tried to implement [[https://www.markdownguide.org/cheat-sheet/|Markdown]], but unfortunately it doesn't really work. Too many failures with plugins or core. 
+
+===== Structure =====
+
+The wiki is mainly structured in 4 parts ([[https://www.dokuwiki.org/namespaces|namespaces]]):
+   * Server
+     * Operating Systems
+     * Services
+   * Phone
+     * Operating Systems
+     * Apps
+   * Desktop
+     * Operating Systems
+     * Services
+   * Extras
+
+There is also ''faq'' and probably more will follow.  
+  
+If the tutorials are the same (e.g. desktop and server), create the page and add a link to it
+
+<code>{{page>en:server:services:name}}</code>
+
+<alert type="warning">{{icon>info}} Always add the link from the desktop to the server. This makes it easier to change the tutorials in the future.</alert>

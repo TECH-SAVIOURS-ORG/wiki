@@ -1,0 +1,6 @@
+  * [[en:wiki|WIKI]]
+  * [[https://techsaviours.org|HOME]]
+  * [[https://techsaviours.org/news|NEWS]]
+  * [[https://techsaviours.org/#services|WHY?]]
+  * [[https://techsaviours.org/#tutorials|TUTORIALS]]
+  * [[https://techsaviours.org/#freeservices|SERVICES]]

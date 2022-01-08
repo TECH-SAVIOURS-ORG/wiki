@@ -1,0 +1,36 @@
+~~NOCACHE~~
+
+=== Tutorials ===
+  * [[:de:server|Server]]
+    * [[:de:server:operating_systems|Betriebssysteme]]
+      * [[:de:server:operating_systems:arch_linux|Arch Linux]]
+    * [[:de:server:services|Services]]
+        * [[:de:server:services:searx|Searx]]
+  * [[:de:phone|Phone]]
+    * [[:de:phone:operating_systems|Betriebssysteme]]
+      * [[:de:phone:operating_systems:android|Android]]
+    * [[:de:phone:apps|Apps]]
+        * [[:de:phone:apps:magisk|Magisk]]
+  * [[:de:desktop|Desktop]]
+    * [[:de:desktop:operating_systems|Betriebssysteme]]
+      * [[:de:desktop:operating_systems:arch_linux|Arch Linux]]
+    * [[:de:desktop:environments|Umgebung]]
+        * [[:de:desktop:environments:kde|KDE]]
+    * [[:de:desktop:services|Services]]
+        * [[:de:desktop:services:dnscrypt|DNSCrypt]]
+        * [[:de:desktop:services:searx|Searx]]
+  * [[:de:backup|Backup]]
+    * [[:de:backup:server|Server]]
+    * [[:de:backup:phone|Phone]]
+    * [[:de:backup:desktop|Desktop]]
+  * [[:de:extras|Extras]]
+  * [[:de:vulnerability_scans|Vulnerability Scans]]
+    * [[:de:vulnerability_scans:log4shell|Log4shell]]
+  * [[:de:faq|FAQ]]
+
+=== Mitwirken ===
+  * [[:de:wiki:wikirules|Zur Wiki beitragen]]
+
+=== Sonstiges ===
+  * [[:de:wiki:dokuwiki|Über DokuWiki]]
+  * [[:de:wiki:syntax|DokuWiki syntax]]

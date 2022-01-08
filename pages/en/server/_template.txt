@@ -1,0 +1,9 @@
+<markdown>
+# Header
+
+simple paragraph: *emph* **strong** `mono`.
+
+> quote
+
+[link](https://www.dokuwiki.org)
+</markdown>

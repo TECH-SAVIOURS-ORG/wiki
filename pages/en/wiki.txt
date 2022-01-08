@@ -1,0 +1,9 @@
+<alert type="success" icon="fa fa-info-circle">**Arch Linux** & **KDE** __tutorial__ is done 🍻 [[en/server/operating_systems/arch_linux|Have a look]]!</alert>
+
+====== Welcome to TECH SAVIOURS Wiki ======
+We would like to give you the opportunity here to achieve your digital privacy goals as a DIY solution. We cover the most important devices we use every day.
+
+So feel free to follow the tutorials and get your digital privacy under control and share only what you really want to share.
+
+====== Contributing ======
+If you are interested in adding more devices or making some improvements, see our [[en:wiki:wikirules|wiki rules]].
