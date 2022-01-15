@@ -10,7 +10,6 @@ Die Dokumentation kann immer verbessert werden, oder du kannst mehr Tutorials er
 
 ===== GitHub oder Registrierung =====
 
-<alert type="danger">{{icon>exclamation}} GitHub funktioniert derzeit nicht.</alert>
 Die normale Prozedur fork/pull requests auf [[https://github.com/TECH-SAVIOURS-ORG/wiki/|GitHub]] oder schicke uns eine E-Mail an [[wiki@techsaviours.org?Subject=Registration%20Anfrage|wiki@techsaviours.org]], wenn du es vorziehst, dich auf der [[https://wiki.techsaviours.org|Wiki-Webseite]] direkt zu registrieren, da wir die Registrierung nicht aktiviert haben.
 
 ===== Syntax =====
