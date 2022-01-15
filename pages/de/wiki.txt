@@ -1,4 +1,5 @@
 <alert type="success" icon="fa fa-info-circle">**Arch Linux** & **KDE** __tutorial__ ist fertig 🍻 Siehe [[de/server/operating_systems/arch_linux|hier]]!</alert>
+<alert type="info" icon="fa fa-github">Github push & pull funktioniert wieder. Check [[de:wiki:wikirules#github_or_registration|GitHub oder Registrierung]].</alert>
 
 ====== Willkommen bei TECH SAVIOURS Wiki ======
 Wir möchten dir hier die Möglichkeit geben, deine digitale Datenschutzziele als DIY-Lösung zu realisieren. Wir decken die wichtigsten Geräte ab, die wir jeden Tag benutzen.
