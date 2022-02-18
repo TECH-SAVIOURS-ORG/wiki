@@ -66,7 +66,7 @@ If you want to buy a phone or already own an Android phone, you can check if you
 
 ===== Check your bootloader =====
 
-Check if your phone has the ability to unlock your bootloader.
+Check if your phone has the ability to unlock your bootloader at all.
 
 [[https://forum.xda-developers.com/|xda-developers.com]] offers a wide range of phones that will help you find a guide to open the bootloader, if possible. Check also [[https://www.xda-developers.com/tag/bootloader/|XDA bootloader news]].
 
@@ -80,9 +80,6 @@ Straight to your manufacturer:
   * *
 
 <alert type="info" icon="fa fa-info">Huawei and Honor have discontinued the support to unlock the bootloader. There are paid options which we will not post here. It is better to get another phone.</alert>
-
-<alert type="danger" icon="fa fa-warning">Do not open the bootloader now! Just check if it is possible or not. If not, it is better to get another phone.</alert>
-
 
 ===== ADB & fastboot drivers =====
 
