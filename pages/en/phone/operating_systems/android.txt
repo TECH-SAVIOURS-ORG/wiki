@@ -6,16 +6,16 @@ Google may have prevented a monopoly that may have otherwise existed should Andr
 
 ++++ Read more - for more information about Android | 
 
-====== Bootloader ======
+===== Bootloader =====
 
 On some devices, it is necessary to open or unlock the bootloader before you can install a custom recovery, root or custom ROM. Unlocking the bootloader usually requires the phone to be wiped of all data, meaning that you'll have to backup everything. Not all smartphone manufacturers allow the unlocking of the bootloader, so if this concerns you, you must do your research before purchasing your next smartphone. Although uncommon, some manufacturers package an “eFuse - [[https://en.wikipedia.org/wiki/EFUSE|Wikipedia]]” command in their products, which could brick (permanently damage) your device.
 
 
-====== Recovery ======
+===== Recovery =====
 
 A recovery is an independent, lightweight runtime environment that is included on a separate partition from the main Android operating system on all Android devices. As the name suggests, the main purpose of a recovery is to help recover your device to a working state, however it is possible to make your device soft-bricked (unable to boot) if the wrong actions are performed. You can boot directly into recovery mode and use it to factory reset your device, delete the cache partition, or apply software updates.
 
-===== TWRP - Team Win Recovery Project =====
+==== TWRP - Team Win Recovery Project ====
 
 Over the years, TWRP is the most used custom recovery. A custom recovery is necessary to flash a custom ROM and hence TWRP is a suitable solution if your device supports it.
 TWRP supports touch interactions, encrypted storage, MTP (mass storage), and many more features to satistfy the needs of a power user.
@@ -23,22 +23,22 @@ TWRP supports touch interactions, encrypted storage, MTP (mass storage), and man
 More info about TWRP - https://twrp.me/about/
 
 
-====== Custom ROMs ======
+===== Custom ROMs =====
 
-===== Why bother installing a custom ROM? =====
+==== Why bother installing a custom ROM? ====
 
 We are all familiar with the time where your phone decides to play up and refuses to do what you want it to do. Anecdotal evidence has found that all smartphones degrade over time due to heat, stress, wear and etc. However this doesn't mean you can't still make improvements on your phone.
 
 One common cause of slowdowns on your smartphone is the presence of bloatware or "bloat". These apps are unneeded and unwanted, meaning that they take up your important storage space and memory. A custom ROM however never contains any bloatware. This will mean that you will be able to reclaim any of the lost storage space and memory and use it for more important applications. This will translate to better performance (and sometimes battery life).
 
-===== Custom ROM options =====
+==== Custom ROM options ====
 
 [[https://lineageos.org/|LineageOS]] isn't the only custom ROM available. There are heaps of other ROMs you can choose from (Resurrection Remix, CR Droid, Paranoid Android, etc.), each coming with their own unique combination of features and apps. To get started, it is best to consult on a thread over at the XDA-developers forums ([[https://en.wikipedia.org/wiki/XDA_Developers|Wikipedia]]). XDA is the first address of all your Android needs.
 
 Like other desktop-operating systems (Arch, Debian, Mint, Ubuntu etc.) you have to find out for yourself which ROM suits you best.
 
 
-===== Root =====
+==== Root ====
 
 Root is required if you want to have full control of your device. It's necessary for certain apps like AFWall+, XPrivacyLUA etc.  
 AFWall+, for example, is using the iptables firewall ([[https://en.wikipedia.org/wiki/Iptables|Wikipedia]]) which you can only be modified if your device is rooted. It's like the administrator of a software.
@@ -56,7 +56,7 @@ You could go with a custom ROM but there is no need to use root. For privacy rea
 
 ++++
 
-====== Supported phones for custom ROMs ======
+===== Supported phones for custom ROMs =====
 
 If you want to buy a phone or already own an Android phone, you can check if your phone is supported at the following links by searching for phone brand like Samsung Galaxy Note 4 and your model name like N910F. 
 
@@ -64,7 +64,7 @@ If you want to buy a phone or already own an Android phone, you can check if you
   * https://lineageoslog.com/statistics
   * https://stats.lineageos.org/
 
-====== Check your bootloader ======
+===== Check your bootloader =====
 
 Check if your phone has the ability to unlock your bootloader.
 
@@ -84,7 +84,7 @@ Straight to your manufacturer:
 <alert type="danger" icon="fa fa-warning">Do not open the bootloader now! Just check if it is possible or not. If not, it is better to get another phone.</alert>
 
 
-====== ADB & fastboot drivers ======
+===== ADB & fastboot drivers =====
 
 Depends on your operating system (Linux, Windows, Mac) you have to download the driver for ADB & Fastboot.
 
@@ -96,7 +96,7 @@ pacman -S android-tools android-udev
 </code>
 
 
-====== Install ROM and recovery ======
+===== Install ROM and recovery =====
 
 Check the ROMs for your device at https://wiki.lineageos.org/devices/ and follow the instructions. Also install Lineageos Recovery (recommended). 
 
