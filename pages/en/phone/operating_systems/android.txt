@@ -64,6 +64,7 @@ If you want to buy a phone or already own an Android phone, you can check if you
   * https://lineageoslog.com/statistics
   * https://stats.lineageos.org/
 
+If LineageOS supports your phone, you can proceed with the next step - [[#adb_fastboot_drivers|ADB & fastboot drivers]].
 ===== Check your bootloader =====
 
 Check if your phone has the ability to unlock your bootloader at all.
