@@ -10,9 +10,9 @@ Google may have prevented a monopoly that may have otherwise existed should Andr
 
 If you want to buy a phone or already own an Android phone, you can check if your phone is supported at the following links by searching for phone brand like Samsung Galaxy Note 4 and your model name like N910F. 
 
-  * www.wiki.lineageos.org/devices/
-  * www.lineageoslog.com/statistics
-  * www.stats.lineageos.org/
+  * https://wiki.lineageos.org/devices/
+  * https://lineageoslog.com/statistics
+  * https://stats.lineageos.org/
 
 
 ====== Bootloader ======
@@ -57,3 +57,40 @@ Like other desktop-operating systems (Arch, Debian, Mint, Ubuntu etc.) you have 
 
 ++++
 
+====== Check bootloader ======
+
+Check if your phone has the ability to unlock your bootloader.
+
+[[https://forum.xda-developers.com/|xda-developers.com]] offers a wide range of phones that will help you find a guide to open the bootloader, if possible. 
+
+Straight to your manufacturer:
+
+  * [[https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-b|motorola.com]]
+  * [[https://www.htcdev.com/bootloader|htcdev.com]]
+  * [[https://developer.sony.com/develop/open-devices/get-started/unlock-bootloader/how-to-unlock-bootloader/#bootloader_guide|sony.com]]
+  * [[https://developer.lge.com/resource/mobile/RetrieveBootloader.dev|lge.com]]
+  * [[https://account.xiaomi.com/pass/serviceLogin?callback=http%3A%2F%2Fwww.miui.com%2Fextra.php%3Fmod%3Dxiaomi%2Fauthcallback%26followup%3Dhttp%253A%252F%252Fwww.miui.com%252Funlock%252Fapply.php%26sign%3DYzdhOGVjM2ExNDg0YWJlMGUyYTk4NTUwZDY4OGIyZmI5ZmFmZjEzMw%2C%2C&amp;sid=miuibbs&amp;_locale=en|xiaomi.com]]
+  * *
+
+<alert type="info" icon="fa fa-info">Huawei and Honor have discontinued the support to unlock the bootloader. There are paid options which we will not post here. It is better to get another phone.</alert>
+
+<alert type="danger" icon="fa fa-warning">Do not open the bootloader now! Just check if it is possible or not. If not, it is better to get another phone.</alert>
+
+
+====== ADB & fastboot drivers ======
+
+Depends on your operating system (Linux, Windows, Mac) you have to download the driver for ADB & Fastboot.
+
+Just follow the instructions at https://wiki.lineageos.org/adb_fastboot_guide or got to [[https://searx.techsaviours.org/|searx.techsaviours.org]] (or whatever you prefer) and search for ''adb drivers windows linux and mac'' and follow the instructions there.
+
+Arch Linux:
+<code>
+pacman -S android-tools android-udev
+</code>
+
+
+====== Install ROM and recovery ======
+
+Check the ROMs for your device at https://wiki.lineageos.org/devices/ and follow the instructions. Also install Lineageos Recovery (recommended). 
+
+Check your device at [[https://twrp.me/Devices/]] if you prefer TWRP.
