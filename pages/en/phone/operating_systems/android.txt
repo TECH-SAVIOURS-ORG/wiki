@@ -38,7 +38,7 @@ One common cause of slowdowns on your smartphone is the presence of bloatware or
 Like other desktop-operating systems (Arch, Debian, Mint, Ubuntu etc.) you have to find out for yourself which ROM suits you best.
 
 
-==== Root ====
+===== Root =====
 
 Root is required if you want to have full control of your device. It's necessary for certain apps like AFWall+, XPrivacyLUA etc.  
 AFWall+, for example, is using the iptables firewall ([[https://en.wikipedia.org/wiki/Iptables|Wikipedia]]) which you can only be modified if your device is rooted. It's like the administrator of a software.
