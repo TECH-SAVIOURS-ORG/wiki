@@ -13,5 +13,5 @@ Some highlight features:
 
 
 ===== Download latest release =====
-Go to {{https://github.com/topjohnwu/Magisk/releases|GitHub}} and download the latest apk file.
+Go to [[https://github.com/topjohnwu/Magisk/releases|GitHub]] and download the latest apk file.
 
