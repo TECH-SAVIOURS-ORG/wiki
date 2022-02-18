@@ -1,1 +1,59 @@
-soon
+====== Android ======
+
+Android is one of the main operating systems (OS) you will find on a smartphone today. It was developed by Google to compete directly with iOS, the operating system found on iPhones. One of the main reasons why Android was so successful was because it could run on many devices thanks to the Open Handset Alliance (OHA), an initiative that would allow manufacturers such as Samsung and LG to develop smartphones that may look and feel different, but still at the same time run the same operating system (with modifications made by the manufacturer).
+
+Google may have prevented a monopoly that may have otherwise existed should Android have never existed, however it isn't all without some catch. Google is notorious for collecting large amounts of private user data, whether you're on a desktop, laptop, or smartphone. On all (Google certified) smartphones, there must be a Play Store and some Google apps (varies between devices). These apps, while useful for a large majority of users, can extract extensive amounts of information based on the user's search history and etc. However, there are solutions to prevent this and hence re-iterates the need of a guide such as this one.
+
+++++ Read more about Android | 
+
+====== Supported phones ======
+
+If you want to buy a phone or already own an Android phone, you can check if your phone is supported at the following links by searching for phone brand like Samsung Galaxy Note 4 and your model name like N910F. 
+
+  * www.wiki.lineageos.org/devices/
+  * www.lineageoslog.com/statistics
+  * www.stats.lineageos.org/
+
+
+====== Bootloader ======
+
+On some devices, it is necessary to open or unlock the bootloader before you can install a custom recovery, root or custom ROM. Unlocking the bootloader usually requires the phone to be wiped of all data, meaning that you'll have to backup everything. Not all smartphone manufacturers allow the unlocking of the bootloader, so if this concerns you, you must do your research before purchasing your next smartphone. Although uncommon, some manufacturers package an “eFuse - [[https://en.wikipedia.org/wiki/EFUSE|Wikipedia]]” command in their products, which could brick (permanently damage) your device.
+
+===== How to find out if your bootloader is locked =====
+
+The best way to find out is to have a look at XDA-developers.
+
+  * Visit your device XDA forum - [[https://forum.xda-developers.com/|XDA Forum]]
+  * Visit XDA-developers news - [[https://www.xda-developers.com/tag/bootloader/|XDA bootloader news]]
+
+
+====== Recovery ======
+
+A recovery is an independent, lightweight runtime environment that is included on a separate partition from the main Android operating system on all Android devices. As the name suggests, the main purpose of a recovery is to help recover your device to a working state, however it is possible to make your device soft-bricked (unable to boot) if the wrong actions are performed. You can boot directly into recovery mode and use it to factory reset your device, delete the cache partition, or apply software updates.
+
+===== TWRP - Team Win Recovery Project =====
+
+Over the years, TWRP is the most used custom recovery. A custom recovery is necessary to flash a custom ROM and hence TWRP is a suitable solution if your device supports it.
+TWRP supports touch interactions, encrypted storage, MTP (mass storage), and many more features to satistfy the needs of a power user.
+
+Search for your device https://twrp.me/Devices/ to get TWRP.
+
+More info about TWRP - https://twrp.me/about/
+
+
+====== Custom ROMs ======
+
+===== Why bother installing a custom ROM? =====
+
+We are all familiar with the time where your phone decides to play up and refuses to do what you want it to do. Anecdotal evidence has found that all smartphones degrade over time due to heat, stress, wear and etc. However this doesn't mean you can't still make improvements on your phone.
+
+One common cause of slowdowns on your smartphone is the presence of bloatware or "bloat". These apps are unneeded and unwanted, meaning that they take up your important storage space and memory. A custom ROM however never contains any bloatware. This will mean that you will be able to reclaim any of the lost storage space and memory and use it for more important applications. This will translate to better performance (and sometimes battery life).
+
+===== Custom ROM options =====
+
+[[https://lineageos.org/|LineageOS]] isn't the only custom ROM available. There are heaps of other ROMs you can choose from (Resurrection Remix, CR Droid, Paranoid Android, etc.), each coming with their own unique combination of features and apps. To get started, it is best to consult on a thread over at the XDA-developers forums ([[https://en.wikipedia.org/wiki/XDA_Developers|Wikipedia]]). XDA is the first address of all your Android needs.
+
+Like other desktop-operating systems (Arch, Debian, Mint, Ubuntu etc.) you have to find out for yourself which ROM suits you best.
+
+++++
+
