@@ -4,27 +4,11 @@ Android is one of the main operating systems (OS) you will find on a smartphone 
 
 Google may have prevented a monopoly that may have otherwise existed should Android have never existed, however it isn't all without some catch. Google is notorious for collecting large amounts of private user data, whether you're on a desktop, laptop, or smartphone. On all (Google certified) smartphones, there must be a Play Store and some Google apps (varies between devices). These apps, while useful for a large majority of users, can extract extensive amounts of information based on the user's search history and etc. However, there are solutions to prevent this and hence re-iterates the need of a guide such as this one.
 
-++++ Read more about Android | 
-
-====== Supported phones ======
-
-If you want to buy a phone or already own an Android phone, you can check if your phone is supported at the following links by searching for phone brand like Samsung Galaxy Note 4 and your model name like N910F. 
-
-  * https://wiki.lineageos.org/devices/
-  * https://lineageoslog.com/statistics
-  * https://stats.lineageos.org/
-
+++++ Read more - for more information about Android | 
 
 ====== Bootloader ======
 
 On some devices, it is necessary to open or unlock the bootloader before you can install a custom recovery, root or custom ROM. Unlocking the bootloader usually requires the phone to be wiped of all data, meaning that you'll have to backup everything. Not all smartphone manufacturers allow the unlocking of the bootloader, so if this concerns you, you must do your research before purchasing your next smartphone. Although uncommon, some manufacturers package an “eFuse - [[https://en.wikipedia.org/wiki/EFUSE|Wikipedia]]” command in their products, which could brick (permanently damage) your device.
-
-===== How to find out if your bootloader is locked =====
-
-The best way to find out is to have a look at XDA-developers.
-
-  * Visit your device XDA forum - [[https://forum.xda-developers.com/|XDA Forum]]
-  * Visit XDA-developers news - [[https://www.xda-developers.com/tag/bootloader/|XDA bootloader news]]
 
 
 ====== Recovery ======
@@ -35,8 +19,6 @@ A recovery is an independent, lightweight runtime environment that is included o
 
 Over the years, TWRP is the most used custom recovery. A custom recovery is necessary to flash a custom ROM and hence TWRP is a suitable solution if your device supports it.
 TWRP supports touch interactions, encrypted storage, MTP (mass storage), and many more features to satistfy the needs of a power user.
-
-Search for your device https://twrp.me/Devices/ to get TWRP.
 
 More info about TWRP - https://twrp.me/about/
 
@@ -55,13 +37,38 @@ One common cause of slowdowns on your smartphone is the presence of bloatware or
 
 Like other desktop-operating systems (Arch, Debian, Mint, Ubuntu etc.) you have to find out for yourself which ROM suits you best.
 
+
+===== Root =====
+
+Root is required if you want to have full control of your device. It's necessary for certain apps like AFWall+, XPrivacyLUA etc.  
+AFWall+, for example, is using the iptables firewall ([[https://en.wikipedia.org/wiki/Iptables|Wikipedia]]) which you can only be modified if your device is rooted. It's like the administrator of a software.
+
+You have to be very careful to use the right root applications. Check the maintainer, date (how long is it available) and if it is open source! A root app also has full control over your device! You must remember this whenever you install a root app.
+
+Rooting your phone typically voids your warranty, however this can be reversible depending on a case-by-case basis. We have never had a problem, but that does not change the fact that some manufacturers may not outright accept your phone for repair should it ever be necessary!
+
+Over-the-air (OTA) updates are not possible with root. This means that your device will no longer receive updates from your smartphone manufacturer. This brings us to the use of custom ROMs. LineageOS can support your device (security updates, etc.) even if your device is not longer supported by your smartphone manufacturer! All new security patches straight from Google ([[https://source.android.com/security/bulletin|Android Security Bulletin]]) are included in all official builds of LineageOS.
+
+Applications such as bank apps may stop working when they detect a rooted phone. You can still use your web browser or a laptop/desktop PC, however there are solutions such as Magisk hide that can hide root for specific apps.
+
+But root is not necessary!
+You could go with a custom ROM but there is no need to use root. For privacy reasons, it is easier to use root, but there are some options without root.
+
 ++++
 
-====== Check bootloader ======
+====== Supported phones for custom ROMs ======
+
+If you want to buy a phone or already own an Android phone, you can check if your phone is supported at the following links by searching for phone brand like Samsung Galaxy Note 4 and your model name like N910F. 
+
+  * https://wiki.lineageos.org/devices/
+  * https://lineageoslog.com/statistics
+  * https://stats.lineageos.org/
+
+====== Check your bootloader ======
 
 Check if your phone has the ability to unlock your bootloader.
 
-[[https://forum.xda-developers.com/|xda-developers.com]] offers a wide range of phones that will help you find a guide to open the bootloader, if possible. 
+[[https://forum.xda-developers.com/|xda-developers.com]] offers a wide range of phones that will help you find a guide to open the bootloader, if possible. Check also [[https://www.xda-developers.com/tag/bootloader/|XDA bootloader news]].
 
 Straight to your manufacturer:
 
@@ -81,7 +88,7 @@ Straight to your manufacturer:
 
 Depends on your operating system (Linux, Windows, Mac) you have to download the driver for ADB & Fastboot.
 
-Just follow the instructions at https://wiki.lineageos.org/adb_fastboot_guide or got to [[https://searx.techsaviours.org/|searx.techsaviours.org]] (or whatever you prefer) and search for ''adb drivers windows linux and mac'' and follow the instructions there.
+Just follow the instructions at https://wiki.lineageos.org/adb_fastboot_guide or go to [[https://searx.techsaviours.org/|searx.techsaviours.org]] (or whatever you prefer) and search for ''adb drivers windows linux and mac'' and follow the instructions there.
 
 Arch Linux:
 <code>
@@ -94,3 +101,5 @@ pacman -S android-tools android-udev
 Check the ROMs for your device at https://wiki.lineageos.org/devices/ and follow the instructions. Also install Lineageos Recovery (recommended). 
 
 Check your device at [[https://twrp.me/Devices/]] if you prefer TWRP.
+
+<alert type="info">Congratulation 🍻 The custom ROM part is done! Continue with [[en:phone:apps:magisk|Magisk]] if you want to install ''root'' and/or other features.</alert>
