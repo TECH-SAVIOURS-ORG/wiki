@@ -10,7 +10,7 @@ Some highlight features:
   * **Zygisk**: Run code in every Android applications' processes
 
 
-===== Download latest release =====
+===== Download and install latest release =====
 Go to [[https://github.com/topjohnwu/Magisk/releases|GitHub]] and download the latest apk file.
 
 
