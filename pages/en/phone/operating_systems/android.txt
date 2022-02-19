@@ -98,6 +98,11 @@ pacman -S android-tools android-udev
 
 Go to your **Settings** and click **About phone**. Press the **Build number** seven times. Go **back to** the main **Settings** view and click **System** and **Developer Options** (maybe Advanced first). Turn on **Android/USB debugging**.
 
+==== Xiaomi ====
+
+Go to your **Settings** and click **About phone**, **All specs** and press the **MIUI version** seven times. Go **back to** the main **Settings** view and click **Additional settings** and **Developer options**. Turn on **USB debugging**.
+
+
 ===== Install ROM and recovery =====
 
 Check the ROMs for your device at https://wiki.lineageos.org/devices/ and follow the instructions. Also install Lineageos Recovery (recommended). 
