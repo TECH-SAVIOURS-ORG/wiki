@@ -10,6 +10,7 @@
     * [[:en:phone:operating_systems|Operating Systems]]
       * [[:en:phone:operating_systems:android|Android]]
     * [[:en:phone:apps|Apps (Android)]]
+        * [[:en:phone:apps:f-droid|F-Droid]]
         * [[:en:phone:apps:magisk|Magisk]]
         * [[:en:phone:apps:f-droid|F-Droid]]
         * [[:en:phone:apps:afwall|AFWall+]]
