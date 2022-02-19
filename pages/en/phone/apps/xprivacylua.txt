@@ -24,5 +24,18 @@ You may receive a notification after the installation. Enable the module in [[en
 Click on the burger (top left) and mark ''Notify on new apps'' and ''Restrict new apps''. 
 
 
-===== Headline =====
+===== Restrictions =====
 
+Check https://github.com/M66B/XPrivacyLua#restrictions what every single restriction does. It depends on your application whether you need to disable the restriction if you want to share the real data. 
+
+An example with a browser (Iceraven):
+
+{{:en:phone:apps:screenshot_20220219-180425_xprivacylua.png?direct&200|}}
+
+''Get applications'' is for example sharing to KDE connect, Messenger etc..
+
+''Read clipboard'' to copy and paste text, to search for something or similar. 
+
+You can easily test it by selecting ''Read clipboard'' and copy and paste something into the restricted application. The output should be ''Private''.
+
+<alert type="info" icon="fa fa-info-circle">Also remember to donate https://lua.xprivacy.eu/. It helps the developer and unlock some [[https://forum.xda-developers.com/t/app-xposed-6-0-xprivacylua-pro-companion-app.3743040/|additional features]] as well.</alert>
