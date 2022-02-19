@@ -1,0 +1,25 @@
+====== microG ======
+
+The linux-based open-source mobile operating system Android is not only the most popular mobile operating system in the world, it’s also on the way to becoming a proprietary operating system. How is that?
+
+While the core operating system is still released as part of the Android Open Source Project, the majority of core apps are not. It gets worse: More and more libraries and APIs are only available on phones that run various Google apps pre-installed, effectively locking third-party apps to the Google ecosystem. For these reasons Android is described as being a “look but don’t touch” kind of open.
+
+At this point, several popular open-source applications already require some of Google’s proprietary libraries to be installed. Increasing demand in the free software community in addition to severe problems in Google’s proprietary software discovered by the Android modding community, have led to the development of a free software clone of Google’s proprietary core libraries and applications - the microG Project was born.
+
+Although most microG components are far from complete, users are amazed by the results. Free software users got extended application support, privacy-caring users can reduce or monitor data that is sent to Google and especially older phones can expect some battery life improvements. microG is not only used on real devices, but also replaces Google tools in test emulators and is even used in virtual mobile infrastructure.
+
+
+===== Download and install apks =====
+
+The easiest way is to add a new repository to [[en:phone:apps:f-droid|F-Droid]]. Just copy the [[https://microg.org/fdroid/repo?fingerprint=9BD06727E62796C0130EB6DAB39B73157451582CBD138E86C468ACC395D14165|microg repo link]] and create a new repository under settings.
+
+Install:
+  - microG Service Core
+  - microG Services Framework Proxy
+  - FakeStore
+
+And last [[https://f-droid.org/en/packages/com.thermatk.android.xf.fakegapps/|FakeGapps]] if your ROM doesn't include **[[https://github.com/microg/GmsCore/wiki/Signature-Spoofing|Signature-Spoofing]]**. Enable it in [[en:phone:apps:lsposed|LSPosed]] and every microg related app + System Framework. Open microg app and go through the **Permission Granted**.
+
+Reboot.
+
+<alert type="warning" icon="fa fa-warning">FakeGapps from F-Droid doesn't work on **Android 11**. Use the [[https://github.com/whew-inc/FakeGApps/releases/tag/3.0|modified apk]] instead.</alert>
