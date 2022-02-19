@@ -12,7 +12,6 @@
     * [[:en:phone:apps|Apps (Android)]]
         * [[:en:phone:apps:f-droid|F-Droid]]
         * [[:en:phone:apps:magisk|Magisk]]
-        * [[:en:phone:apps:f-droid|F-Droid]]
         * [[:en:phone:apps:afwall|AFWall+]]
         * [[:en:phone:apps:aurora|Aurora Store]]
   * [[:en:desktop|Desktop]]
