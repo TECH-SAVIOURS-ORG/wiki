@@ -1,0 +1,28 @@
+====== XPrivacyLua ======
+
+Really simple to use privacy manager for Android 6.0 Marshmallow and later
+(successor of XPrivacy).
+
+Revoking Android permissions from apps often let apps crash or malfunction.
+XPrivacyLua solves this by feeding apps fake data instead of real data.
+
+
+===== Download and install apk =====
+
+Install XPrivacyLua via [[en:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/eu.faircode.xlua/.
+
+
+===== Enable module =====
+
+You may receive a notification after the installation. Enable the module in [[en:phone:apps:lsposed|LSPosed]] and enable any app you want to give fake data too. Restart your device.
+
+<alert type="danger" icon="fa fa-warning">Each new app installation must be manually activated in LSPosed! Do not forget this!</alert>
+
+
+===== Settings =====
+
+Click on the burger (top left) and mark ''Notify on new apps'' and ''Restrict new apps''. 
+
+
+===== Headline =====
+
