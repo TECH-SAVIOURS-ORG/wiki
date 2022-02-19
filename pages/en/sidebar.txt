@@ -13,6 +13,7 @@
         * [[:en:phone:apps:f-droid|F-Droid]]
         * [[:en:phone:apps:magisk|Magisk]]
         * [[:en:phone:apps:afwall|AFWall+]]
+        * [[:en:phone:apps:lsposed|LSPosed]]
         * [[:en:phone:apps:aurora|Aurora Store]]
   * [[:en:desktop|Desktop]]
     * [[:en:desktop:operating_systems|Operating Systems]]
