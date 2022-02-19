@@ -65,6 +65,7 @@ If you want to buy a phone or already own an Android phone, you can check if you
   * https://stats.lineageos.org/
 
 If LineageOS supports your phone, you can proceed with the next step - [[#adb_fastboot_drivers|ADB & fastboot drivers]].
+
 ===== Check your bootloader =====
 
 Check if your phone has the ability to unlock your bootloader at all.
@@ -80,7 +81,7 @@ Straight to your manufacturer:
   * [[https://account.xiaomi.com/pass/serviceLogin?callback=http%3A%2F%2Fwww.miui.com%2Fextra.php%3Fmod%3Dxiaomi%2Fauthcallback%26followup%3Dhttp%253A%252F%252Fwww.miui.com%252Funlock%252Fapply.php%26sign%3DYzdhOGVjM2ExNDg0YWJlMGUyYTk4NTUwZDY4OGIyZmI5ZmFmZjEzMw%2C%2C&amp;sid=miuibbs&amp;_locale=en|xiaomi.com]]
   * *
 
-<alert type="info" icon="fa fa-info">Huawei and Honor have discontinued the support to unlock the bootloader. There are paid options which we will not post here. It is better to get another phone.</alert>
+<alert type="info" icon="fa fa-info-circle">Huawei and Honor have discontinued the support to unlock the bootloader. There are paid options which we will not post here. It is better to get another phone.</alert>
 
 ===== ADB & fastboot drivers =====
 
@@ -109,6 +110,6 @@ Check the ROMs for your device at https://wiki.lineageos.org/devices/ and follow
 
 Check your device at [[https://twrp.me/Devices/]] if you prefer TWRP.
 
-<alert type="info">Check the ''Basic requirements'' for your particular device.</alert>
+<alert type="info" icon="fa fa-info-circle">Check the ''Basic requirements'' for your particular device.</alert>
 
 <alert type="info">Congratulation 🍻 The custom ROM part is done! Continue with [[en:phone:apps:f-droid|F-Droid]], your open source app store.</alert>
