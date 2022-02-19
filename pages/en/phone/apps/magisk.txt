@@ -10,8 +10,9 @@ Some highlight features:
   * **Zygisk**: Run code in every Android applications' processes
 
 
-===== Download and install latest release =====
-Go to [[https://github.com/topjohnwu/Magisk/releases|GitHub]] and download the latest apk file.
+===== Download and install apk =====
+
+Install Magisk via [[en:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.topjohnwu.magisk/.
 
 
 ===== Installation =====
