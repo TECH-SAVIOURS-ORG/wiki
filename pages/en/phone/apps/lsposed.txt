@@ -1,0 +1,13 @@
+====== LSPosed Framework ======
+
+Trying to provide an ART hooking framework which delivers consistent APIs with the OG Xposed, leveraging YAHFA hooking framework.
+
+Xposed is a framework for modules that can change the behavior of the system and apps without touching any APKs. That's great because it means that modules can work for different versions and even ROMs without any changes (as long as the original code was not changed too much). It's also easy to undo. As all changes are done in the memory, you just need to deactivate the module and reboot to get your original system back. There are many other advantages, but here is just one more: multiple modules can do changes to the same part of the system or app. With modified APKs, you have to choose one. No way to combine them, unless the author builds multiple APKs with different combinations.
+
+===== Download and install zygisk-zip =====
+
+Download the latest ''[[https://github.com/LSPosed/LSPosed/releases|...zygisk-release.zip]]''
+and install LSPosed via [[en:phone:apps:magisk|Magisk]] modules.
+
+<alert type="info" icon="fa fa-info-circle">Do not forget to enable ''zygisk'' in the Magisk settings first.</alert>
+
