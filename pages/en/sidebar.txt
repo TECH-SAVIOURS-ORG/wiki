@@ -16,6 +16,7 @@
         * [[:en:phone:apps:lsposed|LSPosed]]
         * [[:en:phone:apps:xprivacylua|XPrivacyLua]]
         * [[:en:phone:apps:microg|microG]]
+        * [[:en:phone:apps:shelter|Shelter]]
         * [[:en:phone:apps:aurora|Aurora Store]]
   * [[:en:desktop|Desktop]]
     * [[:en:desktop:operating_systems|Operating Systems]]
