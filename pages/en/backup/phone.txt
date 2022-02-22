@@ -10,7 +10,7 @@ A backup application for the [[https://source.android.com/|Android Open Source P
 
 SeedVault is easy to use. But it is not implemented in every custom ROM. All new official LineageOS versions should have it. It was included around 2020 January. 
 
-==== First use ====
+=== First use ===
 
 You'll find it under ''Settings'', ''System'', ''//Advanced//'', ''Backup''.
 
@@ -23,14 +23,14 @@ The setup is pretty straightforward.
 Keep in mind that not every app allows backups - https://developer.android.com/guide/topics/manifest/application-element#allowbackup .
 
 
-==== Restore ====
+=== Restore ===
 
 Depending on how you use your phone, especially without Google Playstore/Services, you should finish the setup wizard first and choose not to restore via SeedVault for now.
 
 Get the clients ready first - Nextcloud, Syncthing ... and type the following in your dialer app ''*#*#7378673#*#*''.
 
 
-===== OAndBackupX =====
+==== OAndBackupX ====
 
 OAndBackupX is a fork of the famous [[https://github.com/jensstein/oandbackup|OAndBackup]] with the aim to bring OAndBackup to 202X. For now the app is already fully rewritten, coming up would be making it robust and adding some lengthily planned features which could ease the backup/restore workflow with any device. Therefore all types of contribution are always welcome.
 
@@ -41,7 +41,7 @@ Now on functionality of our App:
   * Restoring system apps should be possible without requiring a reboot afterwards.
   * Backups can be scheduled with no limit on the number of individual schedules and there is the possibility of creating custom lists from the list of installed apps.
 
-==== First use, backup & restore ====
+=== First use, backup & restore ===
 
 Create a backup folder and go through the permissions and enable whatever you want.
 
@@ -50,6 +50,6 @@ Example (Preferences, Backup & Restore):
 {{:en:backup:screenshot_20220223-114255_oandbackupx.png?direct&200|Preferences}} {{:en:backup:screenshot_20220223-114744_oandbackupx.png?direct&200|Backup}} {{:en:backup:screenshot_20220223-120426_oandbackupx.png?direct&200|}}
 
 
-===== Titanium Backup =====
+==== Titanium Backup ====
 
 Everyone knows Titanium Backup. The user interface is terrible, but the app itself used to be good (released 2011 ?), it still kind of works and it's good to have it as a backup of the backup. But it's not open source and it's not maintained anymore. The last update was in 2019.
