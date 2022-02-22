@@ -20,12 +20,9 @@ Go to ''Preferences'' and select/deselect all the options you prefer.
 
 Here is an example:
 
-{{:en:phone:apps:screenshot_20220219-152221_afwall_.png?direct&200 |UI Preferences}}{{:en:phone:apps:screenshot_20220219-152626_afwall_.png?direct&200 |Experimental}}{{:en:phone:apps:screenshot_20220219-152323_afwall_.png?direct&200|Log}}{{:en:phone:apps:screenshot_20220219-152254_afwall_.png?direct&200 |Rules/Connectivity}}
-
-
+{{:en:phone:apps:screenshot_20220219-152221_afwall_.png?direct&200 |UI Preferences}} {{:en:phone:apps:screenshot_20220219-152626_afwall_.png?direct&200 |Experimental}} {{:en:phone:apps:screenshot_20220219-152323_afwall_.png?direct&200|Log}} {{:en:phone:apps:screenshot_20220219-152254_afwall_.png?direct&200|Rules/Connectivity}}
 
 <alert type="info" icon="fa fa-info-circle">Also remember to donate https://github.com/ukanth/afwall/wiki#making-donations. It helps the developer and unlock some additional features as well.</alert>
-
 
 ===== Rules =====
 
