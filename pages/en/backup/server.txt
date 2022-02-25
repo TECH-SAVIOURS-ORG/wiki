@@ -7,7 +7,7 @@ Follow our [[en:server:services:rsync|rsync]] tutorial first.
 
 The snapshots are stored locally and remotely via rsync daemon. 
 
-<alert type="danger" icon="fa fa-warning">This backup solution is only recommended for an internal network.</alert>
+<alert type="danger" icon="fa fa-warning">This backup solution is only recommended for an internal network. Use an encrypted backup method with [[en:backup:server#borg|borg]] instead.</alert>
 
 ==== Credentials ====
 
