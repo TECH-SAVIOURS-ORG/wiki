@@ -49,6 +49,8 @@ chmod 400 /etc/rsyncd.secrets
 
 ==== Config ====
 
+Change ''$user''.
+
 <code>
 nano /etc/rsyncd.conf
 </code>
@@ -58,6 +60,12 @@ path = /path/
 comment = Archive
 timeout = 300
 read only = false
+# http user if you want to have access via web
+#uid = 33
+#gid = 33
+# Run a script before and after a connection
+#pre-xfer exec = /root/before_script.sh
+#post-xfer exec = /root/after_script.sh
 # Security
 auth users = $user      
 secrets file = /etc/rsyncd.secrets
