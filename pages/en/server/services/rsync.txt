@@ -78,3 +78,12 @@ secrets file = /etc/rsyncd.secrets
 <code>
 systemctl enable --now rsyncd.service
 </code>
+
+
+==== Command ====
+
+Change ''$DAEMONUSER'' and ''$DAEMONHOST''.
+
+<code>
+rsync --rltogiPhv --stats /local/path rsync://$DAEMONUSER@$DAEMONHOST/archive/path/
+</code>
