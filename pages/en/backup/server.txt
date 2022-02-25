@@ -1,0 +1,159 @@
+====== Server & desktop backup solutions ======
+
+
+===== rsync =====
+
+Follow our [[en:server:services:rsync|rsync]] tutorial first.
+
+The snapshots are stored locally and remotely via rsync daemon. 
+
+<alert type="danger" icon="fa fa-warning">This backup solution is only recommended for an internal network.</alert>
+
+==== Credentials ====
+
+<code>
+echo "$password" > /etc/rsyncd.password
+chmod 400 /etc/rsyncd.password
+</code>
+
+
+=== Server ===
+
+
+== Script ==
+
+Add your details for ''DAEMONUSER=""'' and ''DAEMONHOST=""''.
+
+<code>
+#!/bin/sh
+
+## Based on:
+## my own rsync-based snapshot-style backup procedure
+## (cc) marcio rps AT gmail.com
+
+# config vars
+
+SRC="/"
+SNAP="/root/backup/"
+OPTS="--rltogiPhv --stats --delay-updates --delete --chmod=a-w"
+EXCL="--exclude-from=/root/backup-filter.rule"
+DAEMONUSER=""
+DAEMONHOST=""
+MINCHANGES=1
+
+# run this process with real low priority
+
+ionice -c 3 -p $$
+renice +12  -p $$
+
+# List and save installed packages
+pacman -Qn | awk '{ print $1 }' > /root/pkglist
+
+# sync
+
+rsync $OPTS $EXCL $SRC $SNAP/latest >> $SNAP/rsync.log
+
+# check if enough has changed and if so
+# make a hardlinked copy named as the date
+
+COUNT=$( wc -l $SNAP/rsync.log|cut -d" " -f1 )
+if [ $COUNT -gt $MINCHANGES ] ; then
+        DATETAG=$(date +%Y-%m-%d-%H:%M)
+        if [ ! -e $SNAP/$DATETAG ] ; then
+                cp -al $SNAP/latest $SNAP/$DATETAG
+                chmod u+w $SNAP/$DATETAG
+                mv $SNAP/rsync.log $SNAP/$DATETAG
+               chmod u-w $SNAP/$DATETAG
+         fi
+fi
+
+
+rsync -avAXHP --delete --password-file=/etc/rsyncd.password $SNAP rsync://$DAEMONUSER@$DAEMONHOST/archive/backup/server/root
+</code>
+
+
+== Exclude folder and files ==
+
+This is an example and widely used as a starting point for a server. Add anything you don't need to backup.
+
+<code>
+backup-filter.rule
+</code>
+<code>
+/dev/*
+/proc/*
+/sys/*
+/tmp/*
+/run/*
+/mnt/*
+/media/*
+/home/*
+/root/backup/*
+/lost+found
+</code>
+
+=== Desktop (home) ===
+
+
+== Script ==
+
+Add your details for ''DAEMONUSER=""'' and ''DAEMONHOST=""''.
+
+<code>
+#!/bin/sh
+
+## Based on:
+## my own rsync-based snapshot-style backup procedure
+## (cc) marcio rps AT gmail.com
+
+# config vars
+
+real_user=$SUDO_USER
+
+SRC="/home/$real_user/"
+SNAP="/home/$real_user/backup/"
+OPTS="-rltgoiP --delay-updates --delete --chmod=a-w"
+EXCL="--exclude-from=/home/$real_user/backup-filter.rule"
+DAEMONUSER=""
+DAEMONHOST=""
+MINCHANGES=1
+
+# run this process with real low priority
+
+ionice -c 3 -p $$
+renice +12  -p $$
+
+# sync
+
+rsync $OPTS $EXCL $SRC $SNAP/latest >> $SNAP/rsync.log
+
+# check if enough has changed and if so
+# make a hardlinked copy named as the date
+
+COUNT=$( wc -l $SNAP/rsync.log|cut -d" " -f1 )
+if [ $COUNT -gt $MINCHANGES ] ; then
+        DATETAG=$(date +%Y-%m-%d-%H:%M)
+        if [ ! -e $SNAP/$DATETAG ] ; then
+                cp -al $SNAP/latest $SNAP/$DATETAG
+                chmod u+w $SNAP/$DATETAG
+                mv $SNAP/rsync.log $SNAP/$DATETAG
+               chmod u-w $SNAP/$DATETAG
+         fi
+fi
+
+
+rsync -avAXHP --delete --password-file=/etc/rsyncd.password $SNAP rsync://$DAEMONUSER@$DAEMONHOST/archive/backup/server/$real_user
+</code>
+
+
+== Exclude folder and files ==
+
+This is an example. Add anything you don't need to backup.
+
+<code>
+backup-filter.rule
+</code>
+<code>
+backup/
+.cache/
+</code>
