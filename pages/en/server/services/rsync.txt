@@ -87,3 +87,8 @@ Change ''$DAEMONUSER'' and ''$DAEMONHOST''.
 <code>
 rsync --rltogiPhv --stats /local/path rsync://$DAEMONUSER@$DAEMONHOST/archive/path/
 </code>
+
+
+===== Backup =====
+
+Go to or [[en:backup:server|backup]] tutorial.
