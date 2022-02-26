@@ -23,6 +23,7 @@
         * [[:en:phone:apps:microg|microG]]
         * [[:en:phone:apps:shelter|Shelter]]
         * [[:en:phone:apps:aurora|Aurora Store]]
+        * [[:en:phone:apps:syncthing|Syncthing]]
   * [[:en:desktop|Desktop]]
     * [[:en:desktop:operating_systems|Operating Systems]]
       * [[:en:desktop:operating_systems:arch_linux|Arch Linux]]
