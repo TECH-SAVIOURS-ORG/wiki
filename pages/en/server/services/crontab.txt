@@ -1,0 +1,38 @@
+====== Cronie ======
+
+The cron command-line utility, also known as cron job, is a job scheduler on Unix-like operating systems. Users who set up and maintain software environments use cron to schedule jobs (commands or shell scripts) to run periodically at fixed times, dates, or intervals. It typically automates system maintenance or administration—though its general-purpose nature makes it useful for things like downloading files from the Internet and downloading email at regular intervals.
+
+
+===== Package =====
+
+<code>
+pacman -S cronie
+</code>
+
+
+===== Start =====
+
+<code>
+systemctl enable --now cronie.service
+</code>
+
+
+===== Examples =====
+
+<code>
+crontab -e
+</code>
+
+Every reboot:
+
+''@reboot echo "Hello World! I'm back!"''
+
+Backup every day at 2am:
+
+''00 2 * * * /root/rsnapshot.sh''
+
+Every Sunday at 9am:
+
+''00 9 * * SUN echo "Breakfast! Wohoooo!"''
+
+Use https://crontab.guru/ as a guide.
