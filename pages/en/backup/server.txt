@@ -1,6 +1,6 @@
 ====== Server & desktop backup solutions ======
 
-
+The first backup of the two options takes a while. The following ones are much faster, but it depends on how much you change. Only the changes are saved.
 ===== rsync =====
 
 Follow our [[en:server:services:rsync|rsync]] tutorial first.
