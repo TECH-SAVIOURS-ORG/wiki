@@ -4,6 +4,13 @@
 ===== Android =====
 
 
+==== Syncthing ====
+
+Syncthing can help you backup your files like photos or copy the following backup solutions to a safe place.
+
+Just follow our [[en:phone:apps:syncthing|Syncthing]] tutorial.
+
+
 ==== SeedVault ====
 
 A backup application for the [[https://source.android.com/|Android Open Source Project]].
