@@ -1,6 +1,7 @@
 ====== Server & desktop backup solutions ======
 
-The first backup of the two options takes a while. The following ones are much faster, but it depends on how much you change. Only the changes are saved.
+The first backups will take a while. The following ones are much faster, but it depends on how much you change. Only the changes are saved.
+
 ===== rsync =====
 
 Follow our [[en:server:services:rsync|rsync]] tutorial first.
@@ -116,12 +117,15 @@ Follow our [[en:server:services:borg|borg]] tutorial first.
 The snapshots are stored remotely via ssh. 
 
 
-===== Crontab =====
+===== Crontab - rsync and borg =====
 
 Follow our [[en:server:services:crontab|crontab]] tutorial first and add the following for your root user:
 
 <code>
 @daily /root/rsnapbackup.sh
+</code>
+<code>
+@daily /root/bsnapbackup.sh
 </code>
 
   * ''@yearly''
@@ -131,3 +135,25 @@ Follow our [[en:server:services:crontab|crontab]] tutorial first and add the fol
   * ''@daily''
   * ''@hourly''
   * ''@reboot''
+
+
+===== Syncthing =====
+
+Follow our [[en:server:services:syncthing|Syncthing]] tutorial for both devices (backup server and your data device).
+
+
+==== Add device ====
+
+Add the backup server to your client under ''Remote Devices''. 
+
+
+==== Add folder ====
+
+  * Add a folder under ''Folder'' and select the folder you want to backup under ''General''. 
+  * Select your backup server under ''Sharing''.
+  * Under ''File Versioning'' you could add ''Staggered File Versioning'' which gives you more certainty, but have a look at https://docs.syncthing.net/users/versioning.html and choose what suits you best.
+  * Also check ''Advanced'' and ''Folder type'' and again choose what suits you best. For example, Keepass can be used with ''Send & Receive'' if you want sync your database on both devices.
+
+
+
+ 
