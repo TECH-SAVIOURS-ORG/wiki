@@ -107,7 +107,16 @@ nano /root/backup-filter.rule
 </code>
 
 
-==== Crontab ====
+===== borg =====
+
+<alert type="info" icon="fa fa-wrench">Work in progress</alert>
+
+Follow our [[en:server:services:borg|borg]] tutorial first.
+
+The snapshots are stored remotely via ssh. 
+
+
+===== Crontab =====
 
 Follow our [[en:server:services:crontab|crontab]] tutorial first and add the following for your root user:
 
