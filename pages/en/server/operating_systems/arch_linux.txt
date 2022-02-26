@@ -353,4 +353,4 @@ umount -R /mnt
 reboot
 </code>
 
-<alert type="info">Congratulation 🍻 The server part is done! Continue with [[en:desktop:environments:kde|KDE]] if you want to install a desktop environment.</alert>
+<alert type="info">Congratulation 🍻 The server part is done! Continue with [[en:desktop:environments:kde|KDE]] if you want to install a desktop environment. Also create a [[en:backup:server|backup]].</alert>
