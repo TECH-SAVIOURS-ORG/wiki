@@ -1,4 +1,4 @@
-====== Cronie ======
+====== Crontab ======
 
 The cron command-line utility, also known as cron job, is a job scheduler on Unix-like operating systems. Users who set up and maintain software environments use cron to schedule jobs (commands or shell scripts) to run periodically at fixed times, dates, or intervals. It typically automates system maintenance or administration—though its general-purpose nature makes it useful for things like downloading files from the Internet and downloading email at regular intervals.
 
