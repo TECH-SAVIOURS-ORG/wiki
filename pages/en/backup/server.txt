@@ -9,6 +9,15 @@ The snapshots are stored locally and remotely via rsync daemon.
 
 <alert type="danger" icon="fa fa-warning">This backup solution is only recommended for an internal network. Use an encrypted backup method with [[en:backup:server#borg|borg]] instead.</alert>
 
+==== Dependencies ====
+
+The script needs ''inetutils'' for ''hostname'' command.
+
+<code>
+pacman -S inetutils
+</code>
+
+
 ==== Credentials ====
 
 <code>
@@ -16,14 +25,13 @@ echo "$password" > /etc/rsyncd.password
 chmod 400 /etc/rsyncd.password
 </code>
 
-
-=== Server ===
-
-
-== Script ==
+==== Script ====
 
 Add your details for ''DAEMONUSER=""'' and ''DAEMONHOST=""''.
 
+<code>
+nano /root/rsnapbackup.sh
+</code>
 <code>
 #!/bin/sh
 
@@ -39,6 +47,7 @@ OPTS="--rltogiPhv --stats --delay-updates --delete --chmod=a-w"
 EXCL="--exclude-from=/root/backup-filter.rule"
 DAEMONUSER=""
 DAEMONHOST=""
+HOSTNAME=$(hostname)
 MINCHANGES=1
 
 # run this process with real low priority
@@ -67,17 +76,19 @@ if [ $COUNT -gt $MINCHANGES ] ; then
          fi
 fi
 
-
-rsync -avAXHP --delete --password-file=/etc/rsyncd.password $SNAP rsync://$DAEMONUSER@$DAEMONHOST/archive/backup/server/root
+rsync -avAXHP --delete --password-file=/etc/rsyncd.password $SNAP rsync://$DAEMONUSER@$DAEMONHOST/archive/backup/$HOSTNAME
+</code>
+<code>
+chmod +x /root/rsnapbackup.sh
 </code>
 
 
 == Exclude folder and files ==
 
-This is an example and widely used as a starting point for a server. Add anything you don't need to backup.
+This is an example. Add anything you don't need to backup. And change home ''$USER''.
 
 <code>
-backup-filter.rule
+nano /root/backup-filter.rule
 </code>
 <code>
 /dev/*
@@ -87,73 +98,27 @@ backup-filter.rule
 /run/*
 /mnt/*
 /media/*
-/home/*
-/root/backup/*
 /lost+found
+# root user
+/root/backup/*
+/root/.cache/*
+# Home user
+/home/$USER/.cache/*
 </code>
 
-=== Desktop (home) ===
 
+==== Crontab ====
 
-== Script ==
-
-Add your details for ''DAEMONUSER=""'' and ''DAEMONHOST=""''.
+Follow our [[en:server:services:crontab|crontab]] tutorial first and add the following for your root user:
 
 <code>
-#!/bin/sh
-
-## Based on:
-## my own rsync-based snapshot-style backup procedure
-## (cc) marcio rps AT gmail.com
-
-# config vars
-
-real_user=$SUDO_USER
-
-SRC="/home/$real_user/"
-SNAP="/home/$real_user/backup/"
-OPTS="-rltgoiP --delay-updates --delete --chmod=a-w"
-EXCL="--exclude-from=/home/$real_user/backup-filter.rule"
-DAEMONUSER=""
-DAEMONHOST=""
-MINCHANGES=1
-
-# run this process with real low priority
-
-ionice -c 3 -p $$
-renice +12  -p $$
-
-# sync
-
-rsync $OPTS $EXCL $SRC $SNAP/latest >> $SNAP/rsync.log
-
-# check if enough has changed and if so
-# make a hardlinked copy named as the date
-
-COUNT=$( wc -l $SNAP/rsync.log|cut -d" " -f1 )
-if [ $COUNT -gt $MINCHANGES ] ; then
-        DATETAG=$(date +%Y-%m-%d-%H:%M)
-        if [ ! -e $SNAP/$DATETAG ] ; then
-                cp -al $SNAP/latest $SNAP/$DATETAG
-                chmod u+w $SNAP/$DATETAG
-                mv $SNAP/rsync.log $SNAP/$DATETAG
-               chmod u-w $SNAP/$DATETAG
-         fi
-fi
-
-
-rsync -avAXHP --delete --password-file=/etc/rsyncd.password $SNAP rsync://$DAEMONUSER@$DAEMONHOST/archive/backup/server/$real_user
+@daily /root/rsnapbackup.sh
 </code>
 
-
-== Exclude folder and files ==
-
-This is an example. Add anything you don't need to backup.
-
-<code>
-backup-filter.rule
-</code>
-<code>
-backup/
-.cache/
-</code>
+  * ''@yearly''
+  * ''@annually''
+  * ''@monthly''
+  * ''@weekly''
+  * ''@daily''
+  * ''@hourly''
+  * ''@reboot''
