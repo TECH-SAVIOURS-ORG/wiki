@@ -91,4 +91,4 @@ rsync --rltogiPhv --stats /local/path rsync://$DAEMONUSER@$DAEMONHOST/archive/pa
 
 ===== Backup =====
 
-Go to or [[en:backup:server|backup]] tutorial.
+Go to our [[en:backup:server|backup]] tutorial.
