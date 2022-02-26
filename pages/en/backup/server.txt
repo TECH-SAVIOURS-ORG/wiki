@@ -83,7 +83,7 @@ chmod +x /root/rsnapbackup.sh
 </code>
 
 
-== Exclude folder and files ==
+=== Exclude folder and files ===
 
 This is an example. Add anything you don't need to backup. And change home ''$USER''.
 
