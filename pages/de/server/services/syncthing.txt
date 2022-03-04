@@ -1,0 +1,53 @@
+====== Syncthing ======
+
+Dateisynchronisation auf der Grundlage von Syncthing.
+
+[[https://syncthing.net/|Syncthing]] ist eine in Go geschriebene Open-Source-Anwendung zur Dateisynchronisation, die ihr eigenes, ebenfalls freies Block Exchange Protocol implementiert. Die gesamte Transitkommunikation zwischen den Syncthing-Knoten wird mit TLS verschlüsselt, und alle Knoten werden durch kryptographische Zertifikate eindeutig identifiziert.
+
+===== Paket=====
+
+<code>
+pacman -S syncthing
+</code>
+
+
+===== Start =====
+
+Ämdere''USER'' zu Hauptbenutzer.
+
+<code>
+systemctl enable --now syncthing@USER.service
+</code>
+
+
+===== Zugriff auf die GUI mit einem anderen Gerät =====
+
+
+==== Konfigurieren ====
+
+Suche nach ''<address>127.0.0.1:8384</address>'' und ändere es wie folgt:
+
+<code>
+nano ~/.config/syncthing/config.xml
+</code>
+<code>
+<address>0.0.0.0:8384</address>
+</code>
+
+
+==== Nginx ====
+
+Ändere ''PORT'' und ''IP''.
+
+<code>
+server {
+        listen PORT;
+        server_name IP;
+
+location / {
+    proxy_pass http://localhost:8384;
+    proxy_set_header X-Real-IP $remote_addr;
+  }
+
+}
+</code>
