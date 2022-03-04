@@ -1,0 +1,12 @@
+====== Syncthing ======
+
+Dateisynchronisation auf der Grundlage von Syncthing.
+
+[[https://syncthing.net/|Syncthing]] ist eine in Go geschriebene Open-Source-Anwendung zur Dateisynchronisation, die ihr eigenes, ebenfalls freies Block Exchange Protocol implementiert. Die gesamte Transitkommunikation zwischen den Syncthing-Knoten wird mit TLS verschlüsselt, und alle Knoten werden durch kryptographische Zertifikate eindeutig identifiziert.
+
+
+===== Download und Installation der APK =====
+
+Installiere Syncthing via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.nutomic.syncthingandroid/.
+
+Klicke auf den Burger (oben links) und wähle ''Web GUI'' aus und folge unserem [[/de/backup/server#add_device|Backup Server Tutorial]] - Starte mit ''Add device''. 
