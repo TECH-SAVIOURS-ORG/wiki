@@ -1,1 +1,1 @@
-<catlist de:phone:apps: -sortAscending>
+<catlist de:phone:apps: -sortAscending -sortDescending>
