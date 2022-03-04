@@ -30,7 +30,7 @@
     * [[:en:desktop:environments|Environments]]
       * [[:en:desktop:environments:kde|KDE]]
     * [[:en:desktop:services|Services]]
-        * [[:en:desktop:services:ssh|OpenSSH]]
+        * [[en:desktop:services:openssh|OpenSSH]]
         * [[:en:desktop:services:crontab|crontab]]
         * [[:en:desktop:services:borg|borg]]
         * [[:en:desktop:services:rsync|rsync]]
