@@ -1,1 +1,1 @@
-<catlist de:phone:operating_systems: -sortAscending>
+<catlist de:phone:operating_systems: -sortAscending -sortDescending>
