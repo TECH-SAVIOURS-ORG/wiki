@@ -1,0 +1,12 @@
+<alert type="info" icon="fa fa-wrench">Diese Seite ist noch in Arbeit</alert>
+====== Borg ======
+
+Deduplizierendes Archivierungsprogramm mit Kompression und Verschlüsselung. BorgBackup (kurz: Borg) bietet:
+
+  * Platzsparende Speicherung von Backups
+  * Sichere, authentifizierte Verschlüsselung
+  * Komprimierung: LZ4, zlib, LZMA, zstd (seit borg 1.1.4)
+  * Einbindbare Sicherungen mit FUSE
+  * Einfache Installation auf mehreren Plattformen: Linux, macOS, BSD...
+  * Freie Software (BSD-Lizenz)
+  * Unterstützt von einer großen und aktiven Open-Source-Gemeinschaft
