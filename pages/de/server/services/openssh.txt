@@ -1,6 +1,6 @@
 ====== OpenSSH ======
 
-OpenSSH (auch bekannt als OpenBSD Secure Shell) ist eine Suite von sicheren Netzwerkprogrammen, die auf dem Secure Shell (SSH)-Protokoll basieren, das einen sicheren Kanal über ein ungesichertes Netzwerk in einer Client-Server-Architektur bereitstellt.
+OpenSSH (auch bekannt als OpenBSD Secure Shell) ist eine Sammlung von sicheren Netzwerkprogrammen, die auf dem Secure Shell (SSH)-Protokoll basieren, das einen sicheren Kanal über ein ungesichertes Netzwerk in einer Client-Server-Architektur bereitstellt.
 
 OpenSSH begann als ein Fork des freien SSH-Programms, das von Tatu Ylönen entwickelt wurde; spätere Versionen von Ylönens SSH waren proprietäre Software, die von SSH Communications Security angeboten wurde. OpenSSH wurde erstmals 1999 veröffentlicht und wird derzeit als Teil des OpenBSD-Betriebssystems entwickelt.
 
@@ -14,7 +14,7 @@ pacman -S openssh
 </code>
 
 
-===== Start/Neutart =====
+===== Start/Neustart =====
 
 
 <code>
@@ -29,7 +29,7 @@ systemctl restart sshd.service
 
 ===== Root- und Passwort-Authentifizierung zulassen =====
 
-Wenn man einen schnellen Zugang benötigen, zum Beispiel um den Server einzurichten.
+Wenn man einen schnellen Zugang benötigt, zum Beispiel um den Server einzurichten.
 
 <code>
 nano /etc/ssh/sshd_config
@@ -43,7 +43,7 @@ PasswordAuthentication yes
 
 ===== SSH Schlüssel=====
 
-Dies ist nicht nur sicherer, sondern erleichtert auch die Verbindung zum Server, ohne dass man jedes Mal das Passwort eingeben muss.
+Dies ist nicht nur sicherer, sondern erleichtert auch die Verbindung zum Server, ohne dass man jedes mal das Passwort eingeben muss.
 
 ==== Konfiguration - Server ====
 
