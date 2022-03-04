@@ -1,1 +1,1 @@
-<catlist de:phone: -noAddPageButton -sortAscending >
+<catlist de:phone: -noAddPageButton -sortDescending >
