@@ -1,0 +1,115 @@
+====== Android ======
+
+Android ist eines der verbreitesten Betriebssysteme (OS), die man heute auf Smartphones findet. Es wurde von Google entwickelt, um direkt mit iOS, dem Betriebssystem des iPhones, zu konkurrieren. Einer der Hauptgründe für den Erfolg von Android war, dass es dank der Open Handset Alliance (OHA) auf vielen Geräten laufen konnte. Diese Initiative ermöglichte es Herstellern wie Samsung und LG, Smartphones zu entwickeln, die zwar unterschiedlich aussehen und sich unterschiedlich anfühlen, aber dennoch mit demselben Betriebssystem laufen (mit Änderungen durch den Hersteller).
+
+
+Google hat damit zwar ein Monopol verhindert, das andernfalls entstanden wäre, wenn es Android nicht entwickelt worden wäre, aber das Ganze hat auch einen Haken. Google ist dafür berüchtigt, dass es große Mengen privater Nutzerdaten sammelt, unabhängig davon, ob Sie einen Desktop, einen Laptop oder ein Smartphone benutzen. Auf allen (von Google zertifizierten) Smartphones muss der Play Store und einige andere Google-Apps vorhanden sein (je nach Gerät unterschiedlich). Diese Apps sind zwar für die große Mehrheit der Nutzer nützlich, können aber auf der Grundlage des Suchverlaufs des Nutzers usw. eine große Menge an Informationen auslesen. Es gibt jedoch Lösungen, um dies zu verhindern, was die Notwendigkeit eines Leitfadens wie diesem erneut unterstreicht.
+
+++++ Weiterlesen - für mehr Informationen über Android | 
+
+===== Bootloader =====
+
+Bei einigen Geräten ist es notwendig, den Bootloader zu öffnen oder zu entsperren, bevor eine benutzerdefinierte Wiederherstellung, Root oder ein benutzerdefiniertes ROM installiert werden kann. Das Entsperren des Bootloaders erfordert in der Regel, dass alle Daten vom Telefon gelöscht werden, was bedeutet, dass diese im Vorfeld gesichert werden müssen. Nicht alle Smartphone-Hersteller erlauben die Entsperrung des Bootloaders. Wenn man also Bedenken hat, sollte man sich vor dem Kauf des nächsten Smartphones genau informieren. Obwohl dies nicht üblich ist, betten einige Hersteller einen "eFuse - [[https://en.wikipedia.org/wiki/EFUSE|Wikipedia]]”Wikipedia"-Befehl in ihre Produkte ein, der das Gerät dauerhaft beschädigen kann.
+
+
+===== Wiederherstellung =====
+
+Eine Wiederherstellung ist eine unabhängige, leichtgewichtige Laufzeitumgebung, die auf allen Android-Geräten auf einer vom Hauptbetriebssystem getrennten Partition enthalten ist. Wie der Name schon sagt, besteht der Hauptzweck einer Wiederherstellung darin, das Gerät wieder in einen funktionsfähigen Zustand zu versetzen. Es ist jedoch möglich, dass das Gerät durch falsche Aktionen zu einem Softbrick wird (und nicht mehr starten kann). Man kann direkt in den Wiederherstellungsmodus booten und das Gerät auf die Werkseinstellungen zurücksetzen, die Cache-Partition löschen oder Software-Updates anwenden.
+
+
+==== TWRP - Team Win Recovery Project ====
+
+Im Laufe der Jahre ist TWRP die am häufigsten verwendete benutzerdefinierte Wiederherstellung. Eine benutzerdefinierte Wiederherstellung ist notwendig, um ein benutzerdefiniertes ROM zu flashen, und daher ist TWRP eine geeignete Lösung, wenn das Gerät es unterstützt. TWRP unterstützt Touch-Interaktionen, verschlüsselten Speicher, MTP (Massenspeicher) und viele weitere Funktionen, um die Bedürfnisse von Power-Usern zu befriedigen.
+
+Mehr Informationen zu TWRP - https://twrp.me/about/
+
+
+===== Benutzerdefinierte ROMs =====
+
+==== Warum sollte man sich die Mühe machen, ein Custom ROM zu installieren? ====
+
+Wir alle kennen den Moment, in dem das Telefon nicht mehr das tut, was man will. Anekdotische Beweise haben gezeigt, dass alle Smartphones im Laufe der Zeit durch Hitze, Stress, Abnutzung usw. beeinträchtigt werden. Das bedeutet jedoch nicht, dass man das Telefon nicht wieder verbessern könnte.
+
+Eine häufige Ursache für die Verlangsamung Ihres Smartphones ist das Vorhandensein von Bloatware oder "Bloat". Diese Anwendungen werden nicht benötigt und sind unerwünscht, d. h. sie belegen wichtigen Speicherplatz und Arbeitsspeicher. Eine benutzerdefinierte ROM enthält jedoch keine Bloatware. Das bedeutet, dass man den verlorenen Speicherplatz zurückgewinnen und ihn für wichtigere Anwendungen nutzen kann. Dies führt zu einer besseren Leistung (und manchmal auch zu einer längeren Akkulaufzeit).
+
+==== Benutzerdefinierte ROM-Optionen ====
+
+[[https://lineageos.org/|LineageOS]] LineageOS ist nicht das einzige verfügbare Custom ROM. Es gibt haufenweise andere ROMs, aus denen du wählen kannst (Resurrection Remix, CR Droid, Paranoid Android usw.), die alle ihre eigene einzigartige Kombination von Funktionen und Anwendungen mitbringen. Um loszulegen, konsultiere am besten einen Thread in den XDA-Developers-Foren ([[https://en.wikipedia.org/wiki/XDA_Developers|Wikipedia]]). XDA ist die erste Adresse für alle Android-Bedürfnisse.
+
+Wie bei anderen Desktop-Betriebssystemen (Arch, Debian, Mint, Ubuntu usw.) müuss man selbst herausfinden, welches ROM am besten zu einem passt.
+
+
+
+===== Root =====
+
+Root ist erforderlich, wenn man die volle Kontrolle über das Gerät haben will. Es ist für bestimmte Anwendungen wie AFWall+, XPrivacyLUA usw. erforderlich. AFWall+ zum Beispiel verwendet die iptables-Firewall ([[https://en.wikipedia.org/wiki/Iptables|Wikipedia]]), die man nur ändern kann, wenn das Gerät gerootet ist. Es ist wie der Administrator einer Software.
+
+Hier ist große Sorgfalt geboten, um die richtigen Root-Anwendungen zu verwenden. Überprüfe den Betreuer, das Datum (wie lange ist sie verfügbar) und ob sie Open Source ist! Eine Root-Anwendung hat auch die volle Kontrolle über das Gerät! Daran muss man, wenn eine Root-Anwendung installiert wird.
+
+Wenn man das Smartphone rootet, erlischt in der Regel die Garantie, aber das kann von Fall zu Fall rückgängig gemacht werden. Wir hatten noch nie ein Problem, aber das ändert nichts an der Tatsache, dass einige Hersteller das Smartphone nicht ohne Weiteres zur Reparatur annehmen, sollte dies jemals notwendig sein!
+
+Anwendungen wie Bank-Apps funktionieren möglicherweise nicht mehr, wenn sie ein gerootetes Telefon erkennen. Man kann natürlich weiterhin den Webbrowser oder einen Laptop/Desktop-PC verwenden. Es gibt jedoch Lösungen wie Magisk hide, die Root für bestimmte Anwendungen ausblenden können.
+
+Aber Root ist nicht notwendig! Man kann eine benutzerdefinierte ROM verwenden. Aus Datenschutzgründen ist es einfacher, Root zu verwenden, aber es gibt auch einige Optionen ohne Root.
+
+++++
+
+===== Unterstützte Telefone für Custom ROMs =====
+
+Wenn du ein Telefon kaufen möchten oder bereits ein Android-Telefon besitzt, kannst du unter den folgenden Links überprüfen, ob dein Telefon unterstützt wird, indem du nach der Telefonmarke wie Samsung Galaxy Note 4 und dem Modellnamen wie N910F suchst.
+
+  * https://wiki.lineageos.org/devices/
+  * https://lineageoslog.com/statistics
+  * https://stats.lineageos.org/
+
+Wenn LineageOS dein Handy unterstützt, kannst du mit dem nächsten Schritt fortfahren - [[#adb_fastboot_drivers|ADB & fastboot drivers]].
+
+===== Überprüfe deinen Bootloader =====
+
+Überprüfe, ob dein Handy überhaupt die Möglichkeit hat, deinen Bootloader zu entsperren.
+
+[[https://forum.xda-developers.com/|xda-developers.com]] bietet eine große Auswahl an Handys, die dir helfen wird, eine Anleitung zum Öffnen des Bootloaders zu finden, falls möglich. Sieh dir dazu auch die [[https://www.xda-developers.com/tag/bootloader/|XDA bootloader news]] an.
+
+Direkt zum Hersteller:
+
+  * [[https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-b|motorola.com]]
+  * [[https://www.htcdev.com/bootloader|htcdev.com]]
+  * [[https://developer.sony.com/develop/open-devices/get-started/unlock-bootloader/how-to-unlock-bootloader/#bootloader_guide|sony.com]]
+  * [[https://developer.lge.com/resource/mobile/RetrieveBootloader.dev|lge.com]]
+  * [[https://account.xiaomi.com/pass/serviceLogin?callback=http%3A%2F%2Fwww.miui.com%2Fextra.php%3Fmod%3Dxiaomi%2Fauthcallback%26followup%3Dhttp%253A%252F%252Fwww.miui.com%252Funlock%252Fapply.php%26sign%3DYzdhOGVjM2ExNDg0YWJlMGUyYTk4NTUwZDY4OGIyZmI5ZmFmZjEzMw%2C%2C&amp;sid=miuibbs&amp;_locale=en|xiaomi.com]]
+  * *
+
+<alert type="info" icon="fa fa-info-circle">Huawei und Honor haben den Support zum Entsperren des Bootloaders eingestellt. Es gibt kostenpflichtige Optionen, die wir hier nicht veröffentlichen werden. Es ist besser, ein anderes Telefon zu kaufen..</alert>
+
+===== ADB- und Fastboot-Treiber =====
+
+Abhängig von Ihrem Betriebssystem (Linux, Windows, Mac) müssen Sie die Treiber für ADB & Fastboot herunterladen.
+
+Folge einfach den Anweisungen auf https://wiki.lineageos.org/adb_fastboot_guide oder gehe zu [[https://searx.techsaviours.org/|searx.techsaviours.org]] (oder was auch immer du bevorzugst) und suche nach adb drivers windows linux and mac und folge den Anweisungen dort.
+
+Arch Linux:
+
+<code>
+pacman -S android-tools android-udev
+</code>
+
+
+===== USB debugging =====
+
+Gehe in die **Einstellungen** und klicke auf **Über das Telefon**. Drücke siebenmal auf die **Build-Nummer**. Geh dann **zurück** zur Hauptansicht der **Einstellungen** und klicke auf **System** und **Entwickleroptionen** (vielleicht zuerst auf Erweitert). Schalte dort **Android/USB-Debugging** ein.
+
+==== Xiaomi ====
+
+Geh zu den **Einstellungen** und klick auf **Über das Telefon**, **Alle Spezifikationen** und drücke siebenmal auf die **MIUI version**. Geh **zurück** zur Hauptansicht der **Einstellungen** und klick auf **Zusätzliche Optionen** und dann auf **Entwickleroptionen**. Schalte dort **Android/USB-Debugging** ein.
+
+
+===== ROM und Wiederherstellung installieren =====
+
+Prüfe die ROMs für dein Gerät unter https://wiki.lineageos.org/devices/ und folge den Anweisungen. Installiere auch Lineageos Recovery (empfohlen).
+
+Schau bei [[https://twrp.me/Devices/]] nach, wenn du TWRP bevorzugst.
+
+
+<alert type="info" icon="fa fa-info-circle">Prüfe die ''Grundvoraussetzungen'' für dein Gerät.</alert>
+
+<alert type="info">Herzlichen Glückwunsch🍻 Der Custom-ROM-Teil ist geschafft! Mach weiter mit [[de:phone:apps:f-droid|F-Droid]], deinem Open-Source-App-Store oder beginne zuerst mit [[de:backup:phone#android|deinen Backups]].</alert>
