@@ -1,0 +1,26 @@
+====== Magisk ======
+
+Magisk ist eine Suite von Open-Source-Software zur Anpassung von Android, die Geräte ab Android 5.0 unterstützt.
+
+Einige der wichtigsten Funktionen:
+
+  * **MagiskSU**: Ermöglicht Root-Zugriff für Anwendungen
+  * **Magisk Modules**: Ändere die schreibgeschützte Partitionen durch die Installation von Modulen
+  * **MagiskBoot**: Das umfassendste Tool zum Entpacken und Neuverpacken von Android-Boot-Images
+  * **Zygisk**: Code in allen Prozessen von Android-Anwendungen ausführen
+
+
+===== Download und Installation der APK =====
+
+Magisk über [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.topjohnwu.magisk/ installieren.
+
+
+===== Installation =====
+Folge den Anweisungen auf https://topjohnwu.github.io/Magisk/install.html.  
+
+
+===== magisk_boot.sh =====
+
+Dies ist nur für LineageOS-Wiederherstellung. Nach der Aktualisierung von LineageOS muss die Prozedur erneut durchgeführt werden - https://topjohnwu.github.io/Magisk/install.html#patching-images
+
+Wir haben ein Skript dafür erstellt: https://github.com/TECH-SAVIOURS-ORG/magisk_boot.sh.
