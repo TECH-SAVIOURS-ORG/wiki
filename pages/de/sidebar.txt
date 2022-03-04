@@ -5,6 +5,7 @@
     * [[:de:server:operating_systems|Betriebssysteme]]
       * [[:de:server:operating_systems:arch_linux|Arch Linux]]
     * [[:de:server:services|Services]]
+        * [[:de:server:services:openssh|OpenSSH]]
         * [[:de:server:services:searx|Searx]]
   * [[:de:phone|Phone]]
     * [[:de:phone:operating_systems|Betriebssysteme]]
