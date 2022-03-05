@@ -85,7 +85,7 @@ Direkt zum Hersteller:
 
 Abhängig von Ihrem Betriebssystem (Linux, Windows, Mac) müssen Sie die Treiber für ADB & Fastboot herunterladen.
 
-Folge einfach den Anweisungen auf https://wiki.lineageos.org/adb_fastboot_guide oder gehe zu [[https://searx.techsaviours.org/|searx.techsaviours.org]] (oder was auch immer du bevorzugst) und suche nach adb drivers windows linux and mac und folge den Anweisungen dort.
+Folge einfach den Anweisungen auf https://wiki.lineageos.org/adb_fastboot_guide oder gehe zu [[https://searx.techsaviours.org/|searx.techsaviours.org]] (oder was auch immer du bevorzugst) und suche nach ''adb drivers windows linux and mac'' und folge den Anweisungen dort.
 
 Arch Linux:
 
