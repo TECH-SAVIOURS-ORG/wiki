@@ -1,4 +1,4 @@
-====== Server & Desktop Sicherheitslösungen ======
+====== Server & Desktop Backup-Lösungen ======
 
 Die ersten Sicherungen werden eine Weile dauern. Die folgenden sind viel schneller, aber das hängt davon ab, wie viel geändert wurde. Es werden nur die Änderungen gespeichert.
 
@@ -12,7 +12,7 @@ Die Snapshots werden lokal und über die rsync-Daemon remote gespeichert.
 
 ==== Abhängigkeiten ====
 
-Das Skript gebötigt ''inetutils'' für den ''hostname'' Befehl.
+Das Skript benötigt ''inetutils'' für den ''hostname'' Befehl.
 
 <code>
 pacman -S inetutils
@@ -26,7 +26,7 @@ echo "$password" > /etc/rsyncd.password
 chmod 400 /etc/rsyncd.password
 </code>
 
-==== Script ====
+==== Skript ====
 
 Füge deine Daten zu ''DAEMONUSER=""'' und ''DAEMONHOST=""'' hinzu.
 
@@ -86,7 +86,7 @@ chmod +x /root/rsnapbackup.sh
 
 === Ordner und Dateien ausschließen ===
 
-Dies ist ein Beispiel. Füge alles hinzu, was du nicht sichern möchtest. Und ändere den Wohnort ''$USER''.
+Dies ist ein Beispiel. Füge alles hinzu, was du nicht sichern möchtest. Und ändere den home ''$USER''.
 
 <code>
 nano /root/backup-filter.rule
@@ -110,9 +110,9 @@ nano /root/backup-filter.rule
 
 ===== borg =====
 
-<alert type="info" icon="fa fa-wrench">Seite in Arbeit</alert>
+<alert type="info" icon="fa fa-wrench">In Bearbeitung</alert>
 
-Folge zubächst unserem [[de:server:services:borg|borg]] Tutorial.
+Folge zunächst unserem [[de:server:services:borg|borg]] Tutorial.
 
 Die Snapshots werden über SSH gespeichert.
 
