@@ -1,6 +1,6 @@
 ====== Syncthing ======
 
-Dateisynchronisation auf der Grundlage von Syncthing.
+Dateisynchronisation mit Syncthing.
 
 [[https://syncthing.net/|Syncthing]] ist eine in Go geschriebene Open-Source-Anwendung zur Dateisynchronisation, die ihr eigenes, ebenfalls freies Block Exchange Protocol implementiert. Die gesamte Transitkommunikation zwischen den Syncthing-Knoten wird mit TLS verschlüsselt, und alle Knoten werden durch kryptographische Zertifikate eindeutig identifiziert.
 
