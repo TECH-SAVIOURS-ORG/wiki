@@ -62,7 +62,7 @@ Wenn du ein Telefon kaufen möchten oder bereits ein Android-Telefon besitzt, ka
   * https://lineageoslog.com/statistics
   * https://stats.lineageos.org/
 
-Wenn LineageOS dein Handy unterstützt, kannst du mit dem nächsten Schritt fortfahren - [[#adb_fastboot_drivers|ADB & fastboot drivers]].
+Wenn LineageOS dein Handy unterstützt, kannst du mit dem nächsten Schritt fortfahren - [[#adb-_und_fastboot-treiber|ADB- und Fastboot Treiber]].
 
 ===== Überprüfe deinen Bootloader =====
 
