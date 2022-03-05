@@ -17,7 +17,7 @@ Installieren:
   - microG Services Framework Proxy
   - FakeStore
 
-Und zuletzt [[https://f-droid.org/en/packages/com.thermatk.android.xf.fakegapps/|FakeGapps]] falls dein ROM kein **[[https://github.com/microg/GmsCore/wiki/Signature-Spoofing|Signature-Spoofing]]** enthält. Aktiviere es in [[de:phone:apps:lsposed|LSPosed]] und jeder microg-bezogenen App + System Framework. Öffne die microg-App und gehe die **Zugelassen** durch.
+Und zuletzt [[https://f-droid.org/en/packages/com.thermatk.android.xf.fakegapps/|FakeGapps]] falls dein ROM kein **[[https://github.com/microg/GmsCore/wiki/Signature-Spoofing|Signature-Spoofing]]** enthält. Aktiviere es in [[de:phone:apps:lsposed|LSPosed]] und jeder microg-bezogenen App + System Framework. Öffne die microg-App und gehe die **Berechtigungen** durch.
 
 Starte das Gerät neu.
 
