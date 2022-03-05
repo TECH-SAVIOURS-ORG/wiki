@@ -16,12 +16,12 @@ pacman -S rsync
 rsync --recursive --links --times --owner --group --itemize-changes --partial --progress --human-readable --verbose --stats /local/path user@host:~/path/
 </code>
 
-**From ssh to local**:
+**Von ssh nach lokal**:
 <code>
 rsync --recursive --links --times --owner --group --itemize-changes --partial --progress --human-readable --verbose --stats user@host:~/path/ /local/path
 </code>
 
-**Short**:
+**Kurz**:
 <code>
 rsync -rltogiPhv --stats /local/path user@host:~/path/
 </code>
@@ -29,7 +29,7 @@ rsync -rltogiPhv --stats /local/path user@host:~/path/
 rsync -rltogiPhv --stats user@host:~/path/ /local/path
 </code>
 
-**Different port**:
+**Anderer port**:
 <code>
 rsync -rltogiPhv --stats -e "ssh -p PORTNUMBER" /local/path user@host:~/path/
 </code>
