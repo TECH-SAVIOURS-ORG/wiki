@@ -1,6 +1,6 @@
 ====== Android ======
 
-Android ist eines der verbreitesten Betriebssysteme (OS), die man heute auf Smartphones findet. Es wurde von Google entwickelt, um direkt mit iOS, dem Betriebssystem des iPhones, zu konkurrieren. Einer der Hauptgründe für den Erfolg von Android war, dass es dank der Open Handset Alliance (OHA) auf vielen Geräten laufen konnte. Diese Initiative ermöglichte es Herstellern wie Samsung und LG, Smartphones zu entwickeln, die zwar unterschiedlich aussehen und sich unterschiedlich anfühlen, aber dennoch mit demselben Betriebssystem laufen (mit Änderungen durch den Hersteller).
+Android ist eines der verbreitesten Betriebssysteme (OS), die man heute auf Smartphones findet. Schöpfer Andy Rubin und jetzt von Google entwickelt, um direkt mit iOS, dem Betriebssystem des iPhones, zu konkurrieren. Einer der Hauptgründe für den Erfolg von Android war, dass es dank der Open Handset Alliance (OHA) auf vielen Geräten laufen konnte. Diese Initiative ermöglichte es Herstellern wie Samsung und LG, Smartphones zu entwickeln, die zwar unterschiedlich aussehen und sich unterschiedlich anfühlen, aber dennoch mit demselben Betriebssystem laufen (mit Änderungen durch den Hersteller).
 
 
 Google hat damit zwar ein Monopol verhindert, das andernfalls entstanden wäre, wenn es Android nicht entwickelt worden wäre, aber das Ganze hat auch einen Haken. Google ist dafür berüchtigt, dass es große Mengen privater Nutzerdaten sammelt, unabhängig davon, ob Sie einen Desktop, einen Laptop oder ein Smartphone benutzen. Auf allen (von Google zertifizierten) Smartphones muss der Play Store und einige andere Google-Apps vorhanden sein (je nach Gerät unterschiedlich). Diese Apps sind zwar für die große Mehrheit der Nutzer nützlich, können aber auf der Grundlage des Suchverlaufs des Nutzers usw. eine große Menge an Informationen auslesen. Es gibt jedoch Lösungen, um dies zu verhindern, was die Notwendigkeit eines Leitfadens wie diesem erneut unterstreicht.
@@ -12,14 +12,14 @@ Google hat damit zwar ein Monopol verhindert, das andernfalls entstanden wäre, 
 Bei einigen Geräten ist es notwendig, den Bootloader zu öffnen oder zu entsperren, bevor eine benutzerdefinierte Wiederherstellung, Root oder ein benutzerdefiniertes ROM installiert werden kann. Das Entsperren des Bootloaders erfordert in der Regel, dass alle Daten vom Telefon gelöscht werden, was bedeutet, dass diese im Vorfeld gesichert werden müssen. Nicht alle Smartphone-Hersteller erlauben die Entsperrung des Bootloaders. Wenn man also Bedenken hat, sollte man sich vor dem Kauf des nächsten Smartphones genau informieren. Obwohl dies nicht üblich ist, betten einige Hersteller einen "eFuse - [[https://en.wikipedia.org/wiki/EFUSE|Wikipedia]]”Wikipedia"-Befehl in ihre Produkte ein, der das Gerät dauerhaft beschädigen kann.
 
 
-===== Wiederherstellung =====
+===== Recovery =====
 
-Eine Wiederherstellung ist eine unabhängige, leichtgewichtige Laufzeitumgebung, die auf allen Android-Geräten auf einer vom Hauptbetriebssystem getrennten Partition enthalten ist. Wie der Name schon sagt, besteht der Hauptzweck einer Wiederherstellung darin, das Gerät wieder in einen funktionsfähigen Zustand zu versetzen. Es ist jedoch möglich, dass das Gerät durch falsche Aktionen zu einem Softbrick wird (und nicht mehr starten kann). Man kann direkt in den Wiederherstellungsmodus booten und das Gerät auf die Werkseinstellungen zurücksetzen, die Cache-Partition löschen oder Software-Updates anwenden.
+Das Recovery ist eine unabhängige, leichtgewichtige Laufzeitumgebung, die auf allen Android-Geräten auf einer vom Hauptbetriebssystem getrennten Partition enthalten ist. Wie der Name schon sagt, besteht der Hauptzweck der Recovery (Wiederherstellung) darin, das Gerät wieder in einen funktionsfähigen Zustand zu versetzen. Es ist jedoch möglich, dass das Gerät durch falsche Aktionen zu einem Softbrick führt (und nicht mehr starten kann). Man kann direkt in das Recovery booten und das Gerät auf die Werkseinstellungen zurücksetzen, die Cache-Partition löschen oder Software-Updates anwenden.
 
 
 ==== TWRP - Team Win Recovery Project ====
 
-Im Laufe der Jahre ist TWRP die am häufigsten verwendete benutzerdefinierte Wiederherstellung. Eine benutzerdefinierte Wiederherstellung ist notwendig, um ein benutzerdefiniertes ROM zu flashen, und daher ist TWRP eine geeignete Lösung, wenn das Gerät es unterstützt. TWRP unterstützt Touch-Interaktionen, verschlüsselten Speicher, MTP (Massenspeicher) und viele weitere Funktionen, um die Bedürfnisse von Power-Usern zu befriedigen.
+Im Laufe der Jahre ist TWRP die am häufigsten verwendete Custom Recovery. Die Custom Recovery ist notwendig, um eine Custom ROM zu flashen, und daher ist TWRP eine geeignete Lösung, wenn das Gerät es unterstützt. TWRP unterstützt Touch-Interaktionen, verschlüsselten Speicher, MTP (Massenspeicher) und viele weitere Funktionen, um die Bedürfnisse von Power-Usern zu befriedigen.
 
 Mehr Informationen zu TWRP - https://twrp.me/about/
 
@@ -30,27 +30,27 @@ Mehr Informationen zu TWRP - https://twrp.me/about/
 
 Wir alle kennen den Moment, in dem das Telefon nicht mehr das tut, was man will. Anekdotische Beweise haben gezeigt, dass alle Smartphones im Laufe der Zeit durch Hitze, Stress, Abnutzung usw. beeinträchtigt werden. Das bedeutet jedoch nicht, dass man das Telefon nicht wieder verbessern könnte.
 
-Eine häufige Ursache für die Verlangsamung Ihres Smartphones ist das Vorhandensein von Bloatware oder "Bloat". Diese Anwendungen werden nicht benötigt und sind unerwünscht, d. h. sie belegen wichtigen Speicherplatz und Arbeitsspeicher. Eine benutzerdefinierte ROM enthält jedoch keine Bloatware. Das bedeutet, dass man den verlorenen Speicherplatz zurückgewinnen und ihn für wichtigere Anwendungen nutzen kann. Dies führt zu einer besseren Leistung (und manchmal auch zu einer längeren Akkulaufzeit).
+Eine häufige Ursache für die Verlangsamung Ihres Smartphones ist das Vorhandensein von Bloatware oder "Bloat". Diese Anwendungen werden nicht benötigt und sind unerwünscht, d. h. sie belegen wichtigen Speicherplatz und Arbeitsspeicher. Eine Custom ROM enthält jedoch keine Bloatware. Das bedeutet, dass man den verlorenen Speicherplatz zurückgewinnen und ihn für wichtigere Anwendungen nutzen kann. Dies führt zu einer besseren Leistung (und manchmal auch zu einer längeren Akkulaufzeit).
 
-==== Benutzerdefinierte ROM-Optionen ====
+==== Custom ROM-Optionen ====
 
-[[https://lineageos.org/|LineageOS]] LineageOS ist nicht das einzige verfügbare Custom ROM. Es gibt haufenweise andere ROMs, aus denen du wählen kannst (Resurrection Remix, CR Droid, Paranoid Android usw.), die alle ihre eigene einzigartige Kombination von Funktionen und Anwendungen mitbringen. Um loszulegen, konsultiere am besten einen Thread in den XDA-Developers-Foren ([[https://en.wikipedia.org/wiki/XDA_Developers|Wikipedia]]). XDA ist die erste Adresse für alle Android-Bedürfnisse.
+[[https://lineageos.org/|LineageOS]] LineageOS ist nicht das einzige verfügbare Custom ROM. Es gibt haufenweise andere ROMs, aus denen du wählen kannst (Resurrection Remix, CR Droid, Paranoid Android usw.), die alle ihre eigene einzigartige Kombination von Funktionen und Anwendungen mitbringen. Um loszulegen, konsultiere am besten einen Thread in den XDA-Developers-Foren ([[https://https://de.wikipedia.org/wiki/XDA_Developers|Wikipedia]]). XDA ist die erste Adresse für alle Android-Bedürfnisse.
 
-Wie bei anderen Desktop-Betriebssystemen (Arch, Debian, Mint, Ubuntu usw.) müuss man selbst herausfinden, welches ROM am besten zu einem passt.
+Wie bei anderen Desktop-Betriebssystemen (Arch, Debian, Mint, Ubuntu usw.) muss man selbst herausfinden, welches ROM am besten zu einem passt.
 
 
 
 ===== Root =====
 
-Root ist erforderlich, wenn man die volle Kontrolle über das Gerät haben will. Es ist für bestimmte Anwendungen wie AFWall+, XPrivacyLUA usw. erforderlich. AFWall+ zum Beispiel verwendet die iptables-Firewall ([[https://en.wikipedia.org/wiki/Iptables|Wikipedia]]), die man nur ändern kann, wenn das Gerät gerootet ist. Es ist wie der Administrator einer Software.
+Root ist erforderlich, wenn man die volle Kontrolle über das Gerät haben will. Es ist für bestimmte Anwendungen wie AFWall+, XPrivacyLUA usw. erforderlich. AFWall+ zum Beispiel verwendet die iptables-Firewall ([[https://de.wikipedia.org/wiki/Iptables|Wikipedia]]), die man nur ändern kann, wenn das Gerät gerootet ist. Es ist wie der Administrator einer Software.
 
-Hier ist große Sorgfalt geboten, um die richtigen Root-Anwendungen zu verwenden. Überprüfe den Betreuer, das Datum (wie lange ist sie verfügbar) und ob sie Open Source ist! Eine Root-Anwendung hat auch die volle Kontrolle über das Gerät! Daran muss man, wenn eine Root-Anwendung installiert wird.
+Hier ist große Sorgfalt geboten, um die richtigen Root-Anwendungen zu verwenden. Überprüfe den Betreuer, das Datum (wie lange ist sie verfügbar) und ob sie Open Source ist! Eine Root-Anwendung hat auch die volle Kontrolle über das Gerät! Dies musst du dir merken, wenn du eine Root-Anwendung installierst. 
 
 Wenn man das Smartphone rootet, erlischt in der Regel die Garantie, aber das kann von Fall zu Fall rückgängig gemacht werden. Wir hatten noch nie ein Problem, aber das ändert nichts an der Tatsache, dass einige Hersteller das Smartphone nicht ohne Weiteres zur Reparatur annehmen, sollte dies jemals notwendig sein!
 
 Anwendungen wie Bank-Apps funktionieren möglicherweise nicht mehr, wenn sie ein gerootetes Telefon erkennen. Man kann natürlich weiterhin den Webbrowser oder einen Laptop/Desktop-PC verwenden. Es gibt jedoch Lösungen wie Magisk hide, die Root für bestimmte Anwendungen ausblenden können.
 
-Aber Root ist nicht notwendig! Man kann eine benutzerdefinierte ROM verwenden. Aus Datenschutzgründen ist es einfacher, Root zu verwenden, aber es gibt auch einige Optionen ohne Root.
+Aber Root ist nicht notwendig! Du kannst eine Custom ROM verwenden, aber es ist nicht notwendig, Root zu verwenden. Aus Datenschutzgründen ist es einfacher, Root zu verwenden, aber es gibt auch einige Optionen ohne Root.
 
 ++++
 
