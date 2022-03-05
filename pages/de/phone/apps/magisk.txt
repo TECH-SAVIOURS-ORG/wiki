@@ -1,6 +1,6 @@
 ====== Magisk ======
 
-Magisk ist eine Suite von Open-Source-Software zur Anpassung von Android, die Geräte ab Android 5.0 unterstützt.
+Magisk ist eine Sammlung von Open-Source-Software zur Anpassung von Android, die Geräte ab Android 5.0 unterstützt.
 
 Einige der wichtigsten Funktionen:
 
