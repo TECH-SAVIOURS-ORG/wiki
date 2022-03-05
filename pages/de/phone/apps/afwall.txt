@@ -1,6 +1,6 @@
 ====== AFWall+ ======
 
-Android Firewall+ (AFWall+) ist ein erweiterter iptables-Editor (GUI) für Android. Er bietet eine feinkörnige Kontrolle darüber, welche Android-Apps auf das Netzwerk zugreifen dürfen.
+Android Firewall+ (AFWall+) ist ein erweiterter iptables-Editor (GUI) für Android. Er bietet eine präzise Regelung darüber, welche Android-Apps auf das Netzwerk zugreifen dürfen.
 
 
 ===== Download und Installation der APK =====
