@@ -23,7 +23,7 @@ systemctl enable --now syncthing@USER.service
 ===== Zugriff auf die GUI mit einem anderen Gerät =====
 
 
-==== Konfigurieren ====
+==== Konfig ====
 
 Suche nach ''<address>127.0.0.1:8384</address>'' und ändere es wie folgt:
 
