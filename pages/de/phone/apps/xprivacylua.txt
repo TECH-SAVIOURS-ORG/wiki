@@ -35,7 +35,7 @@ Ein Beispiel mit dem Browser (Iceraven):
 ''Read clipboard'' um Text zu kopieren und einzufügen, nach etwas zu suchen oder ähnliches.
 
 
-Du kannst es einfach testen, indem du ''Read clipboard'' auswählst und etwas ind die eingeschränkte App kopierst und einfügst. Die Ausgabe sollte ''Private'' sein.
+Du kannst es einfach testen, indem du ''Read clipboard'' auswählst und etwas in die eingeschränkte App kopierst und einfügst. Die Ausgabe sollte ''Private'' sein.
 
 <alert type="info" icon="fa fa-info-circle">Denke auch daran zu spenden https://lua.xprivacy.eu/. Es hilft dem Entwickler und schaltet [[https://forum.xda-developers.com/t/app-xposed-6-0-xprivacylua-pro-companion-app.3743040/|zusätzliche Funktionen]] frei.</alert>
 
