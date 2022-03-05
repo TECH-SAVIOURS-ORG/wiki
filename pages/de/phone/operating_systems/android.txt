@@ -103,13 +103,13 @@ Gehe in die **Einstellungen** und klicke auf **Über das Telefon**. Drücke sieb
 Geh zu den **Einstellungen** und klick auf **Über das Telefon**, **Alle Spezifikationen** und drücke siebenmal auf die **MIUI version**. Geh **zurück** zur Hauptansicht der **Einstellungen** und klick auf **Zusätzliche Optionen** und dann auf **Entwickleroptionen**. Schalte dort **Android/USB-Debugging** ein.
 
 
-===== ROM und Wiederherstellung installieren =====
+===== ROM und Recovery installieren =====
 
 Prüfe die ROMs für dein Gerät unter https://wiki.lineageos.org/devices/ und folge den Anweisungen. Installiere auch Lineageos Recovery (empfohlen).
 
 Schau bei [[https://twrp.me/Devices/]] nach, wenn du TWRP bevorzugst.
 
 
-<alert type="info" icon="fa fa-info-circle">Prüfe die ''Grundvoraussetzungen'' für dein Gerät.</alert>
+<alert type="info" icon="fa fa-info-circle">Prüfe die ''Basic requirements'' für dein Gerät.</alert>
 
 <alert type="info">Herzlichen Glückwunsch🍻 Der Custom-ROM-Teil ist geschafft! Mach weiter mit [[de:phone:apps:f-droid|F-Droid]], deinem Open-Source-App-Store oder beginne zuerst mit [[de:backup:phone#android|deinen Backups]].</alert>
