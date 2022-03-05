@@ -21,6 +21,6 @@ Folge den Anweisungen auf https://topjohnwu.github.io/Magisk/install.html.
 
 ===== magisk_boot.sh =====
 
-Dies ist nur für LineageOS-Wiederherstellung. Nach der Aktualisierung von LineageOS muss die Prozedur erneut durchgeführt werden - https://topjohnwu.github.io/Magisk/install.html#patching-images
+Dies ist nur für LineageOS-Recovery. Nach der Aktualisierung von LineageOS muss die Prozedur erneut durchgeführt werden - https://topjohnwu.github.io/Magisk/install.html#patching-images
 
 Wir haben ein Skript dafür erstellt: https://github.com/TECH-SAVIOURS-ORG/magisk_boot.sh.
