@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">**Arch Linux** & **KDE** __tutorial__ ist fertig 🍻 Siehe [[de/server/operating_systems/arch_linux|hier]]!</alert>
+<alert type="success" icon="fa fa-info-circle">Unser **Android Bereich** __tutorial/guide__ ist fertig 🍻 [[de/phone/operating_systems/android|Schau es dir an]] + [[de/backup/phone/|backup]]!</alert>
 <alert type="info" icon="fa fa-github">Github push & pull funktioniert wieder. Check [[de:wiki:wikirules#github_or_registration|GitHub oder Registrierung]].</alert>
 
 ====== Willkommen bei TECH SAVIOURS Wiki ======
