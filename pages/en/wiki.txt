@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">Our **Android section** __tutorial__ is done 🍻 [[en/phone/operating_systems/android|Have a look]]!</alert>
+<alert type="success" icon="fa fa-info-circle">Our **Android section** __tutorial__ is done 🍻 [[en/backup/operating_systems/android|Have a look]] + [[en/backup/phone/|backup]]!</alert>
 <alert type="info" icon="fa fa-github">Github push & pull works again. Check [[en:wiki:wikirules#github_or_registration|Github or registration]].</alert>
 
 ====== Welcome to TECH SAVIOURS Wiki ======
