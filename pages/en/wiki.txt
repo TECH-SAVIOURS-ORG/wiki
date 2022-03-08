@@ -1,5 +1,4 @@
 <alert type="success" icon="fa fa-info-circle">Our **Android section** __tutorial/guide__ is done 🍻 [[en/phone/operating_systems/android|Have a look]] + [[en/backup/phone/|backup]]!</alert>
-<alert type="info" icon="fa fa-github">Github push & pull works again. Check [[en:wiki:wikirules#github_or_registration|Github or registration]].</alert>
 
 ====== Welcome to TECH SAVIOURS Wiki ======
 We would like to give you the opportunity here to achieve your digital privacy goals as a DIY solution. We cover the most important devices we use every day.
