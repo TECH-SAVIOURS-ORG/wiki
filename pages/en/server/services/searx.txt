@@ -24,6 +24,18 @@ git base-devel libxml2 \
 shellcheck
 </code>
 
+If you would like to use AUR, you can do the following:
+<code>
+pikaur -S searx
+</code>
+<code>
+sudo systemctl enable --now uwsgi@searx.service
+</code>
+
+You no longer need to follow the guide below, just go to:
+
+http://127.0.0.1:8888/
+
 ==== Fedora / RHEL ====
 
 <code>
