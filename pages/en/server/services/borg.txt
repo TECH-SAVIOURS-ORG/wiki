@@ -10,3 +10,10 @@ Deduplicating archiver with compression and encryption BorgBackup (short: Borg) 
   * Easy installation on multiple platforms: Linux, macOS, BSD, ...
   * Free software (BSD license).
   * Backed by a large and active open source community.
+
+
+===== Packages =====
+
+<code>
+pacman -S borg python-llfuse
+</code>
