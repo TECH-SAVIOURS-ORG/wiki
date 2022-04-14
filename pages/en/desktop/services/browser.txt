@@ -91,7 +91,7 @@ Protect yourself against tracking, surveillance, and censorship.
 pacman -S torbrowser-launcher
 </code>
 
-===== Extensions for Firefox, Librewolf and Tor Browser =====
+===== Add-ons for Firefox, Librewolf and Tor Browser =====
 
 A few examples of how you can achieve more privacy and other helpful extensions.
 
