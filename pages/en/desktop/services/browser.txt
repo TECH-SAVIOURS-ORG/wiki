@@ -54,10 +54,12 @@ user_pref("privacy.cpd.history", false);
 user_pref("keyword.enabled", true);
 </code>
 
+Check also [[https://github.com/arkenfox/user.js/wiki/3.2-Overrides-[Common]|Overrides [Common]]].
+
 Follow the [[/en/desktop/services/browser#updates_of_firefoxarkenfox_and_changes_of_the_user-overridesjs_file|next step]].
 
-=== Updates of Firefox/arkenfox and changes of the user-overrides.js file ===
 
+=== Updates of Firefox/arkenfox and changes of the user-overrides.js file ===
 
   - Close Firefox
   - Go to ''~/.mozilla/firefox/xxxxxxxx.hardened/''
