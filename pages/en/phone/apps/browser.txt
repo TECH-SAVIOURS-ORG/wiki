@@ -1,0 +1,21 @@
+====== Browser ======
+
+
+===== Iceraven =====
+
+Iceraven Browser is a web browser for Android, based on [[https://github.com/mozilla-mobile/fenix/|Mozilla's Fenix version of Firefox]], [[https://mozilla.github.io/geckoview/|GeckoView]] and [[https://mozac.org/|Mozilla Android Components]].
+
+Our goal is to be a close fork of the new Firefox for Android that seeks to provide users with more options, more opportunities to customize (including a broad extension library), and more information about the pages they visit and how their browsers are interacting with those pages.
+
+==== Download and install apk ====
+
+Install Iceraven (FFUpdater) via [[en:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/de.marmaro.krt.ffupdater/.
+
+
+===== Tor Browser =====
+
+==== Download and install apk ====
+
+Install Tor Browser via [[en:phone:apps:f-droid|F-Droid]].
+
+Enabling the [[https://guardianproject.info/fdroid/|Guardian Project's Repository]] - how to [[https://f-droid.org/en/tutorials/add-repo/|add a repo to F-Droid]].
