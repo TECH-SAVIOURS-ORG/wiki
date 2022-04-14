@@ -37,6 +37,7 @@
         * [[:en:desktop:services:syncthing|syncthing]]
         * [[:en:desktop:services:dnscrypt|DNSCrypt]]
         * [[:en:desktop:services:searx|Searx]]
+        * [[:en:desktop:services:browser|Browser]]
   * [[:en:backup|Backup]]
     * [[:en:backup:server|Server]]
     * [[:en:backup:phone|Phone]]
