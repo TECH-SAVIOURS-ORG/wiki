@@ -1,0 +1,25 @@
+====== AUR-Helper ======
+
+We use mainly [[https://github.com/actionless/pikaur|pikaur]]. Feel free to add your favorite helper.
+
+===== Pikaur =====
+
+AUR helper with minimal dependencies. Review PKGBUILDs all in once, next build them all without user interaction.
+
+Inspired by ''pacaur'', ''yaourt'' and ''yay''.
+
+Instead of trying to be smarter than pacman (by using ''--nodeps'', ''--force'', ''--ask'', ''--noconfirm'' and so) it just interactively tells pacman what to do. If pacman asks some unexpected question, the user will be just able to answer it manually.
+
+==== Packages ====
+
+<code>
+pacman -S base-devel git
+</code>
+
+==== Installation ====
+
+<code>
+git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
+makepkg -fsri
+</code>
