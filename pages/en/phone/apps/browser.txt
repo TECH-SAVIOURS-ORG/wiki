@@ -19,3 +19,7 @@ Install Iceraven (FFUpdater) via [[en:phone:apps:f-droid|F-Droid]] - https://f-d
 Install Tor Browser via [[en:phone:apps:f-droid|F-Droid]].
 
 Enabling the [[https://guardianproject.info/fdroid/|Guardian Project's Repository]] - how to [[https://f-droid.org/en/tutorials/add-repo/|add a repo to F-Droid]].
+
+===== Add-ons =====
+
+Check our [[/en/desktop/services/browser#add-ons_for_firefox_librewolf_and_tor_browser|Add-ons]] list.
