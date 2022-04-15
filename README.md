@@ -35,4 +35,4 @@ If the tutorials are the same (e.g. desktop and server), create the page and add
 
 # License
 
-See [LICENSE](LICENSE.md)
+See [LICENSE](LICENSE)
