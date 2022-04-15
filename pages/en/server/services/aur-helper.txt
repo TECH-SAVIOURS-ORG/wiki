@@ -23,3 +23,12 @@ git clone https://aur.archlinux.org/pikaur.git
 cd pikaur
 makepkg -fsri
 </code>
+
+==== Helpful ====
+
+<code>
+# System upgrade including AUR packages.
+alias pik='pikaur -Syu'
+# AUR package installation.
+alias piki='pikaur -S'
+</code>
