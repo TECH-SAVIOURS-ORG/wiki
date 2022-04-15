@@ -107,6 +107,7 @@ A few examples of how you can achieve more privacy and other helpful extensions.
   * [[https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/|Privacy Redirect]] (Redirects Twitter, YouTube, Instagram and more to privacy friendly alternatives.)
   * [[https://addons.mozilla.org/en-US/firefox/addon/switchyomega/|Proxy SwitchyOmega]] (Manage and switch between multiple proxies quickly & easily.) - switch quickly to [[en:desktop:services:tor|tor]] for example.
   * [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/|uBlock Origin]] (Finally, an efficient blocker. Easy on CPU and memory.)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/noscript/|NoScript Security Suite]] (Disables javascript.)
 
 
 ===== Pale Moon =====
