@@ -1,21 +1,19 @@
 ====== Browser ======
 
 
-===== Firefox =====
-
-==== Vanilla ====
+===== Firefox (Vanilla) =====
 
 Pure firefox.
 
 Check also https://wiki.archlinux.org/title/Firefox/Privacy and https://wiki.archlinux.org/title/Firefox/Tweaks.
 
-=== Package ===
+==== Package ====
 
 <code>
 pacman -S firefox
 </code>
 
-=== user.js ===
+==== user.js ====
 
 user.js tutorial based on https://blackgnu.net/firefox-hardening-guide.html. **Thank you** for that!
 
@@ -34,7 +32,7 @@ user.js tutorial based on https://blackgnu.net/firefox-hardening-guide.html. **T
 
 You can also create your own user.js file at https://ffprofile.com/.
 
-== Override user.js ==
+=== Override user.js ===
 
 The following example is based on session recovery being enabled again. If you have pinned tabs or working on something, this can be very helpful. Every time you close your browser and start it again, it is back the way you left it.
 
@@ -59,7 +57,7 @@ Check also [[https://github.com/arkenfox/user.js/wiki/3.2-Overrides-[Common]|Ove
 Follow the [[/en/desktop/services/browser#updates_of_firefoxarkenfox_and_changes_of_the_user-overridesjs_file|next step]].
 
 
-=== Updates of Firefox/arkenfox and changes of the user-overrides.js file ===
+==== Updates of Firefox/arkenfox and changes of the user-overrides.js file ====
 
   - Close Firefox
   - Go to ''~/.mozilla/firefox/xxxxxxxx.hardened/''
