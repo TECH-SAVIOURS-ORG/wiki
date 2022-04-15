@@ -95,7 +95,7 @@ A few examples of how you can achieve more privacy and other helpful extensions.
   * [[https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/|KeePassXC-Browser]] (KeePassXC integration for modern web browsers)
   * [[https://addons.mozilla.org/en-US/firefox/addon/localcdn-fork-of-decentraleyes/|LocalCDN]] (Protects you against tracking through CDNs (Content Delivery Networks) by redirecting to local resources.)
   * [[https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/|Privacy Redirect]] (Redirects Twitter, YouTube, Instagram and more to privacy friendly alternatives.)
-  * [[https://addons.mozilla.org/en-US/firefox/addon/switchyomega/|Proxy SwitchyOmega]] (Manage and switch between multiple proxies quickly & easily.) - switch quickly to [[en:desktop:services:tor|tor]] for example.
+  * [[https://addons.mozilla.org/en-US/firefox/addon/switchyomega/|Proxy SwitchyOmega]] (Manage and switch between multiple proxies quickly & easily.)
   * [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/|uBlock Origin]] (Finally, an efficient blocker. Easy on CPU and memory.)
   * [[https://addons.mozilla.org/en-US/firefox/addon/noscript/|NoScript Security Suite]] (Disables javascript.)
 
