@@ -83,17 +83,7 @@ It's a user friendlyer solutions instead of using user.js.
 pikaur -S librewolf-bin
 </code>
 
-===== TOR - browser =====
- 
-Protect yourself against tracking, surveillance, and censorship.
-
-==== Package ====
-
-<code>
-pacman -S torbrowser-launcher
-</code>
-
-===== Add-ons for Firefox, Librewolf and Tor Browser =====
+===== Add-ons for Firefox, Librewolf & Iceraven (Android) =====
 
 A few examples of how you can achieve more privacy and other helpful extensions.
 
@@ -108,6 +98,23 @@ A few examples of how you can achieve more privacy and other helpful extensions.
   * [[https://addons.mozilla.org/en-US/firefox/addon/switchyomega/|Proxy SwitchyOmega]] (Manage and switch between multiple proxies quickly & easily.) - switch quickly to [[en:desktop:services:tor|tor]] for example.
   * [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/|uBlock Origin]] (Finally, an efficient blocker. Easy on CPU and memory.)
   * [[https://addons.mozilla.org/en-US/firefox/addon/noscript/|NoScript Security Suite]] (Disables javascript.)
+
+
+===== TOR - browser =====
+ 
+Protect yourself against tracking, surveillance, and censorship.
+
+==== Package ====
+
+<code>
+pacman -S torbrowser-launcher
+</code>
+
+==== Add-ons ====
+
+You should not install any additional add-ons on Tor Browser because that can compromise some of its privacy features.
+
+More at [[https://support.torproject.org/glossary/add-on-extension-or-plugin/|support.torproject.org]] 
 
 
 ===== Pale Moon =====
