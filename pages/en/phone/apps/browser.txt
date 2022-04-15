@@ -22,4 +22,4 @@ Enabling the [[https://guardianproject.info/fdroid/|Guardian Project's Repositor
 
 ===== Add-ons =====
 
-Check our [[/en/desktop/services/browser#add-ons_for_firefox_librewolf_and_tor_browser|Add-ons]] list.
+Check our [[/en/desktop/services/browser#add-ons_for_firefox_librewolf_iceraven_android|Add-ons]] list.
