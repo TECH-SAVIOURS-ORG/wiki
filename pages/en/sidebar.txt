@@ -27,6 +27,7 @@
         * [[:en:phone:apps:aurora|Aurora Store]]
         * [[:en:phone:apps:syncthing|Syncthing]]
         * [[:en:phone:apps:browser|Browser (Iceraven & Tor)]]
+        * [[:en:phone:apps:inviziblepro|InviZible Pro (DNSCrypt & Tor)]]
   * [[:en:desktop|Desktop]]
     * [[:en:desktop:operating_systems|Operating Systems]]
       * [[:en:desktop:operating_systems:arch_linux|Arch Linux]]
