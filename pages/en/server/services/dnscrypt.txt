@@ -21,7 +21,7 @@ Check also [[https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-linux|
 Change your ''dnscrypt-proxy.toml'' config file.
 
 <code>
-/etc/dnscrypt-proxy/dnscrypt-proxy.toml
+nano /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 </code>
 
 ==== server_names ====
