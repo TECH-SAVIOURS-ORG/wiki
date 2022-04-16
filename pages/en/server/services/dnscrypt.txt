@@ -6,8 +6,7 @@ It is an open specification, with free and open source reference implementations
 
 Free, DNSCrypt-enabled resolvers are available all over the world.
 
-<alert type="info" icon="fa fa-info-circle">Our server is also part of the lists - [[https://dnscrypt.info/public-servers/|DNSCrypt & DOH Server]] & [[https://download.dnscrypt.info/dnscrypt-resolvers/v3/relays.md|Anonymized DNS relays
-]].</alert>
+<alert type="info" icon="fa fa-info-circle">Our dnscrypt server is also part of the official lists for [[https://dnscrypt.info/public-servers/|DNSCrypt & DOH Server]] & [[https://download.dnscrypt.info/dnscrypt-resolvers/v3/relays.md|Anonymized DNS relays]].</alert>
 
 ===== Package =====
 
