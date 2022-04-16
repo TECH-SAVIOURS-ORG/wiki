@@ -1,0 +1,55 @@
+====== DNSCrypt ======
+
+[[https://dnscrypt.info/|DNSCrypt]] is a protocol that encrypts, authenticates and optionally anonymizes communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven’t been tampered with.
+
+It is an open specification, with free and open source reference implementations, and it is not affiliated with any company nor organization.
+
+Free, DNSCrypt-enabled resolvers are available all over the world.
+
+<alert type="info" icon="fa fa-info-circle">Our server is also part of the lists - [[https://dnscrypt.info/public-servers/|DNSCrypt & DOH Server]] & [[https://download.dnscrypt.info/dnscrypt-resolvers/v3/relays.md|Anonymized DNS relays
+]].</alert>
+
+===== Package =====
+
+<code>
+pacman -S dnscrypt-proxy
+</code>
+
+Check also [[https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-linux|the link]] for other devices.
+
+===== Config file =====
+
+Change your ''dnscrypt-proxy.toml'' config file.
+
+<code>
+/etc/dnscrypt-proxy/dnscrypt-proxy.toml
+</code>
+
+==== server_names ====
+
+<code>
+server_names = ['techsaviours.org-dnscrypt']
+</code>
+
+
+==== Anonymized DNS ====
+
+Go to the bottom ''routes = ['' and add:  
+
+<code>
+routes = [
+    { server_name='2.dnscrypt-cert.techsaviours.org', via=['anon-techsaviours.org'] }
+]
+</code>
+
+
+===== Start/restart =====
+
+<code>
+systemctl enable --now dnscrypt-proxy.service
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Any changes to ''/etc/dnscrypt-proxy/dnscrypt-proxy.toml'' requires a restart of the service. Keep that in mind.</alert>
+<code>
+systemctl restart dnscrypt-proxy.service
+</code>
