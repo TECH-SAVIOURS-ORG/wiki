@@ -10,6 +10,7 @@
         * [[:en:server:services:borg|borg]]
         * [[:en:server:services:rsync|rsync]]
         * [[:en:server:services:syncthing|syncthing]]
+        * [[:en:server:services:dnscrypt|DNSCrypt]]
         * [[:en:server:services:searx|Searx]]
         * [[:en:server:services:aur-helper|AUR-Helper]]
   * [[:en:phone|Phone]]
