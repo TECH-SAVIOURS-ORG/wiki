@@ -63,7 +63,7 @@ Folge dem [[/de/desktop/services/browser#updates_von_firefoxarkenfox_und_aenderu
   - Gehe zu ''~/.mozilla/firefox/xxxxxxxx.hardened/''
     - Falls noch nicht geschehen:
       - ''chmod +x prefsCleaner.sh updater.sh''
-  - Führe folgende aus
+  - Führe folgendes aus
     - ''./prefsCleaner.sh''
     - ''./updater.sh''
   - Starte Firefox
