@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">Unser **Android Bereich** __tutorial/guide__ ist fertig 🍻 [[de/phone/operating_systems/android|Schau es dir an]] + [[de/backup/phone/|backup]]!</alert>
+<alert type="success" icon="fa fa-info-circle">Unser **Browser** __Tutorial/Guide__ ist fertig 🍻 [[de/desktop/services/browser|Desktop]] + [[de/phone/apps/browser|Android]]</alert>
 
 ====== Willkommen bei TECH SAVIOURS Wiki ======
 Wir möchten dir hier die Möglichkeit geben, deine digitale Datenschutzziele als DIY-Lösung zu realisieren. Wir decken die wichtigsten Geräte ab, die wir jeden Tag benutzen.
