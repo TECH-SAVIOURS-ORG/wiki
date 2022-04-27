@@ -11,11 +11,16 @@ OpenSUSE comes in two different versions, you should choose the one that fits yo
 
 - OpenSUSE Tumbleweed, a rolling release with fresh software (but that is reliable because it's well-tested by bots and using a nice snapshots system). You want to use this if you have very recent hardware and if you have decent internet bandwidth that can handle the amount of updates it has.
 
-- OpenSUSE Leap, a fixed release that gets a new version every 7 months, it's basically the free (in price) version of SUSE Enterprise Linux. Be aware that OpenSUSE Leap needs to be manually upgraded to the new version using the terminal (see "Upgrading Leap" section).
+- OpenSUSE Leap, a fixed release that gets a new version every 7 months, it's basically the free (in price) version of SUSE Enterprise Linux. Be aware that OpenSUSE Leap needs to be manually upgraded to the new version using the terminal (see "Upgrading Leap" section). If you use a 32 bit computer, Leap dropped 32 bit but Tumbleweed still supports it
 
 ====== Requirements ======
 
-
+- 2 Ghz dual core processor or better
+- 2GB physical RAM + additional memory for your workload
+- Over 40GB of free hard drive space
+- Either a DVD drive or USB port for the installation media
+- Internet access is helpful, and required for the Network Installer
+- Having UEFI and Secure Boot will improve security, but it's not required.
 
 ====== Download OpenSUSE ======
 
@@ -23,7 +28,9 @@ For OpenSUSE Tumbleweed, you should download it here: https://get.opensuse.org/t
 
 For OpenSUSE Leap, you should download it here: https://get.opensuse.org/leap/
 
+You should do the "Verify your download" step that is also on the download page to make sure your OpenSUSE iso image is safe and sound.
+
 ====== Installation ======
 
-OpenSUSE's installer is slow, like //really// slow, especially if you have a slow internet. But the installed system is fine
+OpenSUSE's installer is slow, like //really// slow, especially if you have a slow internet. But the installed system is fine.
 
