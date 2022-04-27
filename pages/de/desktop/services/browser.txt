@@ -96,6 +96,7 @@ Ein paar Beispiele, wie du mehr Privatsphäre und andere hilfreiche Erweiterunge
   * [[https://addons.mozilla.org/en-US/firefox/addon/switchyomega/|Proxy SwitchyOmega]] (Verwalte und wechsel schnell und einfach zwischen mehreren Proxys.)
   * [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/|uBlock Origin]] (Endlich ein effizienter Blocker, der CPU und Speicher schont)
   * [[https://addons.mozilla.org/en-US/firefox/addon/noscript/|NoScript Security Suite]] (Deaktiviert Javascript.)
+  *  * [[https://addons.mozilla.org/de/firefox/addon/amp2html/|Redirect AMP to HTML]] (Leitet AMP-Seiten automatisch auf die reguläre Webseitenvariante um.)
 
 
 ===== TOR- Browser =====
