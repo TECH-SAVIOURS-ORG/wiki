@@ -10,3 +10,10 @@ Deduplizierendes Archivierungsprogramm mit Kompression und Verschlüsselung. Bor
   * Einfache Installation auf mehreren Plattformen: Linux, macOS, BSD...
   * Freie Software (BSD-Lizenz)
   * Unterstützt von einer großen und aktiven Open-Source-Gemeinschaft
+
+
+===== Pakete =====
+
+<code>
+pacman -S borg python-llfuse
+</code>
