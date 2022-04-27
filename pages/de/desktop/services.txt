@@ -1,1 +1,1 @@
-<catlist de:desktop:services: -sortAscending -sortDescending>
+<catlist en:desktop:services: -sortDescending>
