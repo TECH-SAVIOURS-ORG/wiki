@@ -125,7 +125,7 @@ borg init --encryption=keyfile-blake2 --make-parent-dirs ssh://username@remote.h
 #!/bin/sh
 
 # Setting this, so the repo does not need to be given on the commandline:
-export BORG_REPO=ssh://username@example.com:2022/~/backup/main
+export BORG_REPO=ssh://username@example.com:2022/~/backups/borg/{hostname}
 
 # See the section "Passphrase notes" for more infos.
 export BORG_PASSPHRASE='XYZl0ngandsecurepa_55_phrasea&&123'
