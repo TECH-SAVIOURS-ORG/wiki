@@ -88,7 +88,7 @@ borg umount .::Tuesday /path/mount/
 borg umount repo/ /path/mount/
 </code>
 
-<alert type="info" icon="fa fa-info-circle">The path must be writable for the borg user!</alert>
+<alert type="info" icon="fa fa-info-circle">The path must be writable for borg! A path created in the home folder means that the mount folder must be writable for the home user.</alert>
 
 ==== Difference between two backups ====
 
