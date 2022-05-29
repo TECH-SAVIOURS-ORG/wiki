@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">Unser **Browser** __Tutorial/Guide__ ist fertig 🍻 [[de/desktop/services/browser|Desktop]] + [[de/phone/apps/browser|Android]]</alert>
+<alert type="success" icon="fa fa-info-circle">**BorgBackup** __Tutorial/Guide__ ist fertig 🍻 [[de/server/services/borg|Borg]]</alert>
 
 ====== Willkommen bei TECH SAVIOURS Wiki ======
 Wir möchten dir hier die Möglichkeit geben, deine digitale Datenschutzziele als DIY-Lösung zu realisieren. Wir decken die wichtigsten Geräte ab, die wir jeden Tag benutzen.
