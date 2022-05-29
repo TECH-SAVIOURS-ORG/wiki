@@ -22,9 +22,9 @@ pacman -S borg python-llfuse
 
 ===== Backup =====
 
-If you just want to get this done, go to our [[en:backup:server#borg|backup tutorial]] which includes the borg script.
+If you just want to get this done, go to our [[en:backup:server#borg|backup section]] which includes the borg script.
 
-Below are some examples/information if you want to create your own backup method. 
+Below you will find some command examples/information. 
 
 ==== Create repo ====
 
