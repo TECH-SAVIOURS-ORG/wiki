@@ -1,4 +1,3 @@
-<alert type="info" icon="fa fa-wrench">Work in progress</alert>
 ====== Borg ======
 
 Deduplicating archiver with compression and encryption BorgBackup (short: Borg) gives you:
@@ -17,3 +16,119 @@ Deduplicating archiver with compression and encryption BorgBackup (short: Borg) 
 <code>
 pacman -S borg python-llfuse
 </code>
+
+<alert type="info" icon="fa fa-info-circle">''borg'' package needs to be installed on the backup server and client. ''python-llfuse'' is for mounting a backup.</alert>
+<alert type="danger" icon="fa fa-warning">Both [[https://github.com/python-llfuse/python-llfuse/#the-python-llfuse-module=|llfuse]] and [[https://github.com/libfuse/pyfuse3|pyfuse3]] are no longer maintained - as of 29.05.2022.</alert>
+
+===== Backup =====
+
+If you just want to get this done, go to our [[en:backup:server#borg|backup tutorial]] which includes the borg script.
+
+Below are some examples/information if you want to create your own backup method. 
+
+==== Create repo ====
+
+<code>
+borg init --encryption=keyfile-blake2 --make-parent-dirs borg/
+</code>
+
+==== Create backup with encryption ====
+
+<code>
+borg create --stats --list --progress --verbose --filter AMEhsx --show-version --show-rc --exclude-caches --compression zstd,11 borg/::'{hostname}-{now}' .config/ --comment first_backup
+</code>
+
+==== Different encryption methods ====
+
+=== Key in repository, repokey encryption, BLAKE2b (often faster, since Borg 1.1) ===
+
+The key will be placed in your backup repository.
+
+<code>
+borg init --encryption=repokey-blake2 /path/to/repo
+</code>
+
+=== Local repository (no encryption) ===
+
+<code>
+borg init --encryption=none /path/to/repo
+</code>
+
+=== Keyfile ===
+
+The key gets stored in your home dir - ''~/.config/borg/keys/''.
+
+<code>
+borg init --encryption=keyfile user@hostname:backup
+</code>
+
+==== Remote / SSH including storage quota ====
+
+<code>
+borg init --encryption=keyfile-blake2 --storage-quota (e.g. 5G, 1.5T) --make-parent-dirs ssh://username@remote.host.address:$port/~/borg
+</code>
+
+==== List / Mount / umount backup ====
+
+<code>
+borg list /path
+</code>
+
+<code>
+mkdir /path/mount/
+borg mount .::Tuesday /path/mount/
+</code>
+
+<code>
+borg mount repo/ /path/mount/
+</code>
+
+<code>
+borg umount .::Tuesday /path/mount/
+borg umount repo/ /path/mount/
+</code>
+
+<alert type="info" icon="fa fa-info-circle">The path must be writable for the borg user!</alert>
+
+==== Difference between two backups ====
+
+<code>
+borg diff repo/::archive-2022-02-14T23:18:18 archive-2022-02-14T23:26:10
+</code>
+
+==== Delete ====
+
+If you want to delete your backup for good, run the command without ''--dry-run''.
+
+<code>
+borg delete --dry-run --stats repo/
+borg delete --dry-run --stats repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Info ====
+
+<code>
+borg info repo/
+borg info repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Restore/extract ====
+
+If you want to restore, run the command without ''--dry-run''.
+
+<code>
+borg extract --dry-run repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Check/verify data ====
+
+<code>
+borg check repo/
+borg check repo/::archive-2022-02-14T23:26:10
+borg check --verify-data repo/
+borg check --verify-data repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Borg website ====
+
+More information can also be found on [[https://borgbackup.readthedocs.io/en/stable/usage/general.html|borgs website]] as well. 
