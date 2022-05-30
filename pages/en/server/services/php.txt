@@ -1,0 +1,33 @@
+====== php ======
+
+PHP is a popular general-purpose scripting language that is especially suited to web development.
+
+Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.
+
+===== Package =====
+
+<code>
+pacman -S php php-fpm php-gd
+</code>
+
+===== Configuration =====
+
+<code>
+cp /etc/php/php.ini /etc/php/php.ini.original
+nano /etc/php/php.ini
+</code>
+<code>
+date.timezone = YOURlocation
+open_basedir = /srv/http/:/tmp/:/var/tmp/:/var/cache/:/usr/share/pear/:/usr/share/webapps/:/etc/webapps/
+expose_php = Off
+extension=pdo_mysql
+extension=mysqli
+extension=gd
+extension=iconv
+</code>
+
+===== Start =====
+
+<code>
+systemctl enable --now php-fpm.service
+</code>
