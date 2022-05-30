@@ -1,1 +1,1 @@
-<catlist en:server:services: -sortAscending -sortDescending>
+<catlist en:server:services: -sortAscending>
