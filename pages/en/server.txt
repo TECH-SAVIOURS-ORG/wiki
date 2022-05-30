@@ -1,3 +1,3 @@
 <alert type="danger" icon="fa fa-info-circle">The entire server area is intended for an internal (home) network only.</alert>
 
-<catlist en:server: -noAddPageButton -sortAscending>
+<catlist en:server: -noAddPageButton -sortAscending -sortDescending>
