@@ -3,6 +3,7 @@
 Torsocks is a wrapper to safely torify applications.
 
 <alert type="info" icon="fa fa-info-circle">This tutorial is only about using some applications over tor, not the whole network. Maybe we will add that later.</alert>
+<alert type="danger" icon="fa fa-warning">If you just want to use your browser over Tor, just use the Tor browser right away. Check out our [[en/desktop/services/browser#tor_-_browser|browser tutorial]].</alert>
 
 ===== Package =====
 
