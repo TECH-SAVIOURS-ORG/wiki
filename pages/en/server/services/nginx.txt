@@ -8,12 +8,6 @@ nginx (pronounced "engine X"), is a free, open-source, high-performance HTTP ser
 pacman -S nginx
 </code>
 
-===== Start =====
-
-<code>
-systemctl enable --now nginx.service
-</code>
-
 ===== Configuration =====
 
 <code>
@@ -53,4 +47,10 @@ http {
     include /etc/nginx/conf.d/*.conf;
     include /etc/nginx/sites-enabled/*;
 }
+</code>
+
+===== Start =====
+
+<code>
+systemctl enable --now nginx.service
 </code>
