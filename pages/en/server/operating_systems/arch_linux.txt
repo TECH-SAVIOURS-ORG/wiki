@@ -140,7 +140,7 @@ mount /dev/vg1/home /mnt/home
 ===== Install the base packages =====
 
 <code>
-pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh iptables-nft
+pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh
 </code>
 
 ===== Configure the system =====
