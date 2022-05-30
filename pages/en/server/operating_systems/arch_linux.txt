@@ -278,6 +278,15 @@ pacman -Rsn opendoas
 pacman -S sudo
 </code>
 
+Enable ''wheel'' for your sudo user.
+
+<code>
+visudo
+</code>
+<code>
+%wheel ALL=(ALL) ALL
+</code>
+
 or
 
 <code>
