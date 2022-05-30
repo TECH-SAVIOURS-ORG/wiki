@@ -11,7 +11,7 @@ It includes:
   * LVM on LUKS
   * NetworkManager
   * zram
-  * doas
+  * doas/sudo
 
 **Desktop**
 
