@@ -31,3 +31,174 @@ Set the password for the mysql root user, and most questions can be answered yes
 <code>
 mysql_secure_installation
 </code>
+
+===== Create local user =====
+
+<code>
+mysql -u root -p
+</code>
+<code>
+CREATE USER 'user_name'@'localhost' IDENTIFIED BY 'mypassword';
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Create remote user =====
+
+<code>
+mysql -u root -p
+</code>
+<code>
+CREATE USER 'user_name'@'%' IDENTIFIED BY 'mypassword';
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Create database =====
+
+<code>
+mysql -u root -p
+</code>
+<code>
+CREATE DATABASE db_name;
+GRANT ALL ON db_name.* to 'user_name'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+\q
+</code>
+or something more detailed
+<code>
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON db_name_here.* TO 'myuser'@'localhost';
+</code>
+
+===== Show and delete database =====
+
+<code>
+mysql -u root -p
+SHOW DATABASES;
+DROP DATABASE db_name;
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Show and delete user =====
+
+<code>
+mysql -u root -p
+SELECT User FROM mysql.user;
+DROP USER user_name@localhost;
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Set or change password =====
+
+<code>
+SET PASSWORD FOR 'user_name'@'localhost' = PASSWORD('password');
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Backup database =====
+
+You can dump all databases just with this command ''mysqldump --single-transaction --flush-logs --master-data=2 --all-databases -u root -p | gzip > all_databases.sql.gz
+'' or use the script below.
+
+<code>
+#!/bin/bash
+# Shell script to backup MySQL database
+
+# Set these variables
+MyUSER="my_user"             # DB_USERNAME
+MyPASS="mypassword"          # DB_PASSWORD
+MyHOST="localhost"           # DB_HOSTNAME
+
+# Backup Dest directory
+DEST="/path/to/backup/mysql/"
+
+# Email for notifications
+# EMAIL="email"
+# How many days old files must be to be removed
+DAYS="60"
+
+# Linux bin paths
+MYSQL="$(which mysql)"
+MYSQLDUMP="$(which mysqldump)"
+GZIP="$(which gzip)"
+
+# Get date in dd-mm-yyyy format
+NOW="$(date +"%d-%m-%Y_%H-%M")"
+
+# Create Backup sub-directories
+MBD="$DEST/$NOW/mysql"
+install -d $MBD
+
+# DB skip list
+SKIP="information_schema
+performance_schema"
+
+# Get all databases
+DBS="$($MYSQL -h $MyHOST -u $MyUSER -p$MyPASS -Bse 'show databases')"
+
+# Archive database dumps
+for db in $DBS
+do
+    skipdb=-1
+    if [ "$SKIP" != "" ];
+    then
+                for i in $SKIP
+                do
+                        [ "$db" == "$i" ] && skipdb=1 || :
+                done
+    fi
+ 
+    if [ "$skipdb" == "-1" ] ; then
+        FILE="$MBD/$db.sql"
+        $MYSQLDUMP -h $MyHOST -u $MyUSER -p$MyPASS $db > $FILE
+    fi
+done
+
+# Archive the directory, send mail and cleanup
+cd $DEST
+tar -cf $NOW.tar $NOW
+$GZIP -9 $NOW.tar
+
+#echo -e "Subject: MySQL backup $(hostname)\r\n\r\nMySQL backup is completed! Backup name is $NOW.tar.gz" | msmtp -a default $EMAIL
+rm -rf $NOW
+
+# Remove old files
+find $DEST -mtime +$DAYS -exec rm -f {} \;
+</code>
+
+===== Restore database =====
+
+<code>
+mysql -u root -p db_name < database.sql
+</code>
+
+===== Check/update database =====
+
+Upon a major version release of mariadb (for example mariadb-10.7.4-1 to mariadb-10.8.3-1), it is wise to upgrade databases: 
+
+  - keep the 10.7.4-1 database daemon running
+  - upgrade the package
+  - run mysql_upgrade (from the new package version) against the old still-running daemon. This will produce some error messages; however, the upgrade will succeed.
+  - restart the daemon, so the 10.8.3 daemon runs.
+
+<code>
+mysql_upgrade -u root -p
+</code> 
+
+To check all tables in all databases:  
+<code>
+mysqlcheck --all-databases -u root -p -c
+</code>  
+
+To analyze all tables in all databases:  
+<code>
+mysqlcheck --all-databases -u root -p -a
+</code>  
+To repair all tables in all databases:  
+`mysqlcheck --all-databases -u root -p -r`  
+  
+To optimize all tables in all databases:  
+`mysqlcheck --all-databases -u root -p -o`  
