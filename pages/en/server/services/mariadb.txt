@@ -100,8 +100,13 @@ EXIT;
 
 ===== Backup database =====
 
-You can dump all databases just with this command ''mysqldump --single-transaction --flush-logs --master-data=2 --all-databases -u root -p | gzip > all_databases.sql.gz
-'' or use the script below.
+You can dump all databases with the following command ''mysqldump --single-transaction --flush-logs --master-data=2 --all-databases -u root -p | gzip > all_databases.sql.gz
+''.
+
+Or use the following script, which contains:
+  * separate databases (when you extract the file)
+  * define after how many days the old backups should be deleted
+  * email notification
 
 <code>
 #!/bin/bash
@@ -169,6 +174,7 @@ rm -rf $NOW
 find $DEST -mtime +$DAYS -exec rm -f {} \;
 </code>
 
+Use [[en/server/services/crontab#examples|crontab]] for automation.
 ===== Restore database =====
 
 <code>
