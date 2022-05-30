@@ -1,0 +1,31 @@
+====== Torsocks ======
+
+Torsocks is a wrapper to safely torify applications.
+
+<alert type="info" icon="fa fa-info-circle">This tutorial is only about using some applications over tor, not the whole network. Maybe we will add that later.</alert>
+
+===== Package =====
+
+<code>
+sudo pacman -S tor torsocks
+</code>
+
+===== Start =====
+
+<code>
+sudo systemctl enable --now tor.service
+</code>
+
+===== Usage =====
+
+<code>
+torsocks pacman -Syu
+</code>
+
+==== Test ====
+
+<code>
+torsocks wget -qO- https://check.torproject.org/ | grep -i congratulations
+</code>
+
+> Congratulations. This browser is configured to use Tor.
