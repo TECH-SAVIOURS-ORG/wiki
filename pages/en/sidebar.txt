@@ -16,6 +16,7 @@
         * [[:en:server:services:searx|Searx]]
         * [[:en:server:services:aur-helper|AUR-Helper]]
         * [[:en:server:services:nginx|nginx]]
+        * [[:en:server:services:php|php]]
   * [[:en:phone|Phone]]
     * [[:en:phone:operating_systems|Operating Systems]]
       * [[:en:phone:operating_systems:android|Android]]
