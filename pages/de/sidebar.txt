@@ -11,6 +11,7 @@
         * [[:de:server:services:rsync|rsync]]
         * [[:de:server:services:syncthing|syncthing]]
         * [[:de:server:services:dnscrypt|DNSCrypt]]
+        * [[:de:server:services:torsocks|torsocks]]
         * [[:de:server:services:searx|Searx]]
         * [[:de:server:services:aur-helper|AUR-Helper]]
   * [[:de:phone|Phone]]
