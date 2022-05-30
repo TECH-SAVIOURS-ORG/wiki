@@ -34,7 +34,7 @@
     * [[:en:desktop:operating_systems|Operating Systems]]
       * [[:en:desktop:operating_systems:arch_linux|Arch Linux]]
     * [[:en:desktop:environments|Environments]]
-      * [[:en:desktop:environments:kde|KDE]]
+      * [[:en:desktop:environments:kde|KDE (Arch)]]
     * [[:en:desktop:services|Services (Arch)]]
         * [[en:desktop:services:openssh|OpenSSH]]
         * [[:en:desktop:services:crontab|crontab]]
