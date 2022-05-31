@@ -44,7 +44,6 @@
         * [[:en:desktop:services:borg|borg]]
         * [[:en:desktop:services:rsync|rsync]]
         * [[:en:desktop:services:syncthing|syncthing]]
-        * [[:en:desktop:services:unbound|unbound]]
         * [[:en:desktop:services:dnscrypt|DNSCrypt]]
         * [[:en:desktop:services:torsocks|torsocks]]
         * [[:en:desktop:services:searx|Searx]]
