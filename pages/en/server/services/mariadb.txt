@@ -191,7 +191,7 @@ Upon a major version release of mariadb (for example mariadb-10.7.4-1 to mariadb
   - restart the daemon, so the 10.8.3 daemon runs.
 
 <code>
-mysql_upgrade -u root -p
+mysql_upgrade -u root -p --skip-version-check
 </code> 
 
 To check all tables in all databases:  
