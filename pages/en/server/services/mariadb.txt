@@ -203,8 +203,13 @@ To analyze all tables in all databases:
 <code>
 mysqlcheck --all-databases -u root -p -a
 </code>  
+
 To repair all tables in all databases:  
-`mysqlcheck --all-databases -u root -p -r`  
-  
+<code>
+mysqlcheck --all-databases -u root -p -r
+</code> 
+ 
 To optimize all tables in all databases:  
-`mysqlcheck --all-databases -u root -p -o`  
+<code>
+mysqlcheck --all-databases -u root -p -o
+</code> 
