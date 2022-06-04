@@ -192,6 +192,10 @@ Upon a major version release of mariadb (for example mariadb-10.7.4-1 to mariadb
 
 <code>
 mysql_upgrade -u root -p --skip-version-check
+</code>
+
+<code>
+systemctl restart mariadb.service
 </code> 
 
 To check all tables in all databases:  
@@ -217,6 +221,7 @@ mysqlcheck --all-databases -u root -p -o
 All "Check/update database" commands in one block
 <code>
 mysql_upgrade -u root -p --skip-version-check
+systemctl restart mariadb.service
 mysqlcheck --all-databases -u root -p -c
 mysqlcheck --all-databases -u root -p -a
 mysqlcheck --all-databases -u root -p -r
