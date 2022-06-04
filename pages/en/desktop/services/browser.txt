@@ -134,9 +134,9 @@ pikaur -S palemoon-bin
 
 ===== Browser leak test =====
 
-https://arkenfox.github.io/TZP/tzp.html
-https://browserleaks.com/
-https://coveryourtracks.eff.org/
-https://amiunique.org
+  * https://arkenfox.github.io/TZP/tzp.html
+  * https://browserleaks.com/
+  * https://coveryourtracks.eff.org/
+  * https://amiunique.org
 
 
