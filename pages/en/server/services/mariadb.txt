@@ -212,4 +212,13 @@ mysqlcheck --all-databases -u root -p -r
 To optimize all tables in all databases:  
 <code>
 mysqlcheck --all-databases -u root -p -o
-</code> 
+</code>
+
+All "Check/update database" commands in one block
+<code>
+mysql_upgrade -u root -p --skip-version-check
+mysqlcheck --all-databases -u root -p -c
+mysqlcheck --all-databases -u root -p -a
+mysqlcheck --all-databases -u root -p -r
+mysqlcheck --all-databases -u root -p -o
+</code>
