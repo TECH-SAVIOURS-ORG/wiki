@@ -131,3 +131,12 @@ Check https://blackgnu.net/palemoon-hardening.html for a privacy guide.
 <code>
 pikaur -S palemoon-bin
 </code>
+
+===== Browser leak test =====
+
+https://arkenfox.github.io/TZP/tzp.html
+https://browserleaks.com/
+https://coveryourtracks.eff.org/
+https://amiunique.org
+
+
