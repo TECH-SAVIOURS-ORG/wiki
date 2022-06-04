@@ -30,3 +30,7 @@ torsocks wget -qO- https://check.torproject.org/ | grep -i congratulations
 </code>
 
 > Congratulations. This browser is configured to use Tor.
+
+<code>
+torsocks curl https://ipleak.net/json/
+</code>
