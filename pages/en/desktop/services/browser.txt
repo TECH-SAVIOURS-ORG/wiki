@@ -15,8 +15,6 @@ pacman -S firefox
 
 ==== user.js ====
 
-user.js tutorial based on https://blackgnu.net/firefox-hardening-guide.html. **Thank you** for that!
-
   - Start Firefox
   - Create a new profile named hardened in ''about:profiles''
     - set it as default
