@@ -62,3 +62,5 @@ Enable service for ''cronie'':
 <code>
 systemctl enable --now cronie.service
 </code>
+
+Check also [[/en/desktop/services/crontab|crontab]].
