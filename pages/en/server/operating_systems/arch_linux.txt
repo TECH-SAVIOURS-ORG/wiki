@@ -361,4 +361,12 @@ umount -R /mnt
 reboot
 </code>
 
+=== (Optional) Connect to wifi if needed  ===
+
+<code>
+nmcli d wifi list
+nmcli dev wifi connect SSID password 'password'
+</code>
+
+
 <alert type="info">Congratulation 🍻 The server part is done! Continue with [[en:desktop:environments:kde|KDE]] if you want to install a desktop environment. Also create a [[en:backup:server|backup]].</alert>
