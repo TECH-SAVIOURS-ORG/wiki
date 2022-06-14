@@ -292,6 +292,7 @@ or
 <code>
 echo "alias sudo='doas'
 alias sudoedit='doas rnano'" >> ~/.bashrc
+ln -s $(which doas) /usr/bin/sudo
 </code>
 
 ==== Add user ====
