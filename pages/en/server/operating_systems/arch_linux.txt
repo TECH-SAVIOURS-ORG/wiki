@@ -284,7 +284,7 @@ Enable ''wheel'' for your sudo user.
 visudo
 </code>
 <code>
-%wheel ALL=(ALL) ALL
+%wheel ALL=(ALL:ALL) ALL
 </code>
 
 or
