@@ -3,30 +3,93 @@
 This page is not done yet
 - cocomeat4
 
-====== OpenSUSE ======
+====== openSUSE ======
 
 A good security/usability/privacy/freedom compromise operating system that should fit most people's needs.
 
-OpenSUSE comes in 4 different versions. In this guide, we will talk about how to choose the right one, the advantages and disadvantages of each version and how to set them up.
+openSUSE comes in 4 different versions. In this guide, we will talk about how to choose the right one, the advantages and disadvantages of each version and how to set them up.
+
+====== The choice ======
+
+The 4 different openSUSE editions are:
+
+- openSUSE Tumbleweed, a rolling release with fresh software (but that is quite reliable because it's well-tested by an automated system but also by humans and using a snapshots system). It is your only option if you are using a 32 bit computer.
+
+- openSUSE Leap, a fixed release that gets a new version every 7 months based on the source code of SUSE Linux Enterprise. Very recent drivers won't be included in this edition before the release of its next version.
+
+- openSUSE MicroOS, based on Tumbleweed, MicroOS uses Transactional (Atomic) updates upon a read-only btrfs root file system. Most of the filesystem being read-only, this edition is overally more secure than the two classic editions.
+
+- openSUSE Leap Micro, the same as MicroOS, but based on Leap, which provides extra stability and requires to reboot less often, as there is less updates. This is the best stability/security compromise you can get with openSUSE and will likely be your best pick if you don't need any very recent drivers or specially recent software.
 
 ====== Requirements ======
 
 - 2 Ghz dual core processor or better
+
 - 2GB physical RAM + additional memory for your workload
+
 - Over 40GB of free hard drive space
-- Either a DVD drive or USB port for the installation media
+
+- Either a DVD drive or USB port for the installation media (This guide will only explain how to make an USB stick, not a DVD)
+
 - Internet access is helpful, and required for the Network Installer
-- Having UEFI and Secure Boot will improve security, but it's not required.
 
-====== Download OpenSUSE ======
+Optionally, you can have:
 
-For OpenSUSE Tumbleweed, you should download it here: https://get.opensuse.org/tumbleweed/
+- UEFI, required for Secure Boot
+- Secure Boot, it will improve your security.
 
-For OpenSUSE Leap, you should download it here: https://get.opensuse.org/leap/
+====== Download openSUSE ======
 
-You should do the "Verify your download" step that is also on the download page to make sure your OpenSUSE iso image is safe and sound.
+To download openSUSE, every edition is available at https://get.opensuse.org. You should use the offline image because the network installers are very, very slow. Installing offline will also make sure you aren't installing malware if the repositories ever get hacked.
+
+You should verify your download to make sure your OpenSUSE iso image is safe and sound.
+
+To verify your download :
+
+- Scoll down on the download page to the "Verify Your Download Before Use"
+
+- There is a line that starts with "It should be [some suite of characters in blue]"
+
+- Click that line of characters, it should download a .asc file that starts with gpg-pubkey
+
+- Now sroll up to the download section on the download page
+
+- Click the arrow next to the download button and download the "Checksum" file
+
+- Click the arrow again, this time right click on "Checksum" and copy the link address
+
+- Paste the link you just copied in your browser's url bar and add ".asc" at the end of it, it should download an extra file
+
+- Now, open a terminal in your downloads folder. If you're on windows, you can use Cygwin: https://www.cygwin.com
+
+- Type the following commands:
+
+''gpg --import gpg-pubkey-*.asc'' //This will import the OpenSUSE GPG key//
+
+''gpg --verify <insert the name of the checksum ASC file you downloaded here>'' //This will verify the checksum file. Do not include "<" and ">"//
+
+You should have a line ''gpg: Good signature from "openSUSE Project Signing Key <opensuse@opensuse.org>"''. 
+This means that the checksum file is safe. If you don't have that line, you shouldn't trust what you have downloaded.
+
+''sha256sum -c openSUSE-*.sha256'' // This will verify the checksum of the installer iso image. //
+
+You should have ''openSUSE-something.iso: OK''. If you don't, it means your iso image has a problem and you shouldn't trust it.
+
+ If everything is fine, your iso image is safe and you can proceed to the creation of a bootable USB stick.
+
+====== Prepare the USB stick ======
+
+Now that we made sure that what we downloaded is safe, we should prepare a bootable USB stick. First, you will need a tool such as balenaEtcher: https://www.balena.io/etcher.
+
+Once balenaEtcher is downloaded, open it and plug your USB stick into your computer.
+
+Now, click the "Select Image" button and select the .iso file you downloaded
+
+Next, click the "Select drive" button and select your USB stick
+
+Now click "Flash" and wait till it finishes.
+
+Your USB stick should now be ready to install openSUSE on your computer.
 
 ====== Installation ======
-
-OpenSUSE's installer is slow, like //really// slow, especially if you have a slow internet. But the installed system is fine.
 
