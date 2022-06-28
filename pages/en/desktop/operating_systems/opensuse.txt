@@ -7,11 +7,7 @@ This page is not done yet
 
 A good security/usability/privacy/freedom compromise operating system that should fit most people's needs.
 
-OpenSUSE comes in two different versions, you should choose the one that fits your needs the most:
-
-- OpenSUSE Tumbleweed, a rolling release with fresh software (but that is reliable because it's well-tested by bots and using a nice snapshots system). You want to use this if you have very recent hardware and if you have decent internet bandwidth that can handle the amount of updates it has.
-
-- OpenSUSE Leap, a fixed release that gets a new version every 7 months, it's basically the free (in price) version of SUSE Enterprise Linux. Be aware that OpenSUSE Leap needs to be manually upgraded to the new version using the terminal (see "Upgrading Leap" section). If you use a 32 bit computer, Leap dropped 32 bit but Tumbleweed still supports it
+OpenSUSE comes in 4 different versions. In this guide, we will talk about how to choose the right one, the advantages and disadvantages of each version and how to set them up.
 
 ====== Requirements ======
 
