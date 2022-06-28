@@ -17,9 +17,9 @@ The 4 different openSUSE editions are:
 
 - openSUSE Leap, a fixed release that gets a new version every 7 months based on the source code of SUSE Linux Enterprise. Very recent drivers won't be included in this edition before the release of its next version.
 
-- openSUSE MicroOS, based on Tumbleweed, MicroOS uses Transactional (Atomic) updates upon a read-only btrfs root file system. Most of the filesystem being read-only, this edition is overally more secure than the two classic editions.
+- openSUSE MicroOS, based on Tumbleweed, MicroOS uses Transactional (Atomic) updates upon a read-only btrfs root file system. Most of the filesystem being read-only, this edition is overally more secure than the two classic editions and is the best you can get out of openSUSE in terms of security.
 
-- openSUSE Leap Micro, the same as MicroOS, but based on Leap, which provides extra stability and requires to reboot less often, as there is less updates. This is the best stability/security compromise you can get with openSUSE and will likely be your best pick if you don't need any very recent drivers or specially recent software.
+- openSUSE Leap Micro, the same as MicroOS, but based on Leap, and server-oriented. This one doesn't provide any graphical user interface by default so we won't use it in this guide
 
 ====== Requirements ======
 
@@ -64,15 +64,19 @@ To verify your download :
 
 - Type the following commands:
 
-''gpg --import gpg-pubkey-*.asc'' //This will import the OpenSUSE GPG key//
+//This will import the OpenSUSE GPG key// :
+<code> gpg --import gpg-pubkey-*.asc </code> 
 
-''gpg --verify <insert the name of the checksum ASC file you downloaded here>'' //This will verify the checksum file. Do not include "<" and ">"//
+//This will verify the checksum file. Do not include "<" and ">"//:
+<code> gpg --verify <insert the name of the checksum ASC file you downloaded here> </code> 
 
 You should have a line ''gpg: Good signature from "openSUSE Project Signing Key <opensuse@opensuse.org>"''. 
 This means that the checksum file is safe. If you don't have that line, you shouldn't trust what you have downloaded.
 
-''sha256sum -c openSUSE-*.sha256'' // This will verify the checksum of the installer iso image. //
+// This will verify the checksum of the installer iso image. //:
+<code> sha256sum openSUSE-*.sha256 </code>
 
+You may get an error ''sha256sum: openSUSE-something.iso: No such file or directory''. In that case, change the filename in the .sha256sum file to match the file you downloaded. Alternatively, run ''sha256sum openSUSE-*.iso && cat openSUSE-*.sha256'' and compare both outputs. If they are the same, your file is safe.
 You should have ''openSUSE-something.iso: OK''. If you don't, it means your iso image has a problem and you shouldn't trust it.
 
  If everything is fine, your iso image is safe and you can proceed to the creation of a bootable USB stick.
@@ -92,4 +96,38 @@ Now click "Flash" and wait till it finishes.
 Your USB stick should now be ready to install openSUSE on your computer.
 
 ====== Installation ======
+
+Boot your USB stick, you should be prompted by a small menu, select "Installation" with your keyboard arrows.
+
+Be aware the following is for openSUSE MicroOS, the steps for other openSUSE editions are very similar but classic editions prompt for disk setup earlier than we do it in this guide, just scroll down to see what you should do, everything is explained here, just not in the right order for classic editions.
+
+{{:en:desktop:operating_systems:boot.png?nolink&600|}}
+
+Now wait till the installer loads. It may take some time, especially if your USB stick is slow, so grab a coffee ☕️.
+
+Once the installer has started, you will be welcomed by a Language, Keyboard and License Agreement page. Set up your language, keyboard layout and then click next. The license agreement basically tells you that there is no warranty with openSUSE, and your the rights you have over it, what you're allowed or not to do, etc...
+
+{{:en:desktop:operating_systems:untitled.png?nolink&800|}}
+
+If the installer asks for NTP Configuration, just keep the defaults, it should work fine. NTP is about time synchronization.
+
+Next, the installer should prompt you for the Administrator "root" password. You can put anything here as we will disable root login later. Put something you can remember. Once done, press next.
+
+{{:en:desktop:operating_systems:oss_rootpass.png?nolink&800|}}
+
+You should then arrive on the Installation Settings page, skipping the traditional partitioning and software selecting steps. First, go into Partitioning to enable encryption
+
+{{:en:desktop:operating_systems:oss_enc1.png?nolink&800|}}
+
+Next we will use the Guided Setup, because it is easier and feature complete.
+
+{{:en:desktop:operating_systems:oss_enc2.png?nolink&800|}}
+
+Now enable Disk Encryption and enter a strong passphrase that will be asked every time you start your computer.
+
+{{:en:desktop:operating_systems:oss_enc3.png?nolink&800|}}
+
+Next it will ask what File System to use for the Root partition, keep Btrfs.
+
+Keep the defaults for any other options until you return to the Installation Settings menu.
 
