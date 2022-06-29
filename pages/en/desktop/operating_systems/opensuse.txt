@@ -15,7 +15,7 @@ The 4 different openSUSE editions are:
 
 - openSUSE Tumbleweed, a rolling release with fresh software (but that is quite reliable because it's well-tested by an automated system but also by humans and using a snapshots system). It is your only option if you are using a 32 bit computer.
 
-- openSUSE Leap, a fixed release that gets a new version every 7 months based on the source code of SUSE Linux Enterprise. Very recent drivers won't be included in this edition before the release of its next version.
+- openSUSE Leap, a fixed release that gets a new version every 7 months based on the source code of SUSE Linux Enterprise. Very recent drivers won't be included in this edition before the release of its next version. Sadly, it doesn't support graphical system upgrades from version N to N+1
 
 - openSUSE MicroOS, based on Tumbleweed, MicroOS uses Transactional (Atomic) updates upon a read-only btrfs root file system. Most of the filesystem being read-only, this edition is overally more secure than the two classic editions and is the best you can get out of openSUSE in terms of security.
 
