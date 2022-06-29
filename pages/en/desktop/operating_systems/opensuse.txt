@@ -105,15 +105,21 @@ Be aware the following is for openSUSE MicroOS, the steps for other openSUSE edi
 
 Now wait till the installer loads. It may take some time, especially if your USB stick is slow, so grab a coffee ☕️.
 
-Once the installer has started, you will be welcomed by a Language, Keyboard and License Agreement page. Set up your language, keyboard layout and then click next. The license agreement basically tells you that there is no warranty with openSUSE, and your the rights you have over it, what you're allowed or not to do, etc...
+Once the installer has started, you will be welcomed by a Language and Keyboard selection page. Set up your language and keyboard layout then click next.
 
-{{:en:desktop:operating_systems:untitled.png?nolink&800|}}
+{{:en:desktop:operating_systems:oss_kbd.png?nolink&800|}}
 
-If the installer asks for NTP Configuration, just keep the defaults, it should work fine. NTP is about time synchronization.
+Next, you will be prompted to choose a System Role. This is basically what you want to do with your openSUSE installation. You should choose either GNOME or KDE Plasma when using MicroOS. If you use openSUSE Tumbleweed, you can choose Xfce here, which isn't available in other editions. It is much lighter. On the screenshot, I chose GNOME. As of time of writing, both are still experimental in MicroOS, but I had no issues so far with both.
 
-Next, the installer should prompt you for the Administrator "root" password. You can put anything here as we will disable root login later. Put something you can remember. Once done, press next.
+{{:en:desktop:operating_systems:oss_sysrole.png?nolink&800|}}
 
-{{:en:desktop:operating_systems:oss_rootpass.png?nolink&800|}}
+Next, the installer will prompt you to create a new user, choose whatever you want for your full name, but the username should be kept simple (no caps, no spaces, no special characters, i'd recommend you limit to a-z and 0-9).
+
+Preferably, setup a strong password. You can enable automatic login as we will setup disk encryption later.
+
+You can also use that password for the system administrator, as we will lock it later in the hardening part.
+
+{{:en:desktop:operating_systems:oss_usercreation.png?nolink&800|}}
 
 You should then arrive on the Installation Settings page, skipping the traditional partitioning and software selecting steps. First, go into Partitioning to enable encryption
 
@@ -130,4 +136,11 @@ Now enable Disk Encryption and enter a strong passphrase that will be asked ever
 Next it will ask what File System to use for the Root partition, keep Btrfs.
 
 Keep the defaults for any other options until you return to the Installation Settings menu.
+
+Once encryption is setup, you can proceed to the install. Everything else that need to be configured will be configured later.
+
+{{:en:desktop:operating_systems:oss_install.png?nolink&800|}}
+
+This will, again, take some time. So grab some chocolate 🍫 (because you're likely out of coffee at this point).
+
 
