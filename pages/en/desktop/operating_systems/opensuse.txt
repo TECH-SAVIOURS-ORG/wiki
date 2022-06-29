@@ -143,4 +143,23 @@ Once encryption is setup, you can proceed to the install. Everything else that n
 
 This will, again, take some time. So grab some chocolate 🍫 (because you're likely out of coffee at this point).
 
+Once the install has finished, the system will automatically reboot...
+
+{{:en:desktop:operating_systems:oss_finishinstall.png?nolink&800|}}
+
+And you did it ! openSUSE is installed ! Now the fun begins, let's make it secure and set things up.
+
+====== First boot ======
+
+Just after rebooting, you will be prompted by GRUB that will ask you for your encryption passphrase:
+
+{{:en:desktop:operating_systems:oss_firstboot_grub.png?nolink&600|}}
+
+It may look at bit different for you, this is how it looks in my virtual machine.
+
+Once grub has been unlocked, openSUSE will boot automatically after 10 seconds, you can press enter to speed up the process.
+
+openSUSE will ask you your encryption passphrase one more time to unlock the rest of the disk, as you have only unlocked the boot partition so far, which uses an older version of LUKS.
+
+
 
