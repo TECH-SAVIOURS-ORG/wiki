@@ -57,7 +57,7 @@ No, of course not! You can compare the problem with our climate change. It takes
 
 ===== You ask why we are still on Mastodon and Twitter?! =====
 
-I have never used Facebook, Twitter, etc. before. It's just not my world, but not everyone is aware about open source alternatives, social cooling, or digital privacy in general. That's why we try to reach out to people (our twitter account) and created a Mastodon account to give them the option to follow us on a more privacy-friendly open source solution like Mastodon. But you don't have to have a Mastodon account to follow us or anyone else. RSS is available for most websites. You can also follow your favorite Mastodon user via RSS. Just add the user (https://fosstodon.org/@techsaviours) to your RSS feed aggregator.
+I have never used Facebook, Twitter, etc. before. It's just not my world, but not everyone is aware about open source alternatives, social cooling, or digital privacy in general. That's why we try to reach out to people (our twitter account) and created a Mastodon account to give them the option to follow us on a more privacy-friendly open source solution. But you don't have to have a Mastodon account to follow us or anyone else. RSS is available for most websites. You can also follow your favorite Mastodon user via RSS. Just add the user (https://fosstodon.org/@techsaviours) to your RSS feed aggregator.
 
 A tutorial on how to add an RSS server [[https://github.com/FreshRSS/FreshRSS|FreshRSS]] will also find a place in our wiki one day.
 
