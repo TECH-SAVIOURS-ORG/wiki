@@ -1,1 +1,1 @@
-<catlist en:extras: -noAddPageButton -sortAscending>
+<catlist en:extras: -sortAscending>
