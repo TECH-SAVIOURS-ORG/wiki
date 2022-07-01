@@ -54,6 +54,7 @@
     * [[:en:backup:phone|Phone]]
     * [[:en:backup:desktop|Desktop]]
   * [[:en:extras|Extras]]
+    * [[:en:extras:take_a_breath|Take a breath! Enjoy your world!]]
   * [[:en:vulnerability_scans|Vulnerability Scans]]
     * [[:en:vulnerability_scans:log4shell|Log4shell]]
   * [[:en:faq|FAQ]]
