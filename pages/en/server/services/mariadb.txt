@@ -100,7 +100,7 @@ EXIT;
 
 ===== Backup database =====
 
-You can dump all databases with the following command ''mysqldump --single-transaction --flush-logs --master-data=2 --all-databases -u root -p | gzip > all_databases.sql.gz
+You can dump all databases with the following command ''mysqldump %%--%%single-transaction %%--%%flush-logs %%--%%master-data=2 %%--%%all-databases -u root -p | gzip > all_databases.sql.gz
 ''.
 
 Or use the following script, which contains:
