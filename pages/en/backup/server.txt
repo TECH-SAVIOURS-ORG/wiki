@@ -121,7 +121,7 @@ Don't forget to create the borg repo first and add the credentials to the script
 borg init --encryption=keyfile-blake2 --make-parent-dirs ssh://username@remote.host.address:$port>/~/backups/borg/{hostname}
 </code>
 
-Add your excluded folders/files ''--exclude '/home/*/.cache/*' \'' and under ''::'{hostname}-{now}' \'' add folders/files you want to backup. 
+Add your excluded folders/files ''%%--%%exclude '/home/*/.cache/*' \'' and under ''::'{hostname}-{now}' \'' add folders/files you want to backup. 
 <code>
 #!/bin/sh
 
