@@ -17,7 +17,7 @@ It includes:
 
   * Xorg
   * KDE / Plasma
-  * SDDM
+  * SDDM/xinit
 
 ===== Download the ISO =====
 
