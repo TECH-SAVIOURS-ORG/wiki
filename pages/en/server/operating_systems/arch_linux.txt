@@ -155,7 +155,7 @@ mount /dev/vg1/home /mnt/home
 pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh
 </code>
 
-<alert type="info" icon="fa fa-info-circle">If you encounter some issues, e.g. if you are using an older ISO, first run ''pacman -Sy archlinux-keyring && pacman-key --init && pacman-key --populate archlinux''.</alert>
+<alert type="info" icon="fa fa-info-circle">If you encounter some issues, e.g. if you are using an older ISO, first run ''%%pacman -Sy archlinux-keyring && pacman-key --init && pacman-key --populate archlinux%%''.</alert>
 
 ===== Configure the system =====
 
