@@ -57,6 +57,7 @@
     * [[:en:extras:take_a_breath|Take a breath! Enjoy your world!]]
   * [[en:scans|Scans]]
     * [[en:scans:log4shell|Log4shell]]
+    * [[en:scans:googleteller|googleteller]]
   * [[:en:faq|FAQ]]
 
 === Contributing ===
