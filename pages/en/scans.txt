@@ -1,1 +1,1 @@
-<catlist en:scans: -sortAscending>
+<catlist en:scans: -sortAscending -sortDescending>
