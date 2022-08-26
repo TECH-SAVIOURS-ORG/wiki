@@ -15,7 +15,7 @@ Thanks bert!
 
 ==== Packages ====
 <code>
-sudo pacman -Sy pcaudiolib gcc ipset bpftrace
+sudo pacman -Sy pcaudiolib gcc ipset bpftrace tcpdump
 </code>
 
 ==== Build ====
