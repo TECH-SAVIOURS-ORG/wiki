@@ -1,0 +1,51 @@
+====== AFWall+ ======
+
+Android Firewall+ (AFWall+) ist ein erweiterter iptables-Editor (GUI) für Android. Er bietet eine präzise Regelung darüber, welche Android-Apps auf das Netzwerk zugreifen dürfen.
+
+
+===== Download und Installation der APK =====
+
+Installiere AFWall+ via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/packages/dev.ukanth.ufirewall/.
+
+
+===== Erster Start =====
+
+Erlaube Root ''Forever''.
+
+
+===== Einstellungen =====
+
+Gehe zu ''Einstellungen'' und wähle alle Optionen aus, die du haben möchtest.
+
+
+Hier ist ein Beispiel:
+
+{{:en:phone:apps:screenshot_20220219-152221_afwall_.png?direct&200 |UI Preferences}} {{:en:phone:apps:screenshot_20220219-152626_afwall_.png?direct&200 |Experimental}} {{:en:phone:apps:screenshot_20220219-152323_afwall_.png?direct&200|Log}} {{:en:phone:apps:screenshot_20220219-152254_afwall_.png?direct&200|Rules/Connectivity}}
+
+<alert type="info" icon="fa fa-info-circle">Denke auch daran zu spenden https://github.com/ukanth/afwall/wiki#making-donations. Das hilft den Entwicklern und schaltet zusätzliche Funktionen frei.</alert>
+
+===== Regeln=====
+
+Siehe das folgende Beispiel/Basic, das das obige Beispiel und ''Allow selected'' enthält. 
+
+Die Symbole von links nach rechts:
+
+{{:en:phone:apps:afwall_icons.png?direct&200|AFWall icons}}
+
+  - Zugang zum Wlan-Netzwerk
+  - Wlan-Internet
+  - Mobiles Internet
+  - Roaming-Internet
+  - VPN
+  - Hotspot
+  - TOR
+
+{{:en:phone:apps:screenshot_20220219-154627_afwall_.png?direct&200|}}
+
+===== Anmerkungen =====
+
+Jedes Mal, wenn du eine neue Anwendung installiert, sendet AFWall dir eine Benachrichtigung zur Konfiguration der neuen Anwendung.
+
+Beachte bei jeder neuen Anwendung, die installiert wird, ob sie einen Internetzugang erfordert oder nicht.
+
+Man kann auch einige [[https://github.com/ukanth/afwall/wiki/CustomScripts|benutzerdefinierte Skripte]] und mehr hinzufügen. Schau dazu einfach mal bei [[https://github.com/ukanth/afwall/wiki|AFWalls wiki]].
