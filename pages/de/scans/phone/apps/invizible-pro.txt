@@ -1,0 +1,14 @@
+====== InviZible Pro ======
+
+Schütze dein Gerät vor gefährlichen Seiten, werde lästige Werbung und Tracking los, erhalte Zugang zu gesperrten Ressourcen in deinem Land!
+
+InviZible Pro enthält die bekannten Module DNSCrypt, Tor und Purple I2P. Diese Module werden verwendet, um ein Maximum an Sicherheit, Privatsphäre und Benutzerfreundlichkeit des Internets zu erreichen.
+
+InviZible Pro kann Root verwenden, wenn dein Gerät über Root-Rechte verfügt, oder verwendet ein lokales VPN, um den Internetverkehr an Tor-, DNSCrypt- und I2P-Netzwerke zu übergeben
+
+
+===== Download und Installation der APK =====
+
+Installiere InviZible Pro via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/pan.alexander.tordnscrypt.stable/.
+
+<alert type="info" icon="fa fa-info-circle">Unser dnscrypt-Server ist auch Teil der offiziellen Listen für [[https://dnscrypt.info/public-servers/|DNSCrypt & DOH Server]] & [[https://download.dnscrypt.info/dnscrypt-resolvers/v3/relays.md|Anonymisierte DNS- Relais]]. Du kannst die dnscrypt-Konfigurationsdatei in der App manuell ändern, wenn du dich mit einem bestimmten Server wie dem unseren verbinden möchten. Prüfe unsere dnscrypt-Installation für den [[/de/server/services/dnscrypt#config_file|Server]].</alert>
