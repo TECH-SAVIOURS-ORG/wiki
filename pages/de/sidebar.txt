@@ -49,7 +49,7 @@
     * [[:de:backup:phone|Phone]]
     * [[:de:backup:desktop|Desktop]]
   * [[:de:extras|Extras]]
-  * [[:de:vulnerability_scans|Vulnerability Scans]]
+  * [[de:scans|Vulnerability Scans]]
     * [[:de:vulnerability_scans:log4shell|Log4shell]]
   * [[:de:faq|FAQ]]
 
