@@ -11,18 +11,30 @@ Es umfasst:
   * LVM on LUKS
   * NetworkManager
   * zram
-  * doas
-  * nftables
+  * doas/sudo
 
 **Desktop**
 
   * Xorg
   * KDE / Plasma
-  * SDDM
+  * SDDM/xinit
 
 ===== ISO herunterladen =====
 
 [[https://www.archlinux.org/download/]]
+
+==== Überprüfung des ISO-Images ====
+
+Überprüfe die beiden Dateien in demselben Ordner mit den folgenden Befehl(en):
+
+  * für Arch-Anwender
+    * ''pacman-key -v archlinux-<version>-x86_64.iso.sig''
+  * andere GnuPGP-Systeme
+    * ''gpg %%--%%keyserver pgp.mit.edu %%--%%keyserver-options auto-key-retrieve %%--%%verify archlinux-<version>-x86_64.iso.sig''
+  * und überprüfe die md5sum mit folgendem Befehl
+    * ''md5sum archlinux-<version>-x86_64.iso''
+
+<alert type="info" icon="fa fa-info-circle">Eine weitere Methode zur Überprüfung der Authentizität der Signatur besteht darin, sicherzustellen, dass der Fingerabdruck des öffentlichen Schlüssels mit dem Fingerabdruck des [[https://www.archlinux.org/people/developers/|Arch Linux-Entwicklers]] identisch ist, der die ISO-Datei signiert hat. Weitere Informationen über das Public-Key-Verfahren zur Authentifizierung von Schlüsseln findest du unter [[https://en.wikipedia.org/wiki/Public-key_cryptography|Wikipedia:Public-key_cryptography]].</alert>
 
 ===== Erste Schritte =====
 
@@ -141,8 +153,10 @@ mount /dev/vg1/home /mnt/home
 ===== Installiere die Basispakete =====
 
 <code>
-pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh iptables-nft
+pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh
 </code>
+
+<alert type="info" icon="fa fa-info-circle">Wenn du Probleme hast, z.B. wenn du ein älteres ISO verwendest, führe zuerst ''%%pacman -Sy archlinux-keyring && pacman-key --init && pacman-key --populate archlinux%%'' aus.</alert>
 
 ===== Konfigurierung des Systems =====
 
@@ -279,10 +293,20 @@ pacman -Rsn opendoas
 pacman -S sudo
 </code>
 
+Aktiviere ''wheel'' für deinen sudo-user.
+
+<code>
+visudo
+</code>
+<code>
+%wheel ALL=(ALL:ALL) ALL
+</code>
+
 oder
 <code>
 echo "alias sudo='doas'
 alias sudoedit='doas rnano'" >> ~/.bashrc
+ln -s $(which doas) /usr/bin/sudo
 </code>
 
 ==== Benutzer hinzufügen ====
@@ -350,6 +374,13 @@ exit
 <code>
 umount -R /mnt
 reboot
+</code>
+
+=== (Optional) Verbinde dich mit Wifi, wenn nötig  ===
+
+<code>
+nmcli d wifi list
+nmcli dev wifi connect SSID password 'password'
 </code>
 
 <alert type="info">Herzlichen Glückwunsch 🍻 Der Serverteil ist erledigt! Fahre mit [[de:desktop:environments:kde|KDE]] fort, wenn du eine Desktop-Umgebung installieren möchtest. Erstelle außerdem ein [[de:backup:server|Backup]].</alert>
