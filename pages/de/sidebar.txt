@@ -49,8 +49,8 @@
     * [[:de:backup:phone|Phone]]
     * [[:de:backup:desktop|Desktop]]
   * [[:de:extras|Extras]]
-  * [[de:scans|Vulnerability Scans]]
-    * [[:de:vulnerability_scans:log4shell|Log4shell]]
+  * [[de:scans|Scans]]
+    * [[:de:scans:log4shell|Log4shell]]
   * [[:de:faq|FAQ]]
 
 === Mitwirken ===
