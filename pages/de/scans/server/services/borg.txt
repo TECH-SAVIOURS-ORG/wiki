@@ -1,0 +1,134 @@
+====== Borg ======
+
+Deduplizierendes Archivierungsprogramm mit Kompression und Verschlüsselung. BorgBackup (kurz: Borg) bietet:
+
+  * Platzsparende Speicherung von Backups
+  * Sichere, authentifizierte Verschlüsselung
+  * Komprimierung: LZ4, zlib, LZMA, zstd (seit borg 1.1.4)
+  * Einbindbare Sicherungen mit FUSE
+  * Einfache Installation auf mehreren Plattformen: Linux, macOS, BSD...
+  * Freie Software (BSD-Lizenz)
+  * Unterstützt von einer großen und aktiven Open-Source-Gemeinschaft
+
+
+===== Pakete =====
+
+<code>
+pacman -S borg python-llfuse
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Das ''borg'' Paket muss auf dem Backup-Server und dem Client installiert sein. ''python-llfuse'' dient zum Einbinden eines Backups.</alert>
+<alert type="danger" icon="fa fa-warning">Both [[https://github.com/python-llfuse/python-llfuse/#the-python-llfuse-module=|llfuse]] als auch [[https://github.com/libfuse/pyfuse3|pyfuse3]] werden nicht mehr gepflegt - Stand 29.05.2022.</alert>
+
+===== Backup =====
+
+Wenn du dies einfach nur erledigen willst, gehe zu unserem [[de:backup:server#borg|Backup-Bereich]], der das borg script enthält.
+
+Unten findest du einige Kommandobeispiele/Informationen.
+
+==== Repo erstellen ====
+
+<code>
+borg init --encryption=keyfile-blake2 --make-parent-dirs borg/
+</code>
+
+==== Backup mit Verschlüsselung erstellen ====
+
+<code>
+borg create --stats --list --progress --verbose --filter AMEhsx --show-version --show-rc --exclude-caches --compression zstd,11 borg/::'{hostname}-{now}' .config/ --comment first_backup
+</code>
+
+==== Verschiedene Verschlüsselungsmethoden ====
+
+=== Schlüssel im Repository, Repokey-Verschlüsselung, BLAKE2b (oft schneller, seit Borg 1.1) ===
+
+Der Schlüssel wird in Ihrem Backup-Repository abgelegt.
+
+<code>
+borg init --encryption=repokey-blake2 /path/to/repo
+</code>
+
+=== Lokales Repository (keine Verschlüsselung) ===
+
+<code>
+borg init --encryption=none /path/to/repo
+</code>
+
+=== Schlüsseldatei ===
+
+Der Schlüssel wird unter home dir gespeichert - ''~/.config/borg/keys/''.
+
+<code>
+borg init --encryption=keyfile user@hostname:backup
+</code>
+
+==== Remote / SSH mit Speicherplatzkontingent ====
+
+<code>
+borg init --encryption=keyfile-blake2 --storage-quota (e.g. 5G, 1.5T) --make-parent-dirs ssh://username@remote.host.address:$port/~/borg
+</code>
+
+==== Liste / Einhängen / Aushängen von Backups ====
+
+<code>
+borg list /path
+</code>
+
+<code>
+mkdir /path/mount/
+borg mount .::Tuesday /path/mount/
+</code>
+
+<code>
+borg mount repo/ /path/mount/
+</code>
+
+<code>
+borg umount .::Tuesday /path/mount/
+borg umount repo/ /path/mount/
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Der Pfad muss für borg beschreibbar sein! Ein im Home-Ordner erstellter Pfad bedeutet, dass der Mount-Ordner für den Home-Benutzer beschreibbar sein muss.</alert>
+
+==== Unterschied zwischen zwei Backups ====
+
+<code>
+borg diff repo/::archive-2022-02-14T23:18:18 archive-2022-02-14T23:26:10
+</code>
+
+==== Delete ====
+
+Wenn du ein Backup endgültig löschen willst, führe den Befehl ohne ''%%--%%dry-run'' aus.
+
+<code>
+borg delete --dry-run --stats repo/
+borg delete --dry-run --stats repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Info ====
+
+<code>
+borg info repo/
+borg info repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Wiederherstellung/Extrahierung ====
+
+Wenn du wiederherstellen willst, führe den Befehl ohne ''--dry-run'' aus.
+
+<code>
+borg extract --dry-run repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Daten prüfen/verifizieren ====
+
+<code>
+borg check repo/
+borg check repo/::archive-2022-02-14T23:26:10
+borg check --verify-data repo/
+borg check --verify-data repo/::archive-2022-02-14T23:26:10
+</code>
+
+==== Borg Webseite ====
+
+Weitere Informationen sind auch auf der Website von [[https://borgbackup.readthedocs.io/en/stable/usage/general.html|borg]] selbst zu finden. 
