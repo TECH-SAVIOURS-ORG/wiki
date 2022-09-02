@@ -1,1 +1,1 @@
-<catlist de:vulnerability_scans: -sortAscending>
+<catlist de:scans: -sortAscending>
