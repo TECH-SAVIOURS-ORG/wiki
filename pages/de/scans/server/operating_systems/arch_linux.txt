@@ -1,0 +1,386 @@
+====== Arch Linux ======
+
+Der Guide ist sowohl für Server als auch für Desktop geeignet.
+
+Es umfasst:
+
+**Server & Desktop**
+
+  * UEFI
+  * systemd-boot
+  * LVM on LUKS
+  * NetworkManager
+  * zram
+  * doas/sudo
+
+**Desktop**
+
+  * Xorg
+  * KDE / Plasma
+  * SDDM/xinit
+
+===== ISO herunterladen =====
+
+[[https://www.archlinux.org/download/]]
+
+==== Überprüfung des ISO-Images ====
+
+Überprüfe die beiden Dateien in demselben Ordner mit den folgenden Befehl(en):
+
+  * für Arch-Anwender
+    * ''pacman-key -v archlinux-<version>-x86_64.iso.sig''
+  * andere GnuPGP-Systeme
+    * ''gpg %%--%%keyserver pgp.mit.edu %%--%%keyserver-options auto-key-retrieve %%--%%verify archlinux-<version>-x86_64.iso.sig''
+  * und überprüfe die md5sum mit folgendem Befehl
+    * ''md5sum archlinux-<version>-x86_64.iso''
+
+<alert type="info" icon="fa fa-info-circle">Eine weitere Methode zur Überprüfung der Authentizität der Signatur besteht darin, sicherzustellen, dass der Fingerabdruck des öffentlichen Schlüssels mit dem Fingerabdruck des [[https://www.archlinux.org/people/developers/|Arch Linux-Entwicklers]] identisch ist, der die ISO-Datei signiert hat. Weitere Informationen über das Public-Key-Verfahren zur Authentifizierung von Schlüsseln findest du unter [[https://en.wikipedia.org/wiki/Public-key_cryptography|Wikipedia:Public-key_cryptography]].</alert>
+
+===== Erste Schritte =====
+
+Wenn du eine deutsche Tastatur verwendest:  
+
+<code>
+ls /usr/share/kbd/keymaps/**/*.map.gz
+loadkeys de
+</code>
+
+Prüfe, ob das System unter UEFI läuft::  
+
+<code>
+ls /sys/firmware/efi/efivars
+</code>
+
+Bei Bedarf mit WLAN verbinden
+
+<code>
+iwctl
+device list
+station DEVICE_NAME scan
+station DEVICE_NAME get-networks
+station DEVICE_NAME connect SSID
+</code>
+
+NTP aktivieren und Zeitzone einstellen  
+
+<code>
+timedatectl set-ntp true
+timedatectl set-timezone Europe/Berlin
+</code>
+
+Verbindung testen  
+
+<code>
+ping techsaviours.org -c 1
+</code>
+
+===== Festplatte/n formatieren und Partitionen erstellen =====
+
+Formatiere deine Festplatte/n und erstelle eine GPT-Tabelle.  
+
+<code>
+cfdisk /dev/sd*
+</code>
+
+Typische Partitionen sehen wie folgt aus:
+^ Partitionen                  ^ Speicher  | Art                         |
+| /dev/sda1 (boot)             | 512M      | EFI System                   |
+| /dev/sda2 (root)             | xG        | Linux Filesystem (ext4,...)  |
+| /dev/sdb1 (home) (optional)  | xG        | Linux Filesystem (ext4,...)  |
+
+<alert type="info" icon="fa fa-info-circle">Optional kann die Home-Partition - ''/dev/sdb1'' - verwendet werden, wenn du eine andere Festplatte verwenden möchtest.</alert>
+
+===== LVM on LUKS =====
+
+==== Erstelle LUKS ====
+
+**root**
+<code>
+cryptsetup luksFormat --type luks2 --cipher aes-xts-plain64 --key-size 512 /dev/sda2
+cryptsetup open /dev/sda2 root
+</code>
+
+**home**
+(Optional) Zweite Festplatte (/dev/sdb1)
+
+<code>
+cryptsetup luksFormat --type luks2 --cipher aes-xts-plain64 --key-size 512 /dev/sdb1
+cryptsetup open /dev/sdb1 home
+</code>
+
+==== Erstelle LVM ====
+
+=== Vorbereitung der Physical Volumes, Volume Groups und Logical Volumes ===
+
+**root**
+<code>
+pvcreate /dev/mapper/root
+vgcreate vg0 /dev/mapper/root
+lvcreate -l 100%FREE vg0 -n root
+</code>
+
+**home** (optional)
+
+<code>
+pvcreate /dev/mapper/home
+vgcreate vg1 /dev/mapper/home
+lvcreate -l 100%FREE vg1 -n home
+</code>
+
+=== Dateisysteme formatieren und mounten ===
+
+**root**
+<code>
+mkfs.ext4 /dev/vg0/root
+mount /dev/vg0/root /mnt
+</code>
+
+**boot**
+<code>
+mkfs.fat -F32 /dev/sda1
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+</code>
+
+**home** (optional)
+
+<code>
+mkfs.ext4 /dev/vg1/home
+mkdir /mnt/home
+mount /dev/vg1/home /mnt/home
+</code>
+
+===== Installiere die Basispakete =====
+
+<code>
+pacstrap /mnt base base-devel linux-hardened linux-hardened-docs linux-hardened-headers linux-firmware nano networkmanager lvm2 opendoas openssh
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Wenn du Probleme hast, z.B. wenn du ein älteres ISO verwendest, führe zuerst ''%%pacman -Sy archlinux-keyring && pacman-key --init && pacman-key --populate archlinux%%'' aus.</alert>
+
+===== Konfigurierung des Systems =====
+
+<code>
+genfstab -U /mnt > /mnt/etc/fstab
+arch-chroot /mnt
+</code>
+
+==== Timezone ====
+
+<code>
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc
+</code>
+
+Unkommentiere deinen Standort. Zum Beispiel: //de_DE.UTF-8 UTF-8//
+
+<code>
+nano /etc/locale.gen
+</code>
+
+<code>
+echo "LANG=de_DE.UTF-8
+LC_ADDRESS=de_DE.UTF-8
+LC_IDENTIFICATION=de_DE.UTF-8
+LC_MEASUREMENT=de_DE.UTF-8
+LC_MONETARY=de_DE.UTF-8
+LC_NAME=de_DE.UTF-8
+LC_NUMERIC=de_DE.UTF-8
+LC_PAPER=de_DE.UTF-8
+LC_TELEPHONE=de_DE.UTF-8
+LC_TIME=de_DE.UTF-8
+LC_ALL=de_DE.UTF-8" >> /etc/locale.conf
+</code>
+
+<code>
+locale-gen
+</code>
+
+====  Tastaturlayout ====
+
+<code>
+ls /usr/share/kbd/keymaps/**/*.map.gz
+nano /etc/vconsole.conf
+</code>
+<code>
+KEYMAP=YOUR_KEYBOARD
+</code>
+
+==== Hostname ====
+
+<code>
+echo "arch" > /etc/hostname
+</code>
+
+
+==== Host-Datei ====
+
+<code>
+echo "127.0.0.1 localhost
+::1 localhost
+127.0.1.1 arch.localdomain arch" >> /etc/hosts
+</code>
+
+==== root passwort ====
+<code>
+passwd
+</code>
+
+==== Eine initiale Ramdisk erstellen ====
+
+<code>
+nano /etc/mkinitcpio.conf
+</code>
+
+<code>
+HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems fsck)
+</code>
+
+<code>
+mkinitcpio -P
+</code>
+
+==== Bootloader ====
+
+<code>
+bootctl install
+</code>
+
+<code>
+echo "title Arch Linux
+linux /vmlinuz-linux-hardened
+initrd /initramfs-linux-hardened.img
+options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2):root root=/dev/vg0/root rw" >> /boot/loader/entries/arch.conf
+</code>
+
+<code>
+echo "title Arch Linux (fallback initramfs)
+linux /vmlinuz-linux-hardened
+initrd  /initramfs-linux-hardened-fallback.img
+options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2)=root root=/dev/vg0/root rw" >> /boot/loader/entries/arch-fallback.conf
+</code>
+
+==== Microcode ====
+
+Abhängig von deiner CPU - __//AMD//__ oder __//Intel//__ - wähle einer der folgenden Befehle aus:
+
+<code>
+pacman -S intel-ucode
+</code>
+<code>
+pacman -S amd-ucode
+</code>
+
+und füge ''initrd /**intel**-ucode.img'' oder ''initrd /**amd**-ucode.img'' über ''initrd /initramfs-linux-hardened.img'', ''initrd /initramfs-linux-hardened-**fallback**.img'' in ''/boot/loader/entries/arch.conf'' und ''/boot/loader/entries/arch-**fallback**.conf'' hinzu.
+
+==== doas ====
+
+Erlaubt Mitgliedern der Gruppe ''wheel'', Befehle auszuführen:
+
+<code>
+echo "permit persist :wheel" >> /etc/doas.conf
+chown -c root:root /etc/doas.conf
+chmod -c 0400 /etc/doas.conf
+</code>
+
+<alert type="danger" icon="fa fa-warning">Das ''persist''-Feature ist standardmäßig deaktiviert [....] Dieses Feature ist neu und potentiell gefährlich, im Original-Doas wird eine Kernel-API zum Setzen und Löschen von Timeouts verwendet. Diese API ist openbsd-spezifisch und es gibt keine ähnliche API auf anderen Betriebssystemen.
+ </alert>
+
+=== Sudo Benutzer? ===
+
+<code>
+pacman -Rsn opendoas
+pacman -S sudo
+</code>
+
+Aktiviere ''wheel'' für deinen sudo-user.
+
+<code>
+visudo
+</code>
+<code>
+%wheel ALL=(ALL:ALL) ALL
+</code>
+
+oder
+<code>
+echo "alias sudo='doas'
+alias sudoedit='doas rnano'" >> ~/.bashrc
+ln -s $(which doas) /usr/bin/sudo
+</code>
+
+==== Benutzer hinzufügen ====
+
+Ändere ''USER'' mit deinen Namen.
+
+<code>
+useradd -m -G wheel -s /bin/bash USER
+passwd USER
+</code>
+
+==== zram ====
+
+
+=== Module ===
+
+<code>
+echo "zram" >> /etc/modules-load.d/zram.conf
+</code>
+
+=== Modprobe ===
+
+<code>
+echo "options zram num_devices=1" >> /etc/modprobe.d/zram.conf
+</code>
+
+=== Udev ===
+
+<code>
+echo 'KERNEL=="zram0", ATTR{disksize}="4GB" RUN="/usr/bin/mkswap /dev/zram0", TAG+="systemd"' >> /etc/udev/rules.d/99-zram.rules
+</code>
+
+=== Fstab ===
+
+<code>
+echo "# swap
+/dev/zram0 none swap defaults 0 0
+" >> /etc/fstab
+</code>
+
+==== Services aktivieren ====
+
+<code>
+systemctl enable --now NetworkManager.service
+systemctl enable --now sshd.service
+</code>
+
+==== (Optional) Schlüssel für die Home-Partition hinzufügen ====
+
+Wenn du dich entschieden hast, eine zusätzliche Partition oder ein zusätzliches Laufwerk zu verwenden, kannst du auch einen Schlüssel verwenden, anstatt die Passphrase immer wieder einzugeben. Auf diese Weise muss nur noch für root die Passphrase eingeben.
+
+<code>
+mkdir /etc/luks-keys/
+dd bs=512 count=4 if=/dev/urandom of=/etc/luks-keys/home.bin
+chmod -cR 0400 /etc/luks-keys/
+cryptsetup luksAddKey /dev/sdb1 /etc/luks-keys/home.bin
+echo "home           /dev/sdb1                                    /etc/luks-keys/home.bin" >> /etc/crypttab
+</code>
+
+==== Reboot ====
+
+<code>
+exit
+</code>
+<code>
+umount -R /mnt
+reboot
+</code>
+
+=== (Optional) Verbinde dich mit Wifi, wenn nötig  ===
+
+<code>
+nmcli d wifi list
+nmcli dev wifi connect SSID password 'password'
+</code>
+
+<alert type="info">Herzlichen Glückwunsch 🍻 Der Serverteil ist erledigt! Fahre mit [[de:desktop:environments:kde|KDE]] fort, wenn du eine Desktop-Umgebung installieren möchtest. Erstelle außerdem ein [[de:backup:server|Backup]].</alert>
