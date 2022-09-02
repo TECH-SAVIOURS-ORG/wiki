@@ -99,7 +99,7 @@ Ein paar Beispiele, wie du mehr Privatsphäre und andere hilfreiche Erweiterunge
   * [[https://addons.mozilla.org/de/firefox/addon/amp2html/|Redirect AMP to HTML]] (Leitet AMP-Seiten automatisch auf die reguläre Webseitenvariante um.)
 
 
-===== TOR- Browser =====
+===== TOR - Browser =====
  
 Schütze dich vor Tracking, Überwachung und Zensur.
 
