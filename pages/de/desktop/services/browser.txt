@@ -15,8 +15,6 @@ pacman -S firefox
 
 ==== user.js ====
 
-user.js Tutorial basierend auf https://blackgnu.net/firefox-hardening-guide.html. **Vielen Dank** dafür!
-
   - Firefox starten
   - Erstelle ein neues Profil namens hardened in ''about:profiles''
     - Setze es als Standard
@@ -131,3 +129,10 @@ Unter https://blackgnu.net/palemoon-hardening.html findet man einen Datenschutz-
 <code>
 pikaur -S palemoon-bin
 </code>
+
+===== Browser leak test =====
+
+  * https://arkenfox.github.io/TZP/tzp.html
+  * https://browserleaks.com/
+  * https://coveryourtracks.eff.org/
+  * https://amiunique.org
