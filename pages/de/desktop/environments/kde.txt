@@ -12,6 +12,41 @@ Das war's eigentlich schon.
 
 Schaue dir die gesamte [[https://archlinux.org/groups/x86_64/kde-applications/|KDE-Software]] liste und die vorgeschlagenen Pakete unten an und installiere, was dir gefällt. 
 
+<alert type="danger" icon="fa fa-exclamation-triangle">Die Verwendung von xorg (SDDM aktivieren) als root kann ein Sicherheitsrisiko darstellen! Du kannst stattdessen xinit verwenden.</alert>
+
+===== xinit =====
+
+Der //Nachteil// dieser Methode ist, dass du dich über das Terminal anmelden musst. 
+
+Installiere also ''plasma'' und ''xorg'' wie oben beschrieben und überspringe die ''Aktivierung von sddm'' und mache stattdessen folgendes: 
+
+<code>
+pacman -S xorg-xinit
+</code>
+<code>
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+</code>
+<code>
+nano ~/.xinitrc
+</code>
+Comment out:
+<code>
+# twm &
+# xclock -geometry 50x50-1+1 &
+# xterm -geometry 80x50+494+51 &
+# xterm -geometry 80x20+494-0 &
+# exec xterm -geometry 80x66+0+0 -name login
+</code>
+
+<code>
+echo "export DESKTOP_SESSION=plasma
+exec startplasma-x11" >> ~/.xinitrc
+</code>
+<code>
+echo "if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi" >> ~/.bash_profile
+</code>
 
 ====== Empfohlene Software ======
 
