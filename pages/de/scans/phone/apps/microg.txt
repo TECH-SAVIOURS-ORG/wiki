@@ -1,0 +1,24 @@
+====== microG ======
+
+Das linuxbasierte Open-Source-Mobilbetriebssystem Android ist nicht nur das beliebteste Mobilbetriebssystem der Welt, sondern auch auf dem Weg, ein proprietäres Betriebssystem zu werden. Wie kommt das?
+
+Während das Kern-Betriebssystem immer noch als Teil des Android Open Source Projekt veröffentlicht wird, ist dies bei der Mehrzahl der Kernanwendungen nicht der Fall. Und es kommt noch schlimmer: Immer mehr Bibliotheken und APIs sind nur auf Telefonen verfügbar, auf denen verschiedene Google-Apps vorinstalliert sind, wodurch Apps von Drittanbietern effektiv an das Google-Ökosystem gebunden sind. Aus diesen Gründen wird Android als eine Art offenes System beschrieben, das man nur anschauen, aber nicht anfassen kann.
+
+Zum jetzigen Zeitpunkt erfordern mehrere beliebte Open-Source-Anwendungen bereits die Installation einiger proprietärer Google-Bibliotheken. Die steigende Nachfrage in der Gemeinschaft der freien Software sowie schwerwiegende Probleme in der proprietären Software von Google, die von der Android-Modding-Community entdeckt wurden, haben zur Entwicklung eines freien Software-Klons der proprietären Kernbibliotheken und Anwendungen von Google geführt - das microG-Projekt war geboren.
+
+Obwohl die meisten microG-Komponenten noch lange nicht vollständig sind, sind die Nutzer von den Ergebnissen begeistert. Nutzer freier Software haben eine erweiterte Anwendungsunterstützung erhalten, datenschutzbewusste Nutzer können die an Google gesendeten Daten reduzieren oder überwachen und vor allem ältere Telefone können mit einer verbesserten Akkulaufzeit rechnen. microG wird nicht nur auf realen Geräten eingesetzt, sondern ersetzt auch Google-Tools in Testemulatoren und wird sogar in virtuellen mobilen Infrastrukturen verwendet.
+
+===== Downloade und installiere die APKs =====
+
+Der einfachste Weg ist, ein neues Repository zu [[de:phone:apps:f-droid|F-Droid]] hinzuzufügen. Kopieren Sie einfach [[https://microg.org/fdroid/repo?fingerprint=9BD06727E62796C0130EB6DAB39B73157451582CBD138E86C468ACC395D14165|microg repo link]] und erstellen Sie ein neues Repository unter Einstellungen.
+
+Installieren:
+  - microG Service Core
+  - microG Services Framework Proxy
+  - FakeStore
+
+Und zuletzt [[https://f-droid.org/en/packages/com.thermatk.android.xf.fakegapps/|FakeGapps]] falls dein ROM kein **[[https://github.com/microg/GmsCore/wiki/Signature-Spoofing|Signature-Spoofing]]** enthält. Aktiviere es in [[de:phone:apps:lsposed|LSPosed]] und jeder microg-bezogenen App + System Framework. Öffne die microg-App und gehe die **Berechtigungen** durch.
+
+Starte das Gerät neu.
+
+<alert type="warning" icon="fa fa-warning">FakeGapps von F-Droid funktioniert nicht auf **Android 11**. Verwende stattdessen die [[https://github.com/whew-inc/FakeGApps/releases/tag/3.0|modifizierte APK]].</alert>
