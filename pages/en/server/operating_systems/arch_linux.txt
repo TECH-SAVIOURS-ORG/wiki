@@ -35,6 +35,7 @@ Check the two files in the same folder with the following command(s):
     * ''md5sum archlinux-<version>-x86_64.iso''
 
 <alert type="info" icon="fa fa-info-circle">Another method to verify the authenticity of the signature is to ensure that the public key's fingerprint is identical to the key fingerprint of the [[https://www.archlinux.org/people/developers/|Arch Linux developer]] who signed the ISO-file. See [[https://en.wikipedia.org/wiki/Public-key_cryptography|Wikipedia:Public-key_cryptography]] for more information on the public-key process to authenticate keys.</alert>
+
 ===== Inital setup =====
 
 If using a US keyboard:  
