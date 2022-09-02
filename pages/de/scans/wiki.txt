@@ -1,0 +1,9 @@
+<alert type="success" icon="fa fa-info-circle">**BorgBackup** __Tutorial/Guide__ ist fertig 🍻 [[de/server/services/borg|Borg]]</alert>
+
+====== Willkommen bei TECH SAVIOURS Wiki ======
+Wir möchten dir hier die Möglichkeit geben, deine digitale Datenschutzziele als DIY-Lösung zu realisieren. Wir decken die wichtigsten Geräte ab, die wir jeden Tag benutzen.
+
+Folge einfach den Tutorials, um deine digitale Privatsphäre in den Griff zu bekommen und nur das zu teilen, was du wirklich teilen willst.
+
+====== Contributing ======
+Wenn du daran interessiert bist, weitere Geräte hinzuzufügen oder einige Verbesserungen vorzunehmen, sieh dir unsere [[de:wiki:wikirules|wiki rules]] an.
