@@ -1,0 +1,14 @@
+====== Shelter ======
+
+Shelter ist eine freie und quelloffene (FOSS) App, die die "Work Profile"-Funktion von Android nutzt, um einen isolierten Bereich bereitzustellen, in dem man Apps installieren oder klonen kann.
+
+Shelter kommt mit absolut keiner Werbung / Statistiken / Tracking SDKs. Der gesamte Quellcode ist in diesem öffentlichen Git-Repository verfügbar und die Quellen sind unter WTFPL lizenziert.
+
+Diese App ist abhängig von der Implementierung von Work Profile in deinem Android-System. Einige Hersteller / Custom ROMs können eine fehlerhafte Implementierung haben, die Abstürze und sogar Bricking deines Geräts verursachen können. Ein solches Beispiel ist MIUI von Xiaomi. Ich biete derzeit keine Unterstützung für solche ROMs, da ich persönlich keines dieser Geräte besitze. Wenn du Shelter auf diesen ROMs laufen lässt, bist du auf dich allein gestellt. Wenn irgendein Entwickler da draußen diese Geräte besitzt und Shelter auf diesen ROMs zum Laufen bringen konnte, schickt bitte Pull Requests und ich werde sie gerne zusammenführen.
+
+
+===== Download und Installation der APK =====
+
+Installiere Shelter via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/net.typeblog.shelter/.
+
+Wähle deine App und klicke **Clone to Shelter**.
