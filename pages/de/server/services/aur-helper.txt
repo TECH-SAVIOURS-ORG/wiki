@@ -8,7 +8,7 @@ AUR- Hilfsprogramm mit minimalen Abhängigkeiten. Überprüfe PKGBUILDs alle auf
 
 Inspiriert durch ''pacaur'', ''yaourt'' und ''yay''.
 
-Anstatt zu versuchen, schlauer als pacman zu sein (durch Verwendung von ''--nodeps'', ''--force'', ''--ask'', ''--noconfirm'' usw.) sagt es pacman einfach interaktiv, was es tun soll. Wenn pacman eine unerwartete Frage stellt, kann der Benutzer sie einfach manuell beantworten.
+Anstatt zu versuchen, schlauer als pacman zu sein (durch Verwendung von ''%%--nodeps%%'', ''%%--force%%'', ''%%--ask%%'', ''--noconfirm'' usw.) sagt es pacman einfach interaktiv, was es tun soll. Wenn pacman eine unerwartete Frage stellt, kann der Benutzer sie einfach manuell beantworten.
 
 ==== Pakete ====
 
