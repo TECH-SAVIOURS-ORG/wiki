@@ -1,0 +1,138 @@
+====== Browser ======
+
+
+===== Firefox (Vanilla) =====
+
+Reiner Firefox.
+
+Siehe auch https://wiki.archlinux.org/title/Firefox/Privacy und https://wiki.archlinux.org/title/Firefox/Tweaks.
+
+==== Pakete ====
+
+<code>
+pacman -S firefox
+</code>
+
+==== user.js ====
+
+  - Firefox starten
+  - Erstelle ein neues Profil namens hardened in ''about:profiles''
+    - Setze es als Standard
+    - Schließe Firefox
+  - Gehe zu ''~/.mozilla/firefox/'' und suche nach ''xxxxxxxx.hardened''
+    - Kopiere den vollständigen Namen
+    - Lösche den Ordner.
+  - Downloade die neuste Version von arkenfoxs user.js unter https://github.com/arkenfox/user.js/releases herunter
+    - Extrahiere sie
+    - Bennene sie in den kopierten Namen ''xxxxxxxx.hardened'' um
+    - Verschiebe den extrahieren Ordner nach ''~/.mozilla/firefox/''.
+  - Starte Firefox
+
+Du kannst auch deine eigene user.js- Datei unter https://ffprofile.com/ erstellen.
+
+=== Überschreiben von user.js ===
+
+Das folgende Beispiel basiert darauf, dass die Sitzungswiederherstellung aktiviert ist. Wenn du Tabs angeheftet hast oder an etwas arbeitest, kann dies sehr hilfreich sein. Jedes Mal, wenn der Browser geschlossen und wieder gestartet wird, ist er so, wie er verlassen wurde.
+
+Wenn du Searx auf deinem eigenen [[de:wiki:desktop:services:searx|Computer]]/[[de:server:services:searx|Server]] verwendest, kannst du auch Schlüsselwörter für die URL-Leiste aktivieren, um nach etwas zu suchen, anstatt die Suchleiste zu verwenden. Das spart Platz.
+
+  - Schließe Firefox
+  - Erstelle eine Datei ''user-overrides.js'' in ''~/.mozilla/firefox/xxxxxxxx.hardened/'' mit folgenden Inhalt:
+
+<code>
+// Enable session restore
+user_pref("browser.startup.page", 3);
+user_pref("browser.sessionstore.privacy_level", 0);
+user_pref("privacy.clearOnShutdown.history", false);
+user_pref("privacy.cpd.history", false);
+
+// Enable search in url bar
+user_pref("keyword.enabled", true);
+</code>
+
+Überprüfe auch [[https://github.com/arkenfox/user.js/wiki/3.2-Overrides-[Common]|Overrides [Common]]].
+
+Folge dem [[de:wiki:desktop:services:browser#updates_von_firefoxarkenfox_und_aenderungen_in_der_datei_user-overridesjs|nächsten Schritt]].
+
+
+==== Updates von Firefox/arkenfox und Änderungen in der Datei user-overrides.js ====
+
+  - Schließe Firefox
+  - Gehe zu ''~/.mozilla/firefox/xxxxxxxx.hardened/''
+    - Falls noch nicht geschehen:
+      - ''chmod +x prefsCleaner.sh updater.sh''
+  - Führe folgendes aus
+    - ''./prefsCleaner.sh''
+    - ''./updater.sh''
+  - Starte Firefox
+
+
+===== Librewolf =====
+ 
+LibreWolf wurde entwickelt, um den Schutz vor Tracking- und Fingerprinting-Techniken zu erhöhen und gleichzeitig einige Sicherheitsverbesserungen einzubauen. Dies wird durch unsere datenschutz- und sicherheitsorientierten Einstellungen und Patches erreicht. LibreWolf zielt auch darauf ab, alle Telemetrie, Datenerfassung und Belästigungen zu entfernen, sowie Anti-Freiheits-Funktionen wie DRM zu deaktivieren.
+
+Es ist eine benutzerfreundlichere Lösung als die Verwendung von user.js.
+
+==== Pakete ====
+
+<code>
+pikaur -S librewolf-bin
+</code>
+
+===== Add-ons für Firefox, Librewolf & Iceraven (Android) =====
+
+Ein paar Beispiele, wie du mehr Privatsphäre und andere hilfreiche Erweiterungen erreichen kannst
+
+  * [[https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search|CanvasBlocker]] (Ändert einige JS-APIs, um Fingerabdrücke zu verhindern.)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/clearurls/|ClearURLs]] (Entfernt Tracking-Elemente aus URLs.)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/custom-new-tab-page/|Custom New Tab Page]] (Lege eine benutzerdefinierte URL fest, die beim Öffnen einer neuen Registerkarte angezeigt werden soll, ohne den Inhalt der Adressleiste zu ändern) - hilfreich bei der Verwendung von Homer, Frame oder ähnlichem
+  * [[https://addons.mozilla.org/en-US/firefox/addon/darkreader/|Dark Reader]] (Dunkler Modus für jede Website. Schont die Augen, verwende das dunkle Thema für die Nacht und das tägliche Surfen)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/floccus/|floccus]] bookmarks sync (Synchronisiere deine Lesezeichen privat über Browser und Geräte hinweg) - mit nextcloud oder webdav
+  * [[https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/|KeePassXC-Browser]] (KeePassXC-Integration für moderne Webbrowser)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/localcdn-fork-of-decentraleyes/|LocalCDN]] (Schützt dich vor Tracking durch CDNs (Content Delivery Networks) durch Umleitung auf lokale Ressourcen)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/|Privacy Redirect]] (Leitet Twitter, YouTube, Instagram und mehr auf datenschutzfreundliche Alternativen um.)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/switchyomega/|Proxy SwitchyOmega]] (Verwalte und wechsel schnell und einfach zwischen mehreren Proxys.)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/|uBlock Origin]] (Endlich ein effizienter Blocker, der CPU und Speicher schont)
+  * [[https://addons.mozilla.org/en-US/firefox/addon/noscript/|NoScript Security Suite]] (Deaktiviert Javascript.)
+  * [[https://addons.mozilla.org/de/firefox/addon/amp2html/|Redirect AMP to HTML]] (Leitet AMP-Seiten automatisch auf die reguläre Webseitenvariante um.)
+
+
+===== TOR - Browser =====
+ 
+Schütze dich vor Tracking, Überwachung und Zensur.
+
+==== Pakete ====
+
+<code>
+pacman -S torbrowser-launcher
+</code>
+
+==== Add-ons ====
+
+Du solltest keine zusätzlichen Add-ons für den Tor-Browser installieren, da dies einige seiner Datenschutzfunktionen beeinträchtigen kann.
+
+Mehr unter [[https://support.torproject.org/glossary/add-on-extension-or-plugin/|Support.torproject.org]] 
+
+
+===== Pale Moon =====
+
+Pale Moon ist ein auf Goanna basierender Open-Source-Webbrowser, der vollständig aus seinem eigenen, unabhängig entwickelten Quellcode aufgebaut ist. Er wurde vor einigen Jahren vom Firefox/Mozilla-Code abgezweigt und konzentriert sich auf Effizienz und Benutzerfreundlichkeit, indem er sorgfältig Funktionen und Optimierungen auswählt, um die Stabilität und das Benutzererlebnis des Browsers zu verbessern, während er vollständige Anpassungsmöglichkeiten und eine wachsende Sammlung von Erweiterungen und Themen bietet, um den Browser wirklich zu deinem eigenen zu machen.
+
+Pale Moon ist bestrebt, sich bei seiner Implementierung eng an die offiziellen Webstandards und -spezifikationen zu halten (mit minimalen Kompromissen), und schließt absichtlich eine Reihe von Funktionen aus, um ein gutes Gleichgewicht zwischen allgemeiner Nutzung, Leistung und technischem Fortschritt im Web zu erreichen.
+
+Bei der aktuellen Generation von Mainstream-Browsern gibt es auch offensichtlichere und nicht nur verdeckte Unterschiede: Pale Moon bietet weiterhin gruppierte Navigationsschaltflächen in angemessener Größe, eine standardmäßig aktivierte Lesezeichen-Symbolleiste, standardmäßig Registerkarten neben dem Seiteninhalt (leicht umschaltbar) und nicht zuletzt eine funktionale Statusleiste und mehr Freiheit bei der Anpassung, um nur einige Dinge zu nennen.
+
+Unter https://blackgnu.net/palemoon-hardening.html findet man einen Datenschutz- Guide.
+
+==== Pakete ====
+
+<code>
+pikaur -S palemoon-bin
+</code>
+
+===== Browser leak test =====
+
+  * https://arkenfox.github.io/TZP/tzp.html
+  * https://browserleaks.com/
+  * https://coveryourtracks.eff.org/
+  * https://amiunique.org
