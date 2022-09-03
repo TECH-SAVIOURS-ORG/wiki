@@ -1,0 +1,38 @@
+====== Crontab ======
+
+Das Befehlszeilendienstprogramm cron, auch bekannt als cron job, ist ein Auftragsplaner auf Unix-ähnlichen Betriebssystemen. Benutzer, die Softwareumgebungen einrichten und warten, verwenden cron, um Aufträge (Befehle oder Shell-Skripte) zu planen, die regelmäßig zu festgelegten Zeiten, Daten oder Intervallen ausgeführt werden. Normalerweise automatisiert cron die Systemwartung oder -verwaltung, ist aber aufgrund seiner Allzweckmäßigkeit auch für Dinge wie das Herunterladen von Dateien aus dem Internet und das regelmäßige Abrufen von E-Mails nützlich.
+
+
+===== Paket=====
+
+<code>
+pacman -S cronie
+</code>
+
+
+===== Start =====
+
+<code>
+systemctl enable --now cronie.service
+</code>
+
+
+===== Beispiele=====
+
+<code>
+crontab -e
+</code>
+
+Bei jedem Neustart ein Backup erstellen:
+
+''@reboot echo "Hello World! I'm back!"''
+
+Jeden Tag um 2 Uhr morgens:
+
+''00 2 * * * /root/rsnapshot.sh''
+
+Jeden Sonntag um 9 Uhr morgens:
+
+''00 9 * * SUN echo "Breakfast! Wohoooo!"''
+
+Nutze https://crontab.guru/ als Guide.
