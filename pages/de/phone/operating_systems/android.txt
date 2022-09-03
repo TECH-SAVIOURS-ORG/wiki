@@ -112,4 +112,4 @@ Schau bei [[https://twrp.me/Devices/]] nach, wenn du TWRP bevorzugst.
 
 <alert type="info" icon="fa fa-info-circle">Prüfe die ''Basic requirements'' für dein Gerät.</alert>
 
-<alert type="info">Herzlichen Glückwunsch🍻 Der Custom-ROM-Teil ist geschafft! Mach weiter mit [[de:phone:apps:f-droid|F-Droid]], deinem Open-Source-App-Store oder beginne zuerst mit [[de:wiki:backup:phone#android|deinen Backups]].</alert>
+<alert type="info">Herzlichen Glückwunsch🍻 Der Custom-ROM-Teil ist geschafft! Mach weiter mit [[de:phone:apps:f-droid|F-Droid]], deinem Open-Source-App-Store oder beginne zuerst mit [[de:backup:phone#android|deinen Backups]].</alert>
