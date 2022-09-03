@@ -183,7 +183,7 @@ Interne Links, also Verweise auf Seiten innerhalb von DokuWiki, werden in doppel
 [[doku>pagename]]
 
 Ein Link kann auch hinter einem Begriff oder einer Beschreibung versteckt werden:
-[[pagename|Beschreibung für einen Link]].
+[[..:scans:wiki:pagename|Beschreibung für einen Link]].
 
   Interne Links werden in doppelten eckigen Klammern gesetzt:
   [[pagename]] 
@@ -194,7 +194,7 @@ Ein Link kann auch hinter einem Begriff oder einer Beschreibung versteckt werden
 Dateinamen für neue Seiten im Wiki werden automatisch in Kleinbuchstaben umgewandelt!
 Umlaute sind genauso wie Sonderzeichen nicht erlaubt!
 
-Durch einen Doppelpunkt werden Namensbereiche im Wiki aufgelöst: [[de:namespaces]] 
+Durch einen Doppelpunkt werden Namensbereiche im Wiki aufgelöst: [[de:scans:namespaces]] 
 
   Durch einen Doppelpunkt werden Namensbereiche im Wiki aufgelöst:[[de:namespaces]] 
 
@@ -209,7 +209,7 @@ Dieses Beispiel verlinkt zu [[de:wiki:syntax#intern|diesem Abschnitt]].
 
 Anmerkungen:
 
-  * Links zu [[syntax|existierenden Seiten]] werden anders angezeigt als Links zu [[nicht-existierenden]] Seiten.
+  * Links zu [[syntax|existierenden Seiten]] werden anders angezeigt als Links zu [[..:scans:wiki:nicht-existierenden]] Seiten.
   * DokuWiki verwendet standardmäßig keine [[wpde>CamelCase]] für Links. In der Einstellungsdatei: [[doku>config]] kann das aber geändert werden. **Hinweis**: wenn das Wort "DokuWiki" als Link angezeigt wird, dann ist diese Option eingeschaltet.
   * Ändert sich eine Überschrift im Zieldokument, führt der Anker ins Leere ohne dass der Link dabei als fehlerhaft angezeigt wird.
   * Anker werden klein geschrieben, es werden Leerzeichen mit Unterstrichen und Umlaute mit ihren Umschreibungen (ä = ae) verwendet.
@@ -249,7 +249,7 @@ Bitte beachte: Bildformatierungen sind die einzigen Formatierungen, die in Linkn
 
 ===== 3.1 Bilder im DokuWiki speichern =====
 
-Um Bilder im DokuWiki speichern zu dürfen, muss der Benutzer die entsprechende Berechtigung besitzen ([[de:acl|ACL]]). Zum Hochladen ist mindestens die Berechtigung "Hochladen" (engl. "Upload"), zum Löschen "Entfernen" (engl. "Delete") für den [[de:namespaces|Namensraum]] erforderlich.
+Um Bilder im DokuWiki speichern zu dürfen, muss der Benutzer die entsprechende Berechtigung besitzen ([[de:scans:acl|ACL]]). Zum Hochladen ist mindestens die Berechtigung "Hochladen" (engl. "Upload"), zum Löschen "Entfernen" (engl. "Delete") für den [[de:scans:namespaces|Namensraum]] erforderlich.
 
 ===== 3.2 Größe von Bildern  =====
 Mit geschweiften Klammern können sowohl externe als auch interne [[doku>images|Bilder]] eingebunden werden. Das Bild heißt in diesem Beispiel "dokuwiki-128.png". Optional kann deren Größe angegeben werden:
