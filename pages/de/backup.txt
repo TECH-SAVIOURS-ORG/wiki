@@ -1,1 +1,1 @@
-<catlist de:backup: -noAddPageButton >
+<catlist de:backup: -noAddPageButton -sortDescending>
