@@ -26,7 +26,7 @@ Die Einrichtung ist ziemlich einfach.
 
   * **Nextcloud** ist enthalten.
   * [[https://github.com/seedvault-app/seedvault/issues/317|Webdav]] & [[https://github.com/seedvault-app/seedvault/issues/169|Seafile]] sind es nicht. Das macht es ein wenig komplizierter.
-  * Wenn du kein Nextcloud-Nutzer bist, solltest du stattdessen eine SD-Karte in Kombination mit  **[[de:backup:server|Syncthing]]** verwenden. Verwende einfach Syncthing um den Ordner ''.SeedVaultAndroidBackup'' in deinen Speicher (/storage/emulated/0/) zu synchronisieren.
+  * Wenn du kein Nextcloud-Nutzer bist, solltest du stattdessen eine SD-Karte in Kombination mit  **[[de:wiki:backup:server|Syncthing]]** verwenden. Verwende einfach Syncthing um den Ordner ''.SeedVaultAndroidBackup'' in deinen Speicher (/storage/emulated/0/) zu synchronisieren.
 
 Beachte, dass nicht jede App Backups zulässt - https://developer.android.com/guide/topics/manifest/application-element#allowbackup.
 
