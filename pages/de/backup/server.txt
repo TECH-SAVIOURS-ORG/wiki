@@ -121,7 +121,8 @@ Vergiss nicht, zuerst das Borg Repo zu erstellen und dem Skript die Anmeldedaten
 borg init --encryption=keyfile-blake2 --make-parent-dirs ssh://username@remote.host.address:$port>/~/backups/borg/{hostname}
 </code>
 
-Füge deine ausgeschlossenen Ordner/Dateien hinzu ''%%--%%exclude '/home/*/.cache/*' \'' und füge unter ''::'{hostname}-{now}'' \'' die Ordner/Dateien hinzu, die du sichern willst.
+Füge deine ausgeschlossenen Ordner/Dateien hinzu ''%%--%%exclude '/home/*/.cache/*' \'' und füge unter ''::'{hostname}-{now}' \'' die Ordner/Dateien hinzu, die du sichern willst.
+
 <code>
 #!/bin/sh
 
