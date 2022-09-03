@@ -114,7 +114,7 @@ borg info repo/::archive-2022-02-14T23:26:10
 
 ==== Restore/extract ====
 
-If you want to restore, run the command without ''--dry-run''.
+If you want to restore, run the command without ''%%--dry-run%%''.
 
 <code>
 borg extract --dry-run repo/::archive-2022-02-14T23:26:10
