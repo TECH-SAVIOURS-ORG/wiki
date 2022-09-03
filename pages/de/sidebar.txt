@@ -50,7 +50,7 @@
     * [[de:wiki:backup:desktop|Desktop]]
   * [[de:extras|Extras]]
   * [[de:scans|Scans]]
-    * [[de:scans:scans:log4shell|Log4shell]]
+    * [[de:scans:log4shell|Log4shell]]
   * [[de:scans:faq|FAQ]]
 
 === Mitwirken ===
