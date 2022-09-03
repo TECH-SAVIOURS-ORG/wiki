@@ -3,7 +3,8 @@
   * [[:en:server|Server]]
     * [[:en:server:operating_systems|Operating Systems]]
       * [[:en:server:operating_systems:arch_linux|Arch Linux]]
-    * [[:en:server:services|Services (Arch)]]<foldablelist>
+    * [[:en:server:services|Services (Arch)]]
+        <foldablelist>
         * [[en:server:services:openssh|OpenSSH]]
         * [[:en:server:services:crontab|crontab]]
         * [[:en:server:services:borg|borg]]
