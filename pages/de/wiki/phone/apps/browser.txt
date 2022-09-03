@@ -22,4 +22,4 @@ Aktivieren des [[https://guardianproject.info/fdroid/|Guardian Project's Reposit
 
 ===== Add-ons =====
 
-Check unsere [[de:wiki:desktop:services:browser#add-ons_fuer_firefox_librewolf_iceraven_android|Add-ons]] Liste.
+Check unsere [[de:desktop:services:browser#add-ons_fuer_firefox_librewolf_iceraven_android|Add-ons]] Liste.
