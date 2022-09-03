@@ -14,6 +14,9 @@
         * [[de:server:services:torsocks|torsocks]]
         * [[de:server:services:searx|Searx]]
         * [[de:server:services:aur-helper|AUR-Helper]]
+        * [[de:server:services:nginx|nginx]]
+        * [[de:server:services:php|php]]
+        * [[de:server:services:mariadb|mariadb]]
   * [[de:phone|Phone]]
     * [[de:phone:operating_systems|Betriebssysteme]]
       * [[de:phone:operating_systems:android|Android]]
@@ -49,8 +52,10 @@
     * [[de:backup:phone|Phone]]
     * [[de:backup:desktop|Desktop]]
   * [[de:extras|Extras]]
+    * [[de:extras:take_a_breath|Atme durch! Genieße deine Welt!]]
   * [[de:scans|Scans]]
     * [[de:scans:log4shell|Log4shell]]
+    * [[de:scans:googerteller|googerteller]]
   * [[de:scans:faq|FAQ]]
 
 === Mitwirken ===
