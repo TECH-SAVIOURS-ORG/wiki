@@ -1,1 +1,1 @@
-{{indexmenu>.#1 .:/en/wiki#1}}
+{{indexmenu>.#1}}
