@@ -1,0 +1,7 @@
+====== F-Droid ======
+F-Droid ist der Open-Source-Software-Store für ein Android-Handy! Er ist seit 2010 verfügbar. Eigentlich ist für fast alles eine Alternative verfügbar.
+
+
+===== Download =====
+
+Lade einfach die APK von https://f-droid.org/ herunter und installiere sie auf deinem Android-Handy.
