@@ -1,0 +1,41 @@
+====== XPrivacyLua ======
+
+Wirklich einfach zu bedienender Datenschutzmanager für Android 6.0 Marshmallow und höher (Nachfolger von XPrivacy).
+
+Der Entzug von Android-Berechtigungen für Apps führt oft dazu, dass Apps abstürzen oder nicht mehr funktionieren. XPrivacyLua löst dieses Problem, indem es Apps mit gefälschten Daten anstelle von echten Daten füttert.
+
+
+===== Downloade und installiere die APK =====
+
+Installiere XPrivacyLua via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/eu.faircode.xlua/.
+
+
+===== Modul aktivieren =====
+
+Nach der Installation erhält man möglicherweise eine Benachrichtigung. Aktiviere das Modul in [[de:phone:apps:lsposed|LSPosed]] und aktiviere jede App, die mit gefälschten Daten versorgt werden soll. Starte dein Gerät neu.  
+
+<alert type="danger" icon="fa fa-warning">Jede neue App-Installation muss manuell in LSPosed aktiviert werden! Vergiss dies nicht!</alert>
+
+
+===== Einstellungen =====
+
+Klick auf den Burger (oben links) und markiere ''Notify on new apps'' und ''Restrict new apps''. 
+
+
+===== Beschränkungen =====
+
+Prüfe bei https://github.com/M66B/XPrivacyLua#restrictions was die einzelnen Beschränkungen bewirken. Es hängt von den Anwendung ab, ob du die Einschränkung deaktivieren musst, wenn du die tatsächlichen Daten freigeben möchtest.
+
+Ein Beispiel mit dem Browser (Iceraven):
+
+{{:en:phone:apps:screenshot_20220219-180425_xprivacylua.png?direct&200|}}
+
+''Get applications'' ist zum Beispiel die Freigabe für KDE connect, Messenger usw...
+
+''Read clipboard'' um Text zu kopieren und einzufügen, nach etwas zu suchen oder ähnliches.
+
+
+Du kannst es einfach testen, indem du ''Read clipboard'' auswählst und etwas in die eingeschränkte App kopierst und einfügst. Die Ausgabe sollte ''Private'' sein.
+
+<alert type="info" icon="fa fa-info-circle">Denke auch daran zu spenden https://lua.xprivacy.eu/. Es hilft dem Entwickler und schaltet [[https://forum.xda-developers.com/t/app-xposed-6-0-xprivacylua-pro-companion-app.3743040/|zusätzliche Funktionen]] frei.</alert>
+
