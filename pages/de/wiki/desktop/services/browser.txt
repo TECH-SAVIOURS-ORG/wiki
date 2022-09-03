@@ -34,7 +34,7 @@ Du kannst auch deine eigene user.js- Datei unter https://ffprofile.com/ erstelle
 
 Das folgende Beispiel basiert darauf, dass die Sitzungswiederherstellung aktiviert ist. Wenn du Tabs angeheftet hast oder an etwas arbeitest, kann dies sehr hilfreich sein. Jedes Mal, wenn der Browser geschlossen und wieder gestartet wird, ist er so, wie er verlassen wurde.
 
-Wenn du Searx auf deinem eigenen [[de:desktop:services:searx|Computer]]/[[de:server:services:searx|Server]] verwendest, kannst du auch Schlüsselwörter für die URL-Leiste aktivieren, um nach etwas zu suchen, anstatt die Suchleiste zu verwenden. Das spart Platz.
+Wenn du Searx auf deinem eigenen [[de:wiki:desktop:services:searx|Computer]]/[[de:server:services:searx|Server]] verwendest, kannst du auch Schlüsselwörter für die URL-Leiste aktivieren, um nach etwas zu suchen, anstatt die Suchleiste zu verwenden. Das spart Platz.
 
   - Schließe Firefox
   - Erstelle eine Datei ''user-overrides.js'' in ''~/.mozilla/firefox/xxxxxxxx.hardened/'' mit folgenden Inhalt:
@@ -52,7 +52,7 @@ user_pref("keyword.enabled", true);
 
 Überprüfe auch [[https://github.com/arkenfox/user.js/wiki/3.2-Overrides-[Common]|Overrides [Common]]].
 
-Folge dem [[/de/desktop/services/browser#updates_von_firefoxarkenfox_und_aenderungen_in_der_datei_user-overridesjs|nächsten Schritt]].
+Folge dem [[de:wiki:desktop:services:browser#updates_von_firefoxarkenfox_und_aenderungen_in_der_datei_user-overridesjs|nächsten Schritt]].
 
 
 ==== Updates von Firefox/arkenfox und Änderungen in der Datei user-overrides.js ====
