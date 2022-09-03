@@ -383,4 +383,4 @@ nmcli d wifi list
 nmcli dev wifi connect SSID password 'password'
 </code>
 
-<alert type="info">Herzlichen Glückwunsch 🍻 Der Serverteil ist erledigt! Fahre mit [[de:wiki:desktop:environments:kde|KDE]] fort, wenn du eine Desktop-Umgebung installieren möchtest. Erstelle außerdem ein [[de:backup:server|Backup]].</alert>
+<alert type="info">Herzlichen Glückwunsch 🍻 Der Serverteil ist erledigt! Fahre mit [[de:desktop:environments:kde|KDE]] fort, wenn du eine Desktop-Umgebung installieren möchtest. Erstelle außerdem ein [[de:backup:server|Backup]].</alert>
