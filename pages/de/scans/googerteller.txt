@@ -1,0 +1,49 @@
+====== googerteller ======
+Hörbares Feedback darüber, wie sehr dein Surfverhalten auf Google übertragen wird.
+
+Von [[bert@hubertnet.nl]] / https://berthub.eu/
+
+Macht jedes Mal ein kleines Geräusch, wenn dein Computer ein Paket an einen Google-Dienst sendet, ausgenommen sind Google Cloud-Nutzer.
+
+Beispiel Video [[https://twitter.com/bert_hu_bert/status/1561466204602220544|in diesem Tweet]]
+
+Quelle https://github.com/berthubert/googerteller
+
+Danke bert! 
+
+===== Installation auf Arch =====
+
+==== Pakete ====
+<code>
+sudo pacman -Sy pcaudiolib gcc ipset bpftrace tcpdump
+</code>
+
+==== Build ====
+<code>
+git clone https://github.com/berthubert/googerteller.git
+cd googerteller
+cmake .
+make
+</code>
+
+==== Set up ip(6)tables ====
+Google ist so groß, dass sein IPv4- und IPv6-Fußabdruck von tcpdump nicht bewältigt werden kann, oder zumindest nicht effizient. Daher müssen wir ein ip(6)tables ipset definieren. Dies schließt zunächst Google Cloud aus und dann alle anderen Google-IP-Adressen ein.
+
+Installiere iptables ''ipset'', und führe (als root) das Skript ''ipset-setup.sh'' aus, oder führe aus:
+
+<code>
+sudo ./ipset-setup.sh
+</code>
+
+==== Run ====
+
+<code>
+sudo tcpdump -i nflog:20 -ln | ./teller
+</code>
+
+Spezifische Anwendung:
+<code>
+sudo bpftrace netsendmsg.bt |
+    grep --line-buffered ^$(pgrep firefox) |
+    stdbuf -oL cut -f2 | ./cidr.py | ./teller
+</code>
