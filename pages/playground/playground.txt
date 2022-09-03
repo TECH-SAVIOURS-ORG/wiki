@@ -1,1 +1,1 @@
-git test back to wiki
+{{indexmenu>.#1 .:/en/wiki#1}}
