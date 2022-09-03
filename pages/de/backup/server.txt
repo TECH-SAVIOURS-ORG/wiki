@@ -1,0 +1,156 @@
+====== Server & Desktop Backup-Lösungen ======
+
+Die ersten Sicherungen werden eine Weile dauern. Die folgenden sind viel schneller, aber das hängt davon ab, wie viel geändert wurde. Es werden nur die Änderungen gespeichert.
+
+===== rsync =====
+
+Folge zunächst unserer [[de:server:services:rsync|rsync]] Anleitung.
+
+Die Snapshots werden lokal und über die rsync-Daemon remote gespeichert. 
+
+<alert type="danger" icon="fa fa-warning">Diese Backup-Lösung ist nur für ein internes Netzwerk zu empfehlen. Verwende stattdessen eine verschlüsselte Sicherungsmethode mit [[de:wiki:backup:server#borg|borg]].</alert>
+
+==== Abhängigkeiten ====
+
+Das Skript benötigt ''inetutils'' für den ''hostname'' Befehl.
+
+<code>
+pacman -S inetutils
+</code>
+
+
+==== Anmeldeinformationen ====
+
+<code>
+echo "$password" > /etc/rsyncd.password
+chmod 400 /etc/rsyncd.password
+</code>
+
+==== Skript ====
+
+Füge deine Daten zu ''DAEMONUSER=""'' und ''DAEMONHOST=""'' hinzu.
+
+<code>
+nano /root/rsnapbackup.sh
+</code>
+<code>
+#!/bin/sh
+
+## Based on:
+## my own rsync-based snapshot-style backup procedure
+## (cc) marcio rps AT gmail.com
+
+# config vars
+
+SRC="/"
+SNAP="/root/backup/"
+OPTS="--rltogiPhv --stats --delay-updates --delete --chmod=a-w"
+EXCL="--exclude-from=/root/backup-filter.rule"
+DAEMONUSER=""
+DAEMONHOST=""
+HOSTNAME=$(hostname)
+MINCHANGES=1
+
+# run this process with real low priority
+
+ionice -c 3 -p $$
+renice +12  -p $$
+
+# List and save installed packages
+pacman -Qn | awk '{ print $1 }' > /root/pkglist
+
+# sync
+
+rsync $OPTS $EXCL $SRC $SNAP/latest >> $SNAP/rsync.log
+
+# check if enough has changed and if so
+# make a hardlinked copy named as the date
+
+COUNT=$( wc -l $SNAP/rsync.log|cut -d" " -f1 )
+if [ $COUNT -gt $MINCHANGES ] ; then
+        DATETAG=$(date +%Y-%m-%d-%H:%M)
+        if [ ! -e $SNAP/$DATETAG ] ; then
+                cp -al $SNAP/latest $SNAP/$DATETAG
+                chmod u+w $SNAP/$DATETAG
+                mv $SNAP/rsync.log $SNAP/$DATETAG
+               chmod u-w $SNAP/$DATETAG
+         fi
+fi
+
+rsync -avAXHP --delete --password-file=/etc/rsyncd.password $SNAP rsync://$DAEMONUSER@$DAEMONHOST/archive/backup/$HOSTNAME
+</code>
+<code>
+chmod +x /root/rsnapbackup.sh
+</code>
+
+
+=== Ordner und Dateien ausschließen ===
+
+Dies ist ein Beispiel. Füge alles hinzu, was du nicht sichern möchtest. Und ändere den home ''$USER''.
+
+<code>
+nano /root/backup-filter.rule
+</code>
+<code>
+/dev/*
+/proc/*
+/sys/*
+/tmp/*
+/run/*
+/mnt/*
+/media/*
+/lost+found
+# root user
+/root/backup/*
+/root/.cache/*
+# Home user
+/home/$USER/.cache/*
+</code>
+
+
+===== borg =====
+
+<alert type="info" icon="fa fa-wrench">In Bearbeitung</alert>
+
+Folge zunächst unserem [[de:server:services:borg|borg]] Tutorial.
+
+Die Snapshots werden über SSH gespeichert.
+
+
+===== Crontab - rsync und borg =====
+
+Folge zunächst unserem [[de:server:services:crontab|crontab]] Tutorial und füge folgendes für den Root- Benutzer hinzu:
+
+<code>
+@daily /root/rsnapbackup.sh
+</code>
+<code>
+@daily /root/bsnapbackup.sh
+</code>
+
+  * ''@yearly''
+  * ''@annually''
+  * ''@monthly''
+  * ''@weekly''
+  * ''@daily''
+  * ''@hourly''
+  * ''@reboot''
+
+
+===== Syncthing =====
+
+Folge zunächst unserem [[de:server:services:syncthing|Syncthing]] Tutorial für beide Geräte (Backupserver und Datengerät).
+
+
+==== Gerät hinzufügen ====
+
+Füge den Backupserver zu deinem Client unter ''Remote Devices'' hinzu. 
+
+
+==== Ordner hinzufügen ====
+
+  * Füge einen Ordner unter ''Folder'' hinzu und  wähle unter ''General'' den Ordner aus der gesichert werden soll. 
+  * Wähle unter ''Sharing'' den Backupserver aus.
+  * Unter ''File Versioning'' kannst du die ''Staggered File Versioning'' hinzufügen, die dir mehr Sicherheit gibt. Aber schau unter https://docs.syncthing.net/users/versioning.html nach und wähle aus was dir am Besten gefällt.
+  * Check auch ''Advanced'' und ''Folder type'' und wähle wieder, was am besten zu dir passt. Keepass kann zum Beispiel mit ''Send & Receive'' verwendet werden, wenn du deine Datenbank auf beiden Geräten synchronisieren möchtest.
+
