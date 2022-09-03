@@ -4,7 +4,7 @@
     * [[:en:server:operating_systems|Operating Systems]]
       * [[:en:server:operating_systems:arch_linux|Arch Linux]]
     * [[:en:server:services|Services (Arch)]]
-        {{indexmenu>.}}
+        {{indexmenu>..:#1}}
         * [[en:server:services:openssh|OpenSSH]]
         * [[:en:server:services:crontab|crontab]]
         * [[:en:server:services:borg|borg]]
