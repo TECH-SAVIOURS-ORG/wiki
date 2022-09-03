@@ -8,7 +8,7 @@ Folge zunächst unserer [[de:server:services:rsync|rsync]] Anleitung.
 
 Die Snapshots werden lokal und über die rsync-Daemon remote gespeichert. 
 
-<alert type="danger" icon="fa fa-warning">Diese Backup-Lösung ist nur für ein internes Netzwerk zu empfehlen. Verwende stattdessen eine verschlüsselte Sicherungsmethode mit [[de:wiki:backup:server#borg|borg]].</alert>
+<alert type="danger" icon="fa fa-warning">Diese Backup-Lösung ist nur für ein internes Netzwerk zu empfehlen. Verwende stattdessen eine verschlüsselte Sicherungsmethode mit [[de:backup:server#borg|borg]].</alert>
 
 ==== Abhängigkeiten ====
 
