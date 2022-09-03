@@ -1,0 +1,228 @@
+====== MariaDB ======
+
+MariaDB ist eine von der Community entwickelte und kommerziell unterstützte Abspaltung des relationalen Datenbankmanagementsystems (RDBMS) MySQL, die als freie und quelloffene Software unter der GNU General Public License weitergeführt werden soll. Die Entwicklung wird von einigen der ursprünglichen Entwickler von MySQL geleitet, die es aufgrund von Bedenken wegen der Übernahme durch die Oracle Corporation im Jahr 2009 abgezweigt haben.
+
+MariaDB soll eine hohe Kompatibilität mit MySQL aufrechterhalten, mit Bibliotheks-Binärparität und exakter Übereinstimmung mit MySQL-APIs und -Befehlen, so dass es in vielen Fällen als direkter Ersatz für MySQL fungieren kann. Die neuen Funktionen weichen jedoch voneinander ab. Sie umfasst neue Speicher-Engines wie Aria, ColumnStore und MyRocks.
+
+Der leitende Entwickler/CTO ist Michael "Monty" Widenius, einer der Gründer von MySQL AB und der Gründer von Monty Program AB. Am 16. Januar 2008 gab MySQL AB bekannt, dass das Unternehmen einer Übernahme durch Sun Microsystems für rund 1 Milliarde US-Dollar zugestimmt hat. Die Übernahme wurde am 26. Februar 2008 abgeschlossen. Sun wurde im darauffolgenden Jahr von der Oracle Corporation übernommen. MariaDB ist nach der jüngeren Tochter von Widenius, Maria, benannt. (MySQL ist nach seiner anderen Tochter My benannt.)
+
+===== Paket =====
+
+<code>
+pacman -S mariadb
+</code>
+
+===== Datenverzeichnis anlegen =====
+
+<code>
+mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+</code>
+
+===== Start =====
+
+<code>
+systemctl enable --now mariadb.service
+</code>
+
+===== Verbesseruang der Sicherheit =====
+
+Gebe das Passwort für den mysql-Root-Benutzer ein, und die meisten Fragen können mit Ja beantwortet werden, wenn du zum Beispiel keinen Fernzugriff brauchst.
+
+<code>
+mysql_secure_installation
+</code>
+
+===== Lokalen Benutzer anlegen =====
+
+<code>
+mysql -u root -p
+</code>
+<code>
+CREATE USER 'user_name'@'localhost' IDENTIFIED BY 'mypassword';
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Remote Benutzer erstellen =====
+
+<code>
+mysql -u root -p
+</code>
+<code>
+CREATE USER 'user_name'@'%' IDENTIFIED BY 'mypassword';
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Datenbank erstellen =====
+
+<code>
+mysql -u root -p
+</code>
+<code>
+CREATE DATABASE db_name;
+GRANT ALL ON db_name.* to 'user_name'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+\q
+</code>
+oder etwas Ausführlicheres
+<code>
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON db_name_here.* TO 'myuser'@'localhost';
+</code>
+
+===== Datenbank anzeigen und löschen =====
+
+<code>
+mysql -u root -p
+SHOW DATABASES;
+DROP DATABASE db_name;
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Benutzer anzeigen und löschen =====
+
+<code>
+mysql -u root -p
+SELECT User FROM mysql.user;
+DROP USER user_name@localhost;
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Passwort festlegen oder ändern =====
+
+<code>
+SET PASSWORD FOR 'user_name'@'localhost' = PASSWORD('password');
+FLUSH PRIVILEGES;
+EXIT;
+</code>
+
+===== Datenbank sichern =====
+
+Du kannst alle Datenbanken mit dem folgenden Befehl ''mysqldump %%--%%single-transaction %%--%%flush-logs %%--%%%master-data=2 %%--%%%all-databases -u root -p | gzip > all_databases.sql.gz'' dumpen.
+
+Oder verwende das folgende Skript, das Folgendes enthält:
+  * getrennte Datenbanken (wenn du die Datei extrahierst)
+  * Festlegen, nach wie vielen Tagen die alten Backups gelöscht werden sollen
+  * E-Mail-Benachrichtigung
+
+<code>
+#!/bin/bash
+# Shell script to backup MySQL database
+
+# Set these variables
+MyUSER="my_user"             # DB_USERNAME
+MyPASS="mypassword"          # DB_PASSWORD
+MyHOST="localhost"           # DB_HOSTNAME
+
+# Backup Dest directory
+DEST="/path/to/backup/mysql/"
+
+# Email for notifications
+# EMAIL="email"
+# How many days old files must be to be removed
+DAYS="60"
+
+# Linux bin paths
+MYSQL="$(which mysql)"
+MYSQLDUMP="$(which mysqldump)"
+GZIP="$(which gzip)"
+
+# Get date in dd-mm-yyyy format
+NOW="$(date +"%d-%m-%Y_%H-%M")"
+
+# Create Backup sub-directories
+MBD="$DEST/$NOW/mysql"
+install -d $MBD
+
+# DB skip list
+SKIP="information_schema
+performance_schema"
+
+# Get all databases
+DBS="$($MYSQL -h $MyHOST -u $MyUSER -p$MyPASS -Bse 'show databases')"
+
+# Archive database dumps
+for db in $DBS
+do
+    skipdb=-1
+    if [ "$SKIP" != "" ];
+    then
+                for i in $SKIP
+                do
+                        [ "$db" == "$i" ] && skipdb=1 || :
+                done
+    fi
+ 
+    if [ "$skipdb" == "-1" ] ; then
+        FILE="$MBD/$db.sql"
+        $MYSQLDUMP -h $MyHOST -u $MyUSER -p$MyPASS $db > $FILE
+    fi
+done
+
+# Archive the directory, send mail and cleanup
+cd $DEST
+tar -cf $NOW.tar $NOW
+$GZIP -9 $NOW.tar
+
+#echo -e "Subject: MySQL backup $(hostname)\r\n\r\nMySQL backup is completed! Backup name is $NOW.tar.gz" | msmtp -a default $EMAIL
+rm -rf $NOW
+
+# Remove old files
+find $DEST -mtime +$DAYS -exec rm -f {} \;
+</code>
+
+Use [[en/server/services/crontab#examples|crontab]] for automation.
+===== Restore database =====
+
+<code>
+mysql -u root -p db_name < database.sql
+</code>
+
+===== Überprüfung/Aktualisierung der Datenbank =====
+
+Bei einer neuen Hauptversion von Mariadb (z.B. mariadb-10.7.4-1 auf mariadb-10.8.3-1) ist es ratsam, die Datenbanken zu aktualisieren: 
+
+  - den Datenbank-Daemon 10.7.4-1 laufen lassen
+  - das Paket aktualisieren
+  - führe mysql_upgrade (von der neuen Paketversion) gegen die alte, noch laufenden Daemon aus. Dies wird einige Fehlermeldungen erzeugen, aber das Upgrade wird erfolgreich sein
+  - den Daemon neu starten, damit der 10.8.3-Daemon läuft
+
+<code>
+mysql_upgrade -u root -p --skip-version-check
+</code>
+
+<code>
+systemctl restart mariadb.service
+</code> 
+
+Um alle Tabellen in allen Datenbanken zu prüfen:  
+<code>
+mysqlcheck --all-databases -u root -p -c
+</code>  
+
+Um alle Tabellen in allen Datenbanken zu analysieren:  
+<code>
+mysqlcheck --all-databases -u root -p -a
+</code>  
+
+Um alle Tabellen in allen Datenbanken zu reparieren:  
+<code>
+mysqlcheck --all-databases -u root -p -r
+</code> 
+ 
+Um alle Tabellen in allen Datenbanken zu optimieren:  
+<code>
+mysqlcheck --all-databases -u root -p -o
+</code>
+
+Alle Befehle "Datenbank prüfen/aktualisieren" in einem Block
+<code>
+mysql_upgrade -u root -p --skip-version-check
+systemctl restart mariadb.service
+mysqlcheck --all-databases -u root -p -c
+mysqlcheck --all-databases -u root -p -a
+mysqlcheck --all-databases -u root -p -r
+mysqlcheck --all-databases -u root -p -o
+</code>
