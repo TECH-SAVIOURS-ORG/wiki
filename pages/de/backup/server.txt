@@ -110,13 +110,89 @@ nano /root/backup-filter.rule
 
 ===== borg =====
 
-<alert type="info" icon="fa fa-wrench">In Bearbeitung</alert>
-
 Folge zunächst unserem [[de:server:services:borg|borg]] Tutorial.
 
 Die Snapshots werden über SSH gespeichert.
 
+==== Skript ====
 
+Vergiss nicht, zuerst das Borg Repo zu erstellen und dem Skript die Anmeldedaten hinzuzufügen.
+<code>
+borg init --encryption=keyfile-blake2 --make-parent-dirs ssh://username@remote.host.address:$port>/~/backups/borg/{hostname}
+</code>
+
+Füge deine ausgeschlossenen Ordner/Dateien hinzu ''%%--%%exclude '/home/*/.cache/*' \'' und füge unter ''::'{hostname}-{now}'' \'' die Ordner/Dateien hinzu, die du sichern willst.
+<code>
+#!/bin/sh
+
+# Setting this, so the repo does not need to be given on the commandline:
+export BORG_REPO=ssh://username@example.com:2022/~/backups/borg/{hostname}
+
+# See the section "Passphrase notes" for more infos.
+export BORG_PASSPHRASE='XYZl0ngandsecurepa_55_phrasea&&123'
+
+# some helpers and error handling:
+info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
+trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
+
+info "Starting backup"
+
+# Backup the most important directories into an archive named after
+# the machine this script is currently running on:
+
+borg create                         \
+    --verbose                       \
+    --filter AMEhsx                 \
+    --list                          \
+    --stats                         \
+    --progress                      \
+    --verbose                       \
+    --show-version                  \
+    --show-rc                       \
+    --compression zstd,11           \
+    --exclude-caches                \
+    --exclude '/home/*/.cache/*'    \
+    --exclude '/var/tmp/*'          \
+                                    \
+    ::'{hostname}-{now}'            \
+    /etc                            \
+    /home                           \
+    /root                           \
+    /var                            \
+
+backup_exit=$?
+
+info "Pruning repository"
+
+# Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+# archives of THIS machine. The '{hostname}-' prefix is very important to
+# limit prune's operation to this machine's archives and not apply to
+# other machines' archives also:
+
+borg prune                          \
+    --list                          \
+    --prefix '{hostname}-'          \
+    --show-rc                       \
+    --keep-daily    7               \
+    --keep-weekly   4               \
+    --keep-monthly  6               \
+    --keep-yearly   1               \
+
+prune_exit=$?
+
+# use highest exit code as global exit code
+global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+
+if [ ${global_exit} -eq 0 ]; then
+    info "Backup and Prune finished successfully"
+elif [ ${global_exit} -eq 1 ]; then
+    info "Backup and/or Prune finished with warnings"
+else
+    info "Backup and/or Prune finished with errors"
+fi
+
+exit ${global_exit}
+</code>
 ===== Crontab - rsync und borg =====
 
 Folge zunächst unserem [[de:server:services:crontab|crontab]] Tutorial und füge folgendes für den Root- Benutzer hinzu:
