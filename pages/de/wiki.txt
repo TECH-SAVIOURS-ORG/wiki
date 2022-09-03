@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">**BorgBackup** __Tutorial/Guide__ ist fertig 🍻 [[de:server:services:borg|Borg]]</alert>
+<alert type="success" icon="fa fa-info-circle">**[[de/server/services/borg|BorgBackup]]**, **[[de/server/services/torsocks|torsocks]]**, **[[de/server/services/unbound|unbound]]**, **[[de/server/services/nginx|nginx]]**, **[[de/server/services/php|php]]** & **[[de/server/services/mariadb|mariadb]]** __tutorial/guide__ ist fertig 🍻</alert>
 
 ====== Willkommen bei TECH SAVIOURS Wiki ======
 Wir möchten dir hier die Möglichkeit geben, deine digitale Datenschutzziele als DIY-Lösung zu realisieren. Wir decken die wichtigsten Geräte ab, die wir jeden Tag benutzen.
