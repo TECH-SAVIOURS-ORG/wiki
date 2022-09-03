@@ -112,15 +112,17 @@ borg info repo/
 borg info repo/::archive-2022-02-14T23:26:10
 </code>
 
-==== Wiederherstellung/Extrahierung ====
+==== 
+Wiederherstellung/Extrahierung ====
 
-Wenn du wiederherstellen willst, führe den Befehl ohne ''--dry-run'' aus.
+Wenn du wiederherstellen willst, führe den Befehl ohne ''%%--dry-run%%'' aus.
 
 <code>
 borg extract --dry-run repo/::archive-2022-02-14T23:26:10
 </code>
 
-==== Daten prüfen/verifizieren ====
+====
+ Daten prüfen/verifizieren ====
 
 <code>
 borg check repo/
