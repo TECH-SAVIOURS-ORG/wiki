@@ -1,10 +1,10 @@
 ~~NOCACHE~~
-
 === Tutorials ===
   * [[:en:server|Server]]
     * [[:en:server:operating_systems|Operating Systems]]
       * [[:en:server:operating_systems:arch_linux|Arch Linux]]
     * [[:en:server:services|Services (Arch)]]
+        {{indexmenu>.}}
         * [[en:server:services:openssh|OpenSSH]]
         * [[:en:server:services:crontab|crontab]]
         * [[:en:server:services:borg|borg]]
@@ -22,6 +22,7 @@
     * [[:en:phone:operating_systems|Operating Systems]]
       * [[:en:phone:operating_systems:android|Android]]
     * [[:en:phone:apps|Apps (Android)]]
+        {{indexmenu>.}}
         * [[:en:phone:apps:f-droid|F-Droid]]
         * [[:en:phone:apps:magisk|Magisk]]
         * [[:en:phone:apps:afwall|AFWall+]]
@@ -39,6 +40,7 @@
     * [[:en:desktop:environments|Environments]]
       * [[:en:desktop:environments:kde|KDE (Arch)]]
     * [[:en:desktop:services|Services (Arch)]]
+        {{indexmenu>.}}
         * [[en:desktop:services:openssh|OpenSSH]]
         * [[:en:desktop:services:crontab|crontab]]
         * [[:en:desktop:services:borg|borg]]
