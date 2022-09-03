@@ -9,4 +9,4 @@ Dateisynchronisation mit Syncthing.
 
 Installiere Syncthing via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.nutomic.syncthingandroid/.
 
-Klicke auf den Burger (oben links) und wähle ''Web GUI'' aus und folge unserem [[/de/backup/server#add_device|Backup Server Tutorial]] - Starte mit ''Add device''. 
+Klicke auf den Burger (oben links) und wähle ''Web GUI'' aus und folge unserem [[de:wiki:backup:server#add_device|Backup Server Tutorial]] - Starte mit ''Add device''. 
