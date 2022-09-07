@@ -219,8 +219,8 @@ mysqlcheck --all-databases -u root -p -o
 
 All "Check/update database" commands in one block
 <code>
-mysql_upgrade -u root -p --skip-version-check
 systemctl restart mariadb.service
+mysql_upgrade -u root -p
 mysqlcheck --all-databases -u root -p -c
 mysqlcheck --all-databases -u root -p -a
 mysqlcheck --all-databases -u root -p -r
