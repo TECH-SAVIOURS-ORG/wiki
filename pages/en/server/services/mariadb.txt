@@ -185,18 +185,17 @@ mysql -u root -p db_name < database.sql
 
 Upon a major version release of mariadb (for example mariadb-10.7.4-1 to mariadb-10.8.3-1), it is wise to upgrade databases: 
 
-  - keep the 10.7.4-1 database daemon running
-  - upgrade the package
-  - run mysql_upgrade (from the new package version) against the old still-running daemon. This will produce some error messages; however, the upgrade will succeed.
-  - restart the daemon, so the 10.8.3 daemon runs.
-
-<code>
-mysql_upgrade -u root -p --skip-version-check
-</code>
+  - upgrade the package(s)
+  - restart the daemon
+  - run mysql_upgrade
 
 <code>
 systemctl restart mariadb.service
-</code> 
+</code>
+
+<code>
+mysql_upgrade -u root -p
+</code>
 
 To check all tables in all databases:  
 <code>
