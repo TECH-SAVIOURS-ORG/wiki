@@ -1,0 +1,17 @@
+====== Docker ======
+
+[[https://en.wikipedia.org/wiki/Docker_(software)|Docker]] is a utility to pack, ship and run any application as a lightweight container. 
+
+
+===== Packages =====
+
+<code>
+pacman -S docker docker-compose
+</code>
+
+
+===== Start =====
+
+<code>
+sudo systemctl enable --now docker.service
+</code>
