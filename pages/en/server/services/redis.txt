@@ -1,0 +1,78 @@
+====== Redis ======
+
+Redis is an open source (BSD licensed), in-memory data structure store used as a database, cache, message broker, and streaming engine. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+
+
+===== Packages =====
+
+<code>
+pacman -S redis
+</code>
+
+
+===== Configuration =====
+
+
+==== redis.conf ====
+
+<code>
+nano /etc/redis/redis.conf
+</code>
+
+<code>
+port 0
+unixsocket /run/redis/redis.sock
+unixsocketperm 770
+requirepass your-password
+</code>
+
+
+==== Add http to redis group ====
+
+<code>
+usermod -aG redis http
+</code>
+
+
+===== Start =====
+
+<code>
+systemctl enable --now redis.service
+</code>
+
+
+==== sysctl ====
+
+If the error ''overcommit memory ...'' occurs with ''systemctl status redis.service'', add this to sysctl:
+
+<code>
+/etc/sysctl.d/99-sysctl.conf
+</code>
+
+<code>
+vm.overcommit_memory=1
+</code>
+
+
+===== PHP =====
+
+Enable redis for php.
+
+<code>
+pacman -S php-igbinary php-redis
+nano /etc/php/php.ini
+</code>
+
+<code>
+extension=igbinary.so
+extension=redis
+</code>
+
+<alert type="danger" icon="fa fa-warning">''igbinary'' needs to be loaded first otherwise redis module doesn't start.</alert>
+
+
+===== Check =====
+
+<code>
+redis-cli -s /var/run/redis/redis.sock --askpass monitor
+</code>
