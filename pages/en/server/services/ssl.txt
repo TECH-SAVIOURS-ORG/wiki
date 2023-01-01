@@ -1,0 +1,116 @@
+====== SSL ======
+
+Be your own SSL Certificate Authority.
+
+This tutorial is based on the domain ''nextcloud.home''. So change the domain to your specific domain.
+
+It is also important that the domain address gets redirected from your router. This can also be set in the ''/etc/hosts'' file of your computer, but to reach the domain on every device, it is easier to change this directly in the router:
+
+<code>
+nextcloud.domain SERVER-IP
+</code>
+
+
+===== Generating the private key and root certificate =====
+
+<code>
+openssl genrsa -des3 -out myCA.key 2048
+</code>
+
+<code>
+openssl req -x509 -new -nodes -key myCA.key -sha256 -days 1825 -out myCA.pem
+</code>
+
+Change the following information as you wish. It appears when you view the certificate through your browser.
+<code>
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+</code>
+
+
+===== Installing your root certificate on all the devices =====
+
+You'll need to create a `myCA.pem` file on every device and copy the content of `cat myCA.pem` file wherever you created it in section [[#generating-the-private-key-and-root-certificate]].
+
+
+==== Arch Linux ====
+
+<code>
+sudo trust anchor --store myCA.pem
+</code>
+
+
+==== Android ====
+
+''Settings'' - ''Security'' - ''Encryption and credentials'' - ''Install a certificate''
+
+Check under:
+
+''Settings'' - ''Security'' - ''Trusted credentials'' - ''User''
+
+
+===== Creating CA-Signed certificates for your domains =====
+
+<code>
+openssl genrsa -out domain.home.key 2048
+</code>
+
+<code>
+openssl req -new -key DOMAIN.home.key -out DOMAIN.home.csr
+</code>
+
+<code>
+nano DOMAIN.home.ext
+</code>
+
+<code>
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = DOMAIN.home
+</code>
+
+
+==== Script ====
+
+Create the file in ''nano /etc/nginx/ssl/ssl.sh''.
+
+<code>
+#!/bin/sh
+
+if [ "$#" -ne 1 ]
+then
+  echo "Usage: Must supply a domain"
+  exit 1
+fi
+
+DOMAIN=$1
+
+openssl genrsa -out $DOMAIN.key 2048
+openssl req -new -key $DOMAIN.key -out $DOMAIN.csr
+
+cat > $DOMAIN.ext << EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = $DOMAIN
+EOF
+
+openssl x509 -req -in $DOMAIN.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial \
+-out $DOMAIN.crt -days 825 -sha256 -extfile $DOMAIN.ext
+</code>
+
+<code>
+chmod +x ssl.sh
+./ssl.sh domain.home
+</code>
