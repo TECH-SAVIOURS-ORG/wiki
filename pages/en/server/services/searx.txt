@@ -36,6 +36,8 @@ You no longer need to follow the guide below, just go to:
 
 http://127.0.0.1:8888/
 
+Check also [[/en/server/services/nginx]] and [[/en/server/services/ssl|ssl]].
+
 ==== Fedora / RHEL ====
 
 <code>
