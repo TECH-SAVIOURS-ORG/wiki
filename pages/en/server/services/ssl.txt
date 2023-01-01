@@ -35,7 +35,7 @@ Email Address []:
 
 ===== Installing your root certificate on all the devices =====
 
-You'll need to create a `myCA.pem` file on every device and copy the content of `cat myCA.pem` file wherever you created it in section [[#generating-the-private-key-and-root-certificate]].
+You'll need to create a ''myCA.pem'' file on every device and copy the content of cat myCA.pem'' file wherever you created it in section [[#generating-the-private-key-and-root-certificate]].
 
 
 ==== Arch Linux ====
