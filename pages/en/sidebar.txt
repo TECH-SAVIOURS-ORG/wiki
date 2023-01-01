@@ -20,6 +20,7 @@
         * [[:en:server:services:php|php]]
         * [[:en:server:services:mariadb|mariadb]]
         * [[:en:server:services:redis|redis]]
+        * [[:en:server:services:docker|docker]]
   * [[:en:phone|Phone]]
     * [[:en:phone:operating_systems|Operating Systems]]
       * [[:en:phone:operating_systems:android|Android]]
