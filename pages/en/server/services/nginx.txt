@@ -2,6 +2,7 @@
 
 nginx (pronounced "engine X"), is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server, written by Igor Sysoev in 2005. nginx is well known for its stability, rich feature set, simple configuration, and low resource consumption.
 
+Check also [[/en/server/services/ssl|ssl]].
 ===== Package =====
 
 <code>
