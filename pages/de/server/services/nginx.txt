@@ -2,6 +2,7 @@
 
 nginx (ausgesprochen "engine X") ist ein freier, quelloffener, hochleistungsfähiger HTTP-Server und Reverse-Proxy sowie ein IMAP/POP3-Proxyserver, der 2005 von Igor Sysoev entwickelt wurde. nginx ist bekannt für seine Stabilität, seinen großen Funktionsumfang, seine einfache Konfiguration und seinen geringen Ressourcenverbrauch.
 
+Siehe auch [[/de/server/services/ssl|ssl]].
 ===== Paket =====
 
 <code>
