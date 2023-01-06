@@ -100,7 +100,7 @@ EXIT;
 
 ===== Datenbank sichern =====
 
-Du kannst alle Datenbanken mit dem folgenden Befehl ''mysqldump %%--%%single-transaction %%--%%flush-logs %%--%%%master-data=2 %%--%%%all-databases -u root -p | gzip > all_databases.sql.gz'' dumpen.
+Du kannst alle Datenbanken mit dem folgenden Befehl ''mysqldump -u root -p %%--%%all-databases | gzip > all_databases.sql.gz'' sichern oder nur eine einzige Datenbank  mit ''mysqldump -u root -p --databases database_name | gzip > database_name.sql.gz''.
 
 Oder verwende das folgende Skript, das Folgendes enthält:
   * getrennte Datenbanken (wenn du die Datei extrahierst)
