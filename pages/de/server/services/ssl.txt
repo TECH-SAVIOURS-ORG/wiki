@@ -1,0 +1,161 @@
+FIXME **This page is not fully translated, yet. Please help completing the translation.**\\ //(remove this paragraph once the translation is finished)//
+
+====== SSL ======
+
+Sei deine eigene SSL-Zertifizierungsstelle.
+
+Dieses Tutorial basiert auf der Domain ''nextcloud.home''. Ändere die Domain daher in deine eigene Domain, wenn du was anderes brauchst.
+
+Es ist auch wichtig, dass die Domain-Adresse von deinem Router umgeleitet wird. Dies kann auch in der Datei ''/etc/hosts'' auf deinem Computer eingestellt werden, aber um die Domain auf jedem Gerät zu erreichen, ist es einfacher, dies direkt im Router zu ändern:
+
+<code>
+nextcloud.domain SERVER-IP
+</code>
+
+
+===== Generierung des privaten Schlüssels und des Root Zertifikats =====
+
+<code>
+openssl genrsa -des3 -out myCA.key 2048
+</code>
+
+<code>
+openssl req -x509 -new -nodes -key myCA.key -sha256 -days 1825 -out myCA.pem
+</code>
+
+Ändere die folgenden Informationen nach deinen Wünschen. Die Infos werden z.B. angezeigt, wenn du das Zertifikat über deinen Browser ansiehst.
+<code>
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+</code>
+
+
+===== Installation des Root-Zertifikats auf allen Geräten =====
+
+Du musst auf jedem Gerät eine ''myCA.pem''-Datei erstellen und den Inhalt der Datei ''myCA.pem'' dorthin kopieren, wo du sie in Abschnitt [[gGenerierung-des-privaten-schlüssels-und-root-zertifikats]] erstellt hast.
+
+
+==== Arch Linux ====
+
+<code>
+sudo trust anchor --store myCA.pem
+</code>
+
+
+==== Android ====
+
+''Settings'' - ''Security'' - ''Encryption and credentials'' - ''Install a certificate''
+
+Check under:
+
+''Settings'' - ''Security'' - ''Trusted credentials'' - ''User''
+
+
+===== Erstellung von CA-signierten Zertifikaten für deine Domains =====
+
+<code>
+openssl genrsa -out domain.home.key 2048
+</code>
+
+<code>
+openssl req -new -key DOMAIN.home.key -out DOMAIN.home.csr
+</code>
+
+<code>
+nano DOMAIN.home.ext
+</code>
+
+<code>
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = DOMAIN.home
+</code>
+
+
+==== Script ====
+
+Erstelle die Datei in ''nano /etc/nginx/ssl/ssl.sh''.
+
+<code>
+#!/bin/sh
+
+if [ "$#" -ne 1 ]
+then
+  echo "Usage: Must supply a domain"
+  exit 1
+fi
+
+DOMAIN=$1
+
+openssl genrsa -out $DOMAIN.key 2048
+openssl req -new -key $DOMAIN.key -out $DOMAIN.csr
+
+cat > $DOMAIN.ext << EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = $DOMAIN
+EOF
+
+openssl x509 -req -in $DOMAIN.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial \
+-out $DOMAIN.crt -days 825 -sha256 -extfile $DOMAIN.ext
+</code>
+
+<code>
+chmod +x ssl.sh
+./ssl.sh domain.home
+</code>
+
+
+===== Nginx =====
+
+Siehe auch [[/de/server/services/nginx]]
+
+
+==== ssl-params.conf ====
+
+<code>
+nano /etc/nginx/conf.d/ssl-params.conf
+</code>
+
+
+==== example ====
+
+<code>
+server {
+        listen 80;
+        listen [::]:80;
+        server_name nextcloud.home;
+
+        # enforce https
+        return 301 https://$server_name:443$request_uri;
+}
+
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name nextcloud.home;
+
+        ssl_certificate /etc/nginx/ssl/nextcloud.home.crt;
+        ssl_certificate_key /etc/nginx/ssl/nextcloud.home.key;
+        include conf.d/ssl-params.conf;
+    
+        access_log /var/log/nginx/nextcloud.home_access_log;
+        error_log /var/log/nginx/nextcloud.home-error_log;
+
+        location / {
+                your things;
+        }
+}
+</code>
