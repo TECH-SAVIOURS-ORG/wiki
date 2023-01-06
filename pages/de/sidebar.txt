@@ -16,7 +16,7 @@
         * [[de:server:services:searx|Searx]]
         * [[de:server:services:aur-helper|AUR-Helper]]
         * [[de:server:services:nginx|nginx]]
-	* [[:de:server:services:ssl|ssl]]
+	* [[de:server:services:ssl|ssl]]
         * [[de:server:services:php|php]]
         * [[de:server:services:mariadb|mariadb]]
         * [[de:server:services:redis|redis]]
