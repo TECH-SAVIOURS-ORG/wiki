@@ -1,1 +1,2 @@
+~~NOCACHE~~
 <catlist de:extras: -noAddPageButton -sortAscending>
