@@ -57,6 +57,7 @@
     * [[de:backup:desktop|Desktop]]
   * [[de:extras|Extras]]
     * [[de:extras:take_a_breath|Atme durch! Genieße deine Welt!]]
+    * [[de:extras:firefly3|Dein eigenes Open-Source-Finanztool - Firefly III]]
   * [[de:scans|Scans]]
     * [[de:scans:log4shell|Log4shell]]
     * [[de:scans:googerteller|googerteller]]
