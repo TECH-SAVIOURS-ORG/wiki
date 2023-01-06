@@ -8,7 +8,7 @@ Firefly III soll Ihnen **Einblick** in und **Kontrolle** über Ihre Finanzen geb
 Aber Sie verstehen schon: Es ist Ihr Geld. Das sind Ihre Ausgaben. Halten Sie sie davon ab, Sie zu kontrollieren. Ich habe dieses Tool entwickelt, weil ich anfing, Geld zu hassen. Geld zu haben, kein Geld zu haben, Rechnungen mit Geld zu bezahlen - Sie verstehen, was ich meine. Aber jetzt nicht mehr. Ich möchte mich "sicher" fühlen, egal wie hoch mein Kontostand ist. Und ich hoffe, dieses Tool kann Ihnen helfen. Ich weiß, dass es mir hilft.
 Zweck
 
-Firefly III auf dem iPad
+Firefly III auf dem iPad 
 
 Persönliches Finanzmanagement ist ziemlich schwierig, und jeder hat seinen eigenen Ansatz dazu. Manche Leute machen Budgets, andere begrenzen ihren Geldfluss, indem sie ihre Kreditkarten wegwerfen, wieder andere versuchen, ihren aktuellen Geldfluss zu erhöhen. Es gibt unzählige Möglichkeiten, Geld zu sparen und zu verdienen. Firefly III basiert auf dem Prinzip, dass Sie, wenn Sie wissen, wohin Ihr Geld fließt, verhindern können, dass es dorthin fließt.
 
