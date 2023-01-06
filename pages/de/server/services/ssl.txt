@@ -35,7 +35,7 @@ Email Address []:
 
 ===== Installation des Root-Zertifikats auf allen Geräten =====
 
-Du musst auf jedem Gerät eine ''myCA.pem''-Datei erstellen und den Inhalt der Datei ''myCA.pem'' dorthin kopieren, wo du sie in Abschnitt [[gGenerierung-des-privaten-schlüssels-und-root-zertifikats]] erstellt hast.
+Du musst auf jedem Gerät eine ''myCA.pem''-Datei erstellen und den Inhalt der Datei ''myCA.pem'' dorthin kopieren, wo du sie in Abschnitt [[#generierung_des_privaten_schluessels_und_des_root_zertifikats]] erstellt hast.
 
 
 ==== Arch Linux ====
