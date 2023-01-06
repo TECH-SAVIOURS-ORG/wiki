@@ -71,7 +71,7 @@ chmod -R 775 firefly-iii/storage
 
 Change it to your needs.
 
-Check also [[/de/server/services/redis|redis]].
+Check also [[/en/server/services/redis|redis]].
 
 <code>
 nano .env
