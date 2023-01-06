@@ -35,6 +35,8 @@ sudo systemctl enable --now uwsgi@searx.service
 Du brauchst nicht mehr der unten stehenden Anleitung zu folgen, gehe einfach zu:
 
 http://127.0.0.1:8888/
+
+Siehe auch [[/de/server/services/nginx]] und [[/de/server/services/ssl|ssl]].
 ==== Fedora / RHEL ====
 
 <code>
