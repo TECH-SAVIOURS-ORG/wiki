@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">**[[en/server/services/borg|BorgBackup]]**, **[[en/server/services/torsocks|torsocks]]**, **[[en/server/services/unbound|unbound]]**, **[[en/server/services/nginx|nginx]]**, **[[en/server/services/php|php]]** & **[[en/server/services/mariadb|mariadb]]** __tutorial/guide__ is ready 🍻</alert>
+<alert type="success" icon="fa fa-info-circle">**[[en/server/services/ssl|ssl]]**, **[[en/server/services/redis|redis]]** & **[[en/extras/firefly3|Your own open source finance tool - Firefly III]]** __tutorial/guide__ is ready 🍻</alert>
 
 ====== Welcome to TECH SAVIOURS Wiki ======
 We would like to give you the opportunity here to achieve your digital privacy goals as a DIY solution. We cover the most important devices we use every day.
