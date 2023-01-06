@@ -37,6 +37,8 @@ nano ~/.config/syncthing/config.xml
 
 ==== Nginx ====
 
+Siehe auch [[/de/server/services/nginx]] und [[/de/server/services/ssl|ssl]].
+
 Ändere ''PORT'' und ''IP''.
 
 <code>
