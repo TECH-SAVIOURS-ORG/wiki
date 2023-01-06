@@ -21,7 +21,7 @@ You can read more about the purpose of Firefly III in the [[https://docs.firefly
 [[https://www.firefly-iii.org/|Website]]
 
 
-Check also [[https://techsaviours.org/news/en/your-own-open-source-finance-tool---firefly-iii|our news]] which contains some explanations and screenshots. The installation there is Docker based if you prefer that way.
+Check also [[https://techsaviours.org/news/en/your-own-open-source-finance-tool-firefly-iii|our news]] which contains some explanations and screenshots. The installation there is Docker based if you prefer that way.
 
 
 ===== Packages =====
