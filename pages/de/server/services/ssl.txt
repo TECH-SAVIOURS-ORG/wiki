@@ -11,17 +11,47 @@ nextcloud.domain SERVER-IP
 </code>
 
 
-===== Generierung des privaten Schlüssels und des Root Zertifikats =====
+===== mkcert =====
+
+[[https://github.com/FiloSottile/mkcert|mkcert]] ist ein einfaches Werkzeug zur Erstellung von lokal vertrauenswürdigen Entwicklungszertifikaten. Es erfordert keine Konfiguration.
+
+
+==== Packete ====
 
 <code>
-openssl genrsa -des3 -out myCA.key 2048
+pacman -S nss mkcert
+</code>
+
+
+==== Root-Zertifikat erstellen ====
+
+<code>
+mkcert -install
+</code>
+
+
+==== Zertifikate für Ihre Domains erstellen ====
+
+<code>
+mkcert nextcloud.home
+</code>
+
+
+===== Manuell =====
+
+
+==== Generierung des privaten Schlüssels und des Root Zertifikats ====
+
+<code>
+openssl genrsa -des3 -out rootCA.key 2048
 </code>
 
 <code>
-openssl req -x509 -new -nodes -key myCA.key -sha256 -days 1825 -out myCA.pem
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1825 -out rootCA.pem
 </code>
 
 Ändere die folgenden Informationen nach deinen Wünschen. Die Infos werden z.B. angezeigt, wenn du das Zertifikat über deinen Browser ansiehst.
+
 <code>
 Country Name (2 letter code) [AU]:
 State or Province Name (full name) [Some-State]:
@@ -33,39 +63,18 @@ Email Address []:
 </code>
 
 
-===== Installation des Root-Zertifikats auf allen Geräten =====
-
-Du musst auf jedem Gerät eine ''myCA.pem''-Datei erstellen und den Inhalt der Datei ''myCA.pem'' dorthin kopieren, wo du sie in Abschnitt [[#generierung_des_privaten_schluessels_und_des_root_zertifikats]] erstellt hast.
-
-
-==== Arch Linux ====
+==== Erstellung von CA-signierten Zertifikaten für deine Domains ====
 
 <code>
-sudo trust anchor --store myCA.pem
-</code>
-
-
-==== Android ====
-
-''Settings'' - ''Security'' - ''Encryption and credentials'' - ''Install a certificate''
-
-Check under:
-
-''Settings'' - ''Security'' - ''Trusted credentials'' - ''User''
-
-
-===== Erstellung von CA-signierten Zertifikaten für deine Domains =====
-
-<code>
-openssl genrsa -out domain.home.key 2048
+openssl genrsa -out nextcloud.home-key.pem 2048
 </code>
 
 <code>
-openssl req -new -key DOMAIN.home.key -out DOMAIN.home.csr
+openssl req -new -key nextcloud.home-key.pem -out nextcloud.home.pem
 </code>
 
 <code>
-nano DOMAIN.home.ext
+nano nextcloud.home.ext
 </code>
 
 <code>
@@ -75,7 +84,7 @@ keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = DOMAIN.home
+DNS.1 = nextcloud.home
 </code>
 
 
@@ -94,8 +103,8 @@ fi
 
 DOMAIN=$1
 
-openssl genrsa -out $DOMAIN.key 2048
-openssl req -new -key $DOMAIN.key -out $DOMAIN.csr
+openssl genrsa -out $DOMAIN-key.pem 2048
+openssl req -new -key $DOMAIN-key.pem -out $DOMAIN.pem
 
 cat > $DOMAIN.ext << EOF
 authorityKeyIdentifier=keyid,issuer
@@ -106,14 +115,37 @@ subjectAltName = @alt_names
 DNS.1 = $DOMAIN
 EOF
 
-openssl x509 -req -in $DOMAIN.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial \
+openssl x509 -req -in $DOMAIN.pem -CA rootCA.pem -CAkey rootCA.key -CAcreateserial \
 -out $DOMAIN.crt -days 825 -sha256 -extfile $DOMAIN.ext
 </code>
 
 <code>
 chmod +x ssl.sh
-./ssl.sh domain.home
+./ssl.sh nextcloud.home
 </code>
+
+
+===== Installation des Root-Zertifikats auf allen Geräten =====
+
+Du musst auf jedem Gerät eine ''rootCA.pem''-Datei erstellen und den Inhalt der Datei ''rootCA.pem'' dorthin kopieren, wo du sie in Abschnitt [[#generierung_des_privaten_schluessels_und_des_root_zertifikats]] (manuell) erstellt hast.
+
+Wenn du [[#mkcert]] benutzt hast, führe einfach den Befehl ''cat $(mkcert -CAROOT)/rootCA.pem'' aus.
+
+
+==== Arch Linux ====
+
+<code>
+sudo trust anchor --store rootCA.pem
+</code>
+
+
+==== Android ====
+
+''Settings'' - ''Security'' - ''Encryption and credentials'' - ''Install a certificate''
+
+Check under:
+
+''Settings'' - ''Security'' - ''Trusted credentials'' - ''User''
 
 
 ===== Nginx =====
@@ -134,6 +166,8 @@ ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
 ssl_ecdh_curve secp384r1;
 ssl_session_cache shared:SSL:10m;
 </code>
+
+
 ==== example ====
 
 <code>
@@ -151,8 +185,8 @@ server {
         listen [::]:443 ssl http2;
         server_name nextcloud.home;
 
-        ssl_certificate /etc/nginx/ssl/nextcloud.home.crt;
-        ssl_certificate_key /etc/nginx/ssl/nextcloud.home.key;
+        ssl_certificate /etc/nginx/ssl/nextcloud.home.pem;
+        ssl_certificate_key /etc/nginx/ssl/nextcloud.home-key.pem;
         include conf.d/ssl-params.conf;
     
         access_log /var/log/nginx/nextcloud.home_access_log;
