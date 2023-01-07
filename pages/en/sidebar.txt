@@ -1,9 +1,5 @@
 ~~NOCACHE~~
 
-++++ Server |
-<catlist -noHead -sortAscending en:server:>
-++++
-
 === Tutorials ===
   * [[:en:server|Server]]
     * [[:en:server:operating_systems|Operating Systems]]
