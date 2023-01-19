@@ -60,7 +60,7 @@ Redis für php aktivieren.
 
 <code>
 pacman -S php-igbinary php-redis
-nano /etc/php/php.ini
+nano /etc/php/conf.d/{igbinary.ini,redis.ini}
 </code>
 
 <code>
