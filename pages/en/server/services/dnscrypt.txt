@@ -31,6 +31,13 @@ server_names = ['techsaviours.org-dnscrypt']
 </code>
 
 
+==== (Optional) listen_addresses ====
+
+If you're going to use [[/en/server/services/unbound|Unbound]] and [[/en/server/services/adguardhome|AdGuardHome]] you'll need to change the ''listen_addresses'' as well.
+
+<code>
+listen_addresses = ['127.0.0.1:5300']
+</code>
 ==== Anonymized DNS ====
 
 Go to the bottom ''routes = ['' and add:  
