@@ -133,5 +133,5 @@ und füge unten den folgenden Eintrag hinzu:
   do-not-query-localhost: no
 forward-zone:
   name: "."
-  forward-addr: 127.0.0.1@53
+  forward-addr: 127.0.0.1@5300
 </code>
