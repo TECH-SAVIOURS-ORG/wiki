@@ -4,7 +4,7 @@ Be your own SSL Certificate Authority.
 
 This tutorial is based on the domain ''nextcloud.home''. So change the domain to your specific domain.
 
-It is also important that the domain address gets redirected from your router. This can also be set in the ''/etc/hosts'' file of your computer, but to reach the domain on every device, it is easier to change this directly in the router:
+It is also important that the domain address gets redirected from your router or use [[/en/server/services/adguardhome|AdGuardHome]]. This can also be set in the ''/etc/hosts'' file of your computer, but to reach the domain on every device, it is easier to change this directly in the router or [[/en/server/services/adguardhome|AdGuardHome]]:
 
 <code>
 nextcloud.domain SERVER-IP
