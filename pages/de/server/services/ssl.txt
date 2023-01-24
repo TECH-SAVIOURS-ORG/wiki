@@ -4,7 +4,7 @@ Sei deine eigene SSL-Zertifizierungsstelle.
 
 Dieses Tutorial basiert auf der Domain ''nextcloud.home''. Ändere die Domain daher in deine eigene Domain, wenn du was anderes brauchst.
 
-Es ist auch wichtig, dass die Domain-Adresse von deinem Router umgeleitet wird oder mit [[/de/server/services/adguardhome|AdGuardHome]]. Dies kann auch in der Datei ''/etc/hosts'' auf deinem Computer eingestellt werden, aber um die Domain auf jedem Gerät zu erreichen, ist es einfacher, dies direkt im Router oder [[/de/server/services/adguardhome|AdGuardHome]] zu ändern:
+Es ist auch wichtig, dass die Domain-Adresse von deinem Router umgeleitet wird oder mit [[/de/server/services/adguardhome#dns_rewrites|AdGuardHome]]. Dies kann auch in der Datei ''/etc/hosts'' auf deinem Computer eingestellt werden, aber um die Domain auf jedem Gerät zu erreichen, ist es einfacher, dies direkt im Router oder [[/de/server/services/adguardhome#dns_rewrites|AdGuardHome]] zu ändern:
 
 <code>
 nextcloud.domain SERVER-IP
