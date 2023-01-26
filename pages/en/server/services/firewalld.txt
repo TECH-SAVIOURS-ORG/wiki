@@ -21,7 +21,7 @@ systemctl enable --now firewalld.service
 
 ===== Add & remove =====
 
-Allways reload firewalld after any changes:
+After every change firewalld should always be reloaded:
 
 <code>
 firewall-cmd --reload
