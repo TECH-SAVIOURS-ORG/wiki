@@ -203,7 +203,7 @@ show-inactive=true
 
 ===== Change runtime to permanent =====
 
-The permanent option ''--permanent'' can be used to set options permanently. These changes are not effective immediately, only after service restart/reload or system reboot. Without the ''--permanent'' option, a change will only be part of the ''--runtime'' configuration.
+The permanent option ''%%--permanent%%'' can be used to set options permanently. These changes are not effective immediately, only after service restart/reload or system reboot. Without the ''%%--permanent%%'' option, a change will only be part of the ''%%--runtime%%'' configuration.
 
 <code>
 firewall-cmd --runtime-to-permanent
