@@ -182,9 +182,9 @@ ls /etc/firewalld/policies/
 
 ===== Desktop tray =====
 
-If you are running a desktop environment on your server or for your desktop computer. 
+Only if you are running a desktop environment on your server or for your desktop computer. 
 
-The GUI can also be helpful when you need to quickly change zones on specific network locations.
+The GUI can also be useful if you need to quickly change zones at specific network locations.
 
 <code>
 firewall-applet
