@@ -141,11 +141,35 @@ sudo trust anchor --store rootCA.pem
 
 ==== Android ====
 
+
+=== User trusted credentials ===
+
 ''Settings'' - ''Security'' - ''Encryption and credentials'' - ''Install a certificate''
 
-Check under:
+Check unter:
 
 ''Settings'' - ''Security'' - ''Trusted credentials'' - ''User''
+
+
+=== System trusted credentials ===
+
+Wenn "User trusted credentials" nicht ausreicht und du das Zertifikat im System brauchst, befolge die nächsten Zeilen. Dazu ist allerdings ein gerootetes Gerät erforderlich:
+
+<code>
+hashed_name=`openssl x509 -inform PEM -subject_hash_old -in rootCA.pem | head -1` && cp rootCA.pem $hashed_name.0
+ls $hashed_name.0
+</code>
+
+<code>
+adb root
+adb shell mount -o rw,remount /
+adb push hashed_name.0 /system/etc/security/cacerts/hashed_name.0
+adb shell chmod 644 /system/etc/security/cacerts/hashed_name.0
+adb shell chown root:root /system/etc/security/cacerts/hashed_name.0
+adb shell reboot
+</code>
+
+Du kannst auch das Magisk-Modul "[[https://github.com/NVISOsecurity/MagiskTrustUserCerts|Magisk Trust User Certs]]" verwenden, das das gleiche wie oben macht.
 
 
 ===== Nginx =====
