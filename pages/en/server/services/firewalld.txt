@@ -1,0 +1,201 @@
+====== Firewalld ======
+
+[[https://firewalld.org/|firewalld]] is a firewall daemon developed by Red Hat. It uses nftables by default. 
+
+Firewalld provides a dynamically managed firewall with support for network/firewall zones that define the trust level of network connections or interfaces. It has support for IPv4, IPv6 firewall settings, ethernet bridges and IP sets. There is a separation of runtime and permanent configuration options. It also provides an interface for services or applications to add firewall rules directly.
+
+
+===== Packages =====
+
+<code>
+pacman -S firewalld ipset
+</code>
+
+
+===== Start =====
+
+<code>
+systemctl enable --now firewalld.service
+</code>
+
+
+===== Add & remove =====
+
+Allways reload firewalld after any changes:
+
+<code>
+firewall-cmd --reload
+</code>
+
+
+==== interface ====
+
+<code>
+firewall-cmd --change-interface=YOUR-INTERFACE --zone=home --permanent
+</code>
+
+or
+
+<code>
+firewall-cmd --add-interface=YOUR-INTERFACE --zone=home --permanent
+firewall-cmd --remove-interface=YOUR-INTERFACE --zone=home --permanent
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Check your interface name/s with ''%%ip -o addr show scope global | awk '{print $2}'%%''.</alert>
+
+
+==== service ====
+
+Check if the favoured service is available by default ''ls /usr/lib/firewalld/services/'' or ''ls /usr/lib/firewalld/services/ | grep 'YOUR-SERVICE''. Otherwise, you have to [[#custom_made|create your own]].
+
+<code>
+firewall-cmd --add-service=kdeconnect --zone=home --permanent
+firewall-cmd --remove-service=dhcpv6-client --zone=home --permanent
+</code>
+
+
+=== custom made ===
+
+<code>
+firewall-cmd --new-service=YOUR-NEW-SERVICE --permanent
+firewall-cmd --service=YOUR-NEW-SERVICE --set-description=YOUR-NEW-SERVICE --permanent
+firewall-cmd --service=YOUR-NEW-SERVICE --set-short=YNS --permanent
+firewall-cmd --service=YOUR-NEW-SERVICE --add-port=1234/tcp --permanent
+</code>
+
+<code>
+firewall-cmd --add-service=YOUR-NEW-SERVICE --zone=home --permanent
+</code>
+
+
+==== port ====
+
+<code>
+firewall-cmd --add-port=80/tcp --zone=home --permanent
+firewall-cmd --remove-port=80/tcp --zone=home --permanent
+</code>
+
+
+=== forwarding ===
+
+<code>
+firewall-cmd --add-forward-port=port=12345:proto=tcp:toport=22:toaddr=192.168.1.50 --zone=home --permanent
+firewall-cmd --remove-forward-port=port=12345:proto=tcp:toport=22:toaddr=192.168.1.50 --zone=home --permanent
+</code>
+
+
+==== zone ====
+
+<code>
+firewall-cmd --new-zone=YOUR-ZONE --permanent
+firewall-cmd --delete-zone=YOUR-ZONE --permanent
+</code>
+
+
+==== masquerade ====
+
+<code>
+firewall-cmd --add-masquerade --zone=home --permanent
+firewall-cmd --remove-masquerade --zone=home --permanent
+</code>
+
+
+==== new policy ====
+
+<code>
+firewall-cmd --new-policy NAT_int_to_ext --permanent
+firewall-cmd --policy NAT_int_to_ext --add-ingress-zone wireguard --permanent
+firewall-cmd --policy NAT_int_to_ext --add-egress-zone home --permanent
+firewall-cmd --policy NAT_int_to_ext --set-target ACCEPT --permanent
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Based on [[/en/server/services/wireguard]].</alert>
+
+
+===== List =====
+
+
+==== active zones ====
+
+<code>
+firewall-cmd --get-active-zones
+</code>
+
+
+==== zones ====
+
+<code>
+firewall-cmd --list-all-zones
+firewall-cmd --info-zone=home
+</code>
+
+
+==== interface ====
+
+<code>
+firewall-cmd --get-zone-of-interface=YOUR-INTERFACE
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Check your interface name/s with ''%%ip -o addr show scope global | awk '{print $2}'%%''.</alert>
+
+
+==== services ====
+
+<code>
+firewall-cmd --get-services
+firewall-cmd --list-services --zone=home
+firewall-cmd --info-service YOUR-SERVICE
+</code>
+
+**Self created**:
+<code>
+ls /etc/firewalld/services/
+</code>
+
+**Default**:
+<code>
+ls /usr/lib/firewalld/services/
+</code>
+
+
+==== ports ====
+
+<code>
+firewall-cmd --list-ports --zone=home
+</code>
+
+
+==== rich rules ====
+
+<code>
+firewall-cmd --list-rich-rules --zone=home
+</code>
+
+
+==== policies ====
+
+<code>
+ls /usr/lib/firewalld/policies/
+ls /etc/firewalld/policies/
+</code>
+
+
+===== Desktop tray =====
+
+If you are running a desktop environment on your server or for your desktop computer. 
+
+The GUI can also be helpful when you need to quickly change zones on specific network locations.
+
+<code>
+firewall-applet
+</code>
+
+<code>
+nano ~/.config/firewall/applet.conf
+</code>
+
+<code>
+[General]
+notifications=true
+show-inactive=true
+</code>
