@@ -199,3 +199,12 @@ nano ~/.config/firewall/applet.conf
 notifications=true
 show-inactive=true
 </code>
+
+
+===== Change runtime to permanent =====
+
+The permanent option ''--permanent'' can be used to set options permanently. These changes are not effective immediately, only after service restart/reload or system reboot. Without the ''--permanent'' option, a change will only be part of the ''--runtime'' configuration.
+
+<code>
+firewall-cmd --runtime-to-permanent
+</code>
