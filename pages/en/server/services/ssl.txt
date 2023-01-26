@@ -151,7 +151,7 @@ Check under:
 
 === System trusted credentials ===
 
-If "User trusted credentials" is not enough and you'll need the certificate in system, follow the next lines. It needs a rooted device though:
+If "User trusted credentials" is not enough and you need the certificate in the system, follow the next lines. However, this requires a rooted device: 
 
 <code>
 hashed_name=`openssl x509 -inform PEM -subject_hash_old -in rootCA.pem | head -1` && cp rootCA.pem $hashed_name.0
