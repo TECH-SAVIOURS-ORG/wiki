@@ -41,6 +41,13 @@ firewall-cmd --add-interface=DEIN-INTERFACE --zone=home --permanent
 firewall-cmd --remove-interface=DEIN-INTERFACE --zone=home --permanent
 </code>
 
+or
+
+<code>
+nmcli connection show
+nmcli connection modify 'NAME' connection.zone home
+</code>
+
 <alert type="info" icon="fa fa-info-circle">Überprüfe die Namen deiner Schnittstelle/n mit ''%%ip -o addr show scope global | awk '{print $2}'%%''.</alert>
 
 
