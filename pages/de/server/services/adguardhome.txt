@@ -62,7 +62,7 @@ Gehe auf https://firebog.net/ und wähle aus, was du blockieren möchtest. Suche
 
 ===== DNS rewrites  =====
 
-Wenn du zum Beispiel [[/de/server/services/ssl]] verwendest, ist es ein Leichtes, alle deine Server-Domänen wie ''nextcloud.home'' zu AdGuard Home hinzuzufügen, anstatt deinen Router oder die Datei ''/etc/hosts'' zu verwenden.
+Wenn du zum Beispiel [[/de/server/services/ssl]] verwendest, ist es ein leichtes, alle deine Server-Domänen wie ''nextcloud.home'' zu AdGuard Home hinzuzufügen, anstatt deinen Router oder die Datei ''/etc/hosts'' zu verwenden.
 
 {{:en:server:services:adguardhome-dns_rewrites.png.png?direct|}}
 
