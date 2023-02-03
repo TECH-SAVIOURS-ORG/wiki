@@ -12,6 +12,7 @@
         * [[de:server:services:rsync|rsync]]
         * [[de:server:services:syncthing|syncthing]]
         * [[de:server:services:unbound|unbound]]
+        * [[de:server:services:adguardhome|AdGuard Home]]
         * [[de:server:services:dnscrypt|DNSCrypt]]
         * [[de:server:services:torsocks|torsocks]]
         * [[de:server:services:searx|Searx]]
