@@ -1,0 +1,95 @@
+====== AdGuard Home ======
+
+[[https://adguard.com/en/adguard-home/overview.html|AdGuard Home]] ist eine netzwerkweite Software zum Blockieren von Werbung und Tracking. Nachdem du es eingerichtet hast, deckt es ALLE deine Heimgeräte ab, und du brauchst dafür keine clientseitige Software. Mit dem Aufkommen von Internet-of-Things und vernetzten Geräten wird es immer wichtiger, Ihr gesamtes Netzwerk kontrollieren zu können.
+
+Weitere Informationen findest du auf dem [[https://github.com/AdguardTeam/AdguardHome|GitHub Repository]].
+
+
+===== Installation =====
+
+<code>
+curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
+</code>
+
+Prüfe, ob es läuft:
+<code>
+systemctl status AdGuardHome.service
+</code>
+
+<alert type="info" icon="fa fa-info-circle">Files sind unter ''/opt/AdGuardHome/''</alert>
+
+
+==== Web Interface ====
+
+Gehe zu ''http://server-ip:3000'' und folge den Anweisungen:
+
+{{:en:server:services:adguardhome-welcome.png?direct|}}
+
+
+Ändere die Portnummer, wenn du [[/de/server/services/nginx]] oder etwas anderes verwendest. Siehe dir auch [[/de/server/services/ssl]] an. Lasse den Rest so wie es ist:
+
+{{:en:server:services:adguardhome-admin_web_interface.png?direct|}}
+
+
+Richte deinen Admin-Benutzer ein:
+
+{{:en:server:services:adguardhome-authentication.png?direct|}}
+
+
+Konfiguriere deinen Router so, dass er alle DNS-Anfragen an Ihren AdGuard Home Server weiterleitet, damit alle Geräte in Ihrem Netzwerk von dem neuen DNS-Server profitieren können:
+
+{{:en:server:services:adguardhome-configure_your_devices.png?direct|}}
+
+
+Das war's:
+
+{{:en:server:services:adguardhome-congratulations.png?direct|}}
+
+
+===== Unbound & DNSCrypt =====
+
+Wenn du [[/de/server/services/unbound]] und/oder [[/de/server/services/dnscrypt]] verwenden willst, musst du die ''Upstream DNS servers'' ändern:
+
+{{:en:server:services:adguardhome-upstream_dns_servers.png?direct|}}
+
+
+===== DNS blocklists =====
+
+Gehe auf https://firebog.net/ und wähle aus, was du blockieren möchtest. Suche auch nach etwas wie [[https://searx.techsaviours.org/search?q=Blocklist%20for%20AdGuard%20or%20PiHole|Blocklist for AdGuard or PiHole]].
+
+{{:en:server:services:adguardhome-dns_blocklists.png?direct|}}
+
+
+===== DNS rewrites  =====
+
+Wenn du zum Beispiel [[/de/server/services/ssl]] verwendest, ist es ein Leichtes, alle deine Server-Domänen wie ''nextcloud.home'' zu AdGuard Home hinzuzufügen, anstatt deinen Router oder die Datei ''/etc/hosts'' zu verwenden.
+
+{{:en:server:services:adguardhome-dns_rewrites.png.png?direct|}}
+
+{{:en:server:services:adguardhome-add_dns_rewrite.png?direct|}}
+
+Du kannst die Domains auch hinzufügen unter:
+
+<code>
+nano /opt/AdGuardHome/AdGuardHome.yaml
+</code>
+
+<code>
+dns:
+  rewrites:
+    - domain: nextcloud.home
+      answer: YOUR-IP
+    - domain: searx.home
+      answer: YOUR-IP
+</code>
+
+<code>
+systemctl restart AdGuardHome.service
+</code>
+
+
+===== Uninstall =====
+
+<code>
+curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -vu
+</code>
