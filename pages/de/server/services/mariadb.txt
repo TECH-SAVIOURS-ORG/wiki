@@ -190,39 +190,39 @@ Bei einer neuen Hauptversion von Mariadb (z.B. mariadb-10.7.4-1 auf mariadb-10.8
   - den Daemon neu starten, damit der 10.8.3-Daemon läuft
 
 <code>
-mysql_upgrade -u root -p --skip-version-check
+systemctl restart mariadb.service
 </code>
 
 <code>
-systemctl restart mariadb.service
-</code> 
+mariadb-upgrade -u root -p
+</code>
 
 Um alle Tabellen in allen Datenbanken zu prüfen:  
 <code>
-mysqlcheck --all-databases -u root -p -c
+mariadb-check --all-databases -u root -p -c
 </code>  
 
 Um alle Tabellen in allen Datenbanken zu analysieren:  
 <code>
-mysqlcheck --all-databases -u root -p -a
+mariadb-check --all-databases -u root -p -a
 </code>  
 
 Um alle Tabellen in allen Datenbanken zu reparieren:  
 <code>
-mysqlcheck --all-databases -u root -p -r
+mariadb-check --all-databases -u root -p -r
 </code> 
  
 Um alle Tabellen in allen Datenbanken zu optimieren:  
 <code>
-mysqlcheck --all-databases -u root -p -o
+mariadb-check --all-databases -u root -p -o
 </code>
 
 Alle Befehle "Datenbank prüfen/aktualisieren" in einem Block
 <code>
-mysql_upgrade -u root -p --skip-version-check
 systemctl restart mariadb.service
-mysqlcheck --all-databases -u root -p -c
-mysqlcheck --all-databases -u root -p -a
-mysqlcheck --all-databases -u root -p -r
-mysqlcheck --all-databases -u root -p -o
+mariadb-upgrade -u root -p 
+mariadb-check --all-databases -u root -p -c
+mariadb-check --all-databases -u root -p -a
+mariadb-check --all-databases -u root -p -r
+mariadb-check --all-databases -u root -p -o
 </code>
