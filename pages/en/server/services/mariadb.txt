@@ -186,42 +186,42 @@ Upon a major version release of mariadb (for example mariadb-10.7.4-1 to mariadb
 
   - upgrade the package(s)
   - restart the daemon
-  - run mysql_upgrade
+  - run mariadb-upgrade
 
 <code>
 systemctl restart mariadb.service
 </code>
 
 <code>
-mysql_upgrade -u root -p
+mariadb-upgrade -u root -p
 </code>
 
 To check all tables in all databases:  
 <code>
-mysqlcheck --all-databases -u root -p -c
+mariadb-check --all-databases -u root -p -c
 </code>  
 
 To analyze all tables in all databases:  
 <code>
-mysqlcheck --all-databases -u root -p -a
+mariadb-check --all-databases -u root -p -a
 </code>  
 
 To repair all tables in all databases:  
 <code>
-mysqlcheck --all-databases -u root -p -r
+mariadb-check --all-databases -u root -p -r
 </code> 
  
 To optimize all tables in all databases:  
 <code>
-mysqlcheck --all-databases -u root -p -o
+mariadb-check --all-databases -u root -p -o
 </code>
 
 All "Check/update database" commands in one block
 <code>
 systemctl restart mariadb.service
-mysql_upgrade -u root -p
-mysqlcheck --all-databases -u root -p -c
-mysqlcheck --all-databases -u root -p -a
-mysqlcheck --all-databases -u root -p -r
-mysqlcheck --all-databases -u root -p -o
+mariadb-upgrade -u root -p
+mariadb-check --all-databases -u root -p -c
+mariadb-check --all-databases -u root -p -a
+mariadb-check --all-databases -u root -p -r
+mariadb-check --all-databases -u root -p -o
 </code>
