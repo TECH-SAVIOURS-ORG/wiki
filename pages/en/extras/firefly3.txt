@@ -231,6 +231,7 @@ latestversion=$(curl -s https://api.github.com/repos/firefly-iii/data-importer/r
 # Install latest version
 yes | composer create-project firefly-iii/data-importer --no-dev --prefer-dist firefly-iii-data-importer-updated $latestversion
 cp firefly-iii-data-importer/.env firefly-iii-data-importer-updated/.env
+cp firefly-iii-data-importer/storage/configurations/*.json firefly-iii-data-importer-updated/storage/configurations/
 
 # Serve next version, make sure rights are ok, restart nginx
 mv firefly-iii-data-importer firefly-iii-data-importer-old
