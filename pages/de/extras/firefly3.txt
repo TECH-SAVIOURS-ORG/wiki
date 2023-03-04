@@ -100,7 +100,7 @@ APP_URL=https:/firefly.home
 </code>
 
 
-===== Upgrade =====
+==== Upgrade ====
 
 Erstelle das Update-Skript in ''/srv/http'':
 
