@@ -55,7 +55,10 @@ systemctl restart php-fpm.service
 </code>
 
 
-===== Installing Firefly III =====
+===== Firefly III =====
+
+
+==== Installation ====
 
 Check [[https://version.firefly-iii.org/|latest version]] number and change the command below:
 
