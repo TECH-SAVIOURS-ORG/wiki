@@ -54,7 +54,10 @@ systemctl restart php-fpm.service
 </code>
 
 
-===== Installation von Firefly III =====
+===== Firefly III =====
+
+
+==== Installation ====
 
 Siehe [[https://version.firefly-iii.org/|neueste Versions]] Nummer und ändere den Befehl wie folgt:
 
@@ -68,7 +71,7 @@ chmod -R 775 firefly-iii/storage
 
 ==== Konfiguriere .env ====
 
-Siehe auch dazu [[/de/server/services/redis|redis]].
+Siehe auch dazu [[/de/server/services/redis|redis]] und erstelle einen [[/de/server/services/mariadb#lokalen_benutzer_anlegen|user]] und [[/de/server/services/mariadb#datenbank_erstellen|database]].
 
 Hier werden nur die wichtigsten aufgeführt. Änder den Rest nach deinen Bedürfnissen: 
 
@@ -78,6 +81,11 @@ nano .env
 
 <code>
 TRUSTED_PROXIES=**
+DB_CONNECTION=mysql
+DB_DATABASE=firefly
+DB_USERNAME=firefly
+DB_PASSWORD=PASSWORD
+DB_SOCKET=/run/mysqld/mysqld.sock
 CACHE_DRIVER=redis
 SESSION_DRIVER=redis
 REDIS_SCHEME=unix
