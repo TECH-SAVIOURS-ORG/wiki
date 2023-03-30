@@ -1,0 +1,13 @@
+====== Nextcloud ======
+
+Nextcloud ist eine Reihe von Client-Server-Software zum Erstellen und Verwenden von Dateihosting-Diensten. Es ähnelt funktional der Dropbox, obwohl Nextcloud kostenlos und open-source ist und es jedem ermöglicht, es auf einem privaten Server zu installieren und zu bedienen. Im Gegensatz zu proprietären Diensten wie Dropbox ermöglicht die offene Architektur dem Server zusätzliche Funktionen in Form von Anwendungen. 
+
+
+===== Download und Installation der APK =====
+
+Installiere Nextcloud via [[de:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.nextcloud.client/.
+
+
+===== Konfiguration =====
+
+Die Konfiguration ist ziemlich selbst erklärend. Starte einfach den Client und melden dich bei [[/de/server/services/nextcloud|deinem Server]] (https://nextcloud.home) an.
