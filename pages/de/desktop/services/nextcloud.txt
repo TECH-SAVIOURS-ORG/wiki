@@ -12,4 +12,4 @@ pacman -S nextcloud-client
 
 ===== Konfiguration =====
 
-Die Konfiguration ist ziemlich selbst erklärend. Starte einfach den Client und melden dich bei [[/de/server/services/nextcloud|deinem Server]] (https://nextcloud.home) an.
+Die Konfiguration ist ziemlich selbst erklärend. Starte einfach den Client und melden dich bei [[/de/server/services/nextcloud|deinem Server]] (https://nextcloud.home) an. 
