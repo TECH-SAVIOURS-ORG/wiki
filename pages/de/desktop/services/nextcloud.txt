@@ -1,15 +1,15 @@
 ====== Nextcloud ======
 
-Nextcloud is a suite of client-server software for creating and using file hosting services. It is functionally similar to Dropbox, although Nextcloud is free and open-source, allowing anyone to install and operate it on a private server. In contrast to proprietary services like Dropbox, the open architecture allows adding additional functionality to the server in form of applications.
+Nextcloud ist eine Reihe von Client-Server-Software zum Erstellen und Verwenden von Dateihosting-Diensten. Es ähnelt funktional der Dropbox, obwohl Nextcloud kostenlos und open-source ist und es jedem ermöglicht, es auf einem privaten Server zu installieren und zu bedienen. Im Gegensatz zu proprietären Diensten wie Dropbox ermöglicht die offene Architektur dem Server zusätzliche Funktionen in Form von Anwendungen.
 
 
-===== Packages =====
+===== Paket =====
 
 <code>
 pacman -S nextcloud-client
 </code>
 
 
-===== Configuration =====
+===== Konfiguration =====
 
-The configuration is pretty much self explained. Just start the client and login to [[/en/server/services/nextcloud|your server]] (https://nextcloud.home).
+Die Konfiguration ist ziemlich selbst erklärend. Starte einfach den Client und melden dich bei [[/de/server/services/nextcloud|deinem Server]] (https: //nextcloud.home) an.
