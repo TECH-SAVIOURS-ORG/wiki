@@ -35,7 +35,7 @@
         * [[de:phone:apps:xprivacylua|XPrivacyLua]]
         * [[de:phone:apps:microg|microG]]
         * [[de:phone:apps:shelter|Shelter]]
-        * [[de:wiki:phone:apps:aurora|Aurora Store]]
+        * [[de:phone:apps:aurora|Aurora Store]]
         * [[de:phone:apps:syncthing|Syncthing]]
         * [[de:phone:apps:nextcloud|Nextcloud]]
         * [[de:wiki:phone:apps:browser|Browser (Iceraven & Tor)]]
