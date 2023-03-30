@@ -30,7 +30,7 @@
     * [[de:phone:apps|Apps (Android)]]
         * [[de:phone:apps:f-droid|F-Droid]]
         * [[de:phone:apps:magisk|Magisk]]
-        * [[de:wiki:phone:apps:afwall|AFWall+]]
+        * [[de:phone:apps:afwall|AFWall+]]
         * [[de:phone:apps:lsposed|LSPosed]]
         * [[de:phone:apps:xprivacylua|XPrivacyLua]]
         * [[de:phone:apps:microg|microG]]
