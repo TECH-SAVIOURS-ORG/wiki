@@ -5,7 +5,7 @@ Nextcloud is a suite of client-server software for creating and using file hosti
 
 ===== Download and install apk =====
 
-Install Syncthing via [[en:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.nextcloud.client/.
+Install Nextcloud via [[en:phone:apps:f-droid|F-Droid]] - https://f-droid.org/en/packages/com.nextcloud.client/.
 
 
 ===== Configuration =====
