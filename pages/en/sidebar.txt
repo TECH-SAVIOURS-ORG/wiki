@@ -37,6 +37,7 @@
         * [[:en:phone:apps:shelter|Shelter]]
         * [[:en:phone:apps:aurora|Aurora Store]]
         * [[:en:phone:apps:syncthing|Syncthing]]
+        * [[:en:phone:apps:nextcloud|Nextcloud]]
         * [[:en:phone:apps:browser|Browser (Iceraven & Tor)]]
         * [[:en:phone:apps:invizible-pro|InviZible Pro (DNSCrypt & Tor)]]
   * [[:en:desktop|Desktop]]
