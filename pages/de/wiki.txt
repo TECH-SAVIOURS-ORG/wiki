@@ -1,4 +1,4 @@
-<alert type="success" icon="fa fa-info-circle">**[[de/server/services/ssl|ssl]]**, **[[de/server/services/redis|redis]]** & **[[de/extras/firefly3|Dein eigenes Open-Source-Finanztool - Firefly III]]** __tutorial/guide__ ist fertig 🍻</alert>
+<alert type="success" icon="fa fa-nextcloud">**[[de/server/services/nextcloud|nextcloud]]** __tutorial/guide__ ist fertig 🍻 🌪️</alert>
 
 ====== Willkommen bei TECH SAVIOURS Wiki ======
 Wir möchten dir hier die Möglichkeit geben, deine digitale Datenschutzziele als DIY-Lösung zu realisieren. Wir decken die wichtigsten Geräte ab, die wir jeden Tag benutzen.
