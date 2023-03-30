@@ -38,7 +38,7 @@
         * [[de:phone:apps:aurora|Aurora Store]]
         * [[de:phone:apps:syncthing|Syncthing]]
         * [[de:phone:apps:nextcloud|Nextcloud]]
-        * [[de:wiki:phone:apps:browser|Browser (Iceraven & Tor)]]
+        * [[de:phone:apps:browser|Browser (Iceraven & Tor)]]
         * [[de:phone:apps:invizible-pro|InviZible Pro (DNSCrypt & Tor)]]
   * [[de:desktop|Desktop]]
     * [[de:desktop:operating_systems|Betriebssysteme]]
