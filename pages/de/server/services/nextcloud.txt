@@ -6,7 +6,7 @@ Nextcloud ist eine Reihe von Client-Server-Software zum Erstellen und Verwenden 
 ===== Pakete =====
 
 <code>
-pacman -S nextcloud php php-fpm php-gd php-intl php-imagick php-apcu php-igbinary php-redis ffmpeg libreoffice
+pacman -S nextcloud php php-fpm php-gd php-imagick php-apcu php-igbinary php-redis ffmpeg libreoffice
 </code>
 
 
