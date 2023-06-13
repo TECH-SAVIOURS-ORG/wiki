@@ -31,8 +31,8 @@ Check the two files in the same folder with the following command(s):
     * ''pacman-key -v archlinux-<version>-x86_64.iso.sig''
   * other GnuPGP systems
     * ''gpg %%--%%keyserver pgp.mit.edu %%--%%keyserver-options auto-key-retrieve %%--%%verify archlinux-<version>-x86_64.iso.sig''
-  * and check the md5sum with the following command
-    * ''md5sum archlinux-<version>-x86_64.iso''
+  * and check the sha256sums with the following command
+    * ''sha256sums archlinux-<version>-x86_64.iso''
 
 <alert type="info" icon="fa fa-info-circle">Another method to verify the authenticity of the signature is to ensure that the public key's fingerprint is identical to the key fingerprint of the [[https://www.archlinux.org/people/developers/|Arch Linux developer]] who signed the ISO-file. See [[https://en.wikipedia.org/wiki/Public-key_cryptography|Wikipedia:Public-key_cryptography]] for more information on the public-key process to authenticate keys.</alert>
 
