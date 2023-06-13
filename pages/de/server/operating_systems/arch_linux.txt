@@ -31,8 +31,8 @@ Es umfasst:
     * ''pacman-key -v archlinux-<version>-x86_64.iso.sig''
   * andere GnuPGP-Systeme
     * ''gpg %%--%%keyserver pgp.mit.edu %%--%%keyserver-options auto-key-retrieve %%--%%verify archlinux-<version>-x86_64.iso.sig''
-  * und überprüfe die md5sum mit folgendem Befehl
-    * ''md5sum archlinux-<version>-x86_64.iso''
+  * und überprüfe die sha256sum mit folgendem Befehl
+    * ''sha256sum archlinux-<version>-x86_64.iso''
 
 <alert type="info" icon="fa fa-info-circle">Eine weitere Methode zur Überprüfung der Authentizität der Signatur besteht darin, sicherzustellen, dass der Fingerabdruck des öffentlichen Schlüssels mit dem Fingerabdruck des [[https://www.archlinux.org/people/developers/|Arch Linux-Entwicklers]] identisch ist, der die ISO-Datei signiert hat. Weitere Informationen über das Public-Key-Verfahren zur Authentifizierung von Schlüsseln findest du unter [[https://en.wikipedia.org/wiki/Public-key_cryptography|Wikipedia:Public-key_cryptography]].</alert>
 
