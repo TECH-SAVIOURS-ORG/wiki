@@ -5,7 +5,7 @@
 
 ==== NetworkManager ====
 
-Import you config file via the command below:
+Import your configuration file using the command below:
 
 <code>
 nmcli connection import type wireguard file laptop.conf
