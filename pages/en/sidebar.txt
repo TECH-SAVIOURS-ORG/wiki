@@ -40,6 +40,7 @@
         * [[:en:phone:apps:nextcloud|Nextcloud]]
         * [[:en:phone:apps:browser|Browser (Iceraven & Tor)]]
         * [[:en:phone:apps:invizible-pro|InviZible Pro (DNSCrypt & Tor)]]
+        * [[:en:phone:apps:wireguard|WireGuard]]
   * [[:en:desktop|Desktop]]
     * [[:en:desktop:operating_systems|Operating Systems]]
       * [[:en:desktop:operating_systems:arch_linux|Arch Linux]]
