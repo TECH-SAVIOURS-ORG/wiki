@@ -1,4 +1,8 @@
-<alert type="success" icon="fa fa-nextcloud">**[[en/server/services/nextcloud|nextcloud]]** __tutorial/guide__ is ready 🍻 🌪️</alert>
+<alert type="success" icon="fa fa-lock">**[[en/server/services/wireguard|WireGuard]]** __tutorial/guide__ is ready 🚀\\
+Also read how to import the configuration file to your [[/en/phone/apps/wireguard|phone]] and [[/en/desktop/services/wireguard|desktop]].</alert>
+
+<alert type="info" icon="fa fa-info">
+The wiki is now fully usable as the last missing service - [[en/server/services/wireguard|WireGuard]] has joined the wiki to finally access your entire server.</alert>
 
 ====== Welcome to TECH SAVIOURS Wiki ======
 We would like to give you the opportunity here to achieve your digital privacy goals as a DIY solution. We cover the most important devices we use every day.
