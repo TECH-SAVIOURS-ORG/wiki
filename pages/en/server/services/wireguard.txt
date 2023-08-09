@@ -1,0 +1,236 @@
+====== WireGuard ======
+
+[[https://www.wireguard.com/|WireGuard]]® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art [[https://www.wireguard.com/protocol/|cryptography]]. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+
+
+===== Prerequisites =====
+
+If you want to use your services at home, wherever you are, the following steps are required.
+==== Dynamic DNS ====
+
+If you do not have a static IP from your Internet Service Provider (ISP), a Dynamic DNS (DDNS) is required.
+So you need to create an account with one of the providers listed below:
+
+  * https://freedns.afraid.org/
+  * https://www.duckdns.org/
+  * https://www.noip.com/
+
+<alert type="info" icon="fa fa-info-circle">Also check your router for these providers. Sometimes you can enter your credentials there.</alert>
+
+
+=== DDClient ===
+
+Install ''ddclient'' and search for your chosen provider and enter your credentials there.
+
+<code>
+pacman -S ddclient
+nano /etc/ddclient/ddclient.conf
+</code>
+
+<code>
+systemctl enable --now ddclient.service
+</code>
+
+<alert type="info" icon="fa fa-info-circle">See also https://wiki.archlinux.org/title/Dynamic_DNS#ddclient. Some examples can be found in the table.</alert>
+
+
+==== Port forwarding ====
+
+[[https://en.wikipedia.org/wiki/Port_forwarding|What is it?]]
+
+We will use Wireguard to access your server over the Internet. To do this, you must open a port in your router and forward it to your server.
+The wireguard port listens on ''51820'' by default. If you want to change this, you need to redirect the port to your chosen number and adjust the tutorial accordingly. 
+
+The example below is based on [[https://opnsense.org/|OPNsense]], but it is basically the same for other devices as well.\\
+The example below also has a different destination port (1212). If you want to change this as well, you have to change ''Endpoint = <server public IP or domain>:1212'' under [[#keys1|clients]] as well:
+
+{{:en:server:services:opnsense-wireguard-port_forwarding.png?direct|}}
+
+===== Server =====
+
+Do everything with root.
+
+<code>
+su
+</code>
+
+
+==== Packages ====
+
+<code>
+pacman -S wireguard-tools
+</code>
+
+
+==== Keys ====
+
+<code>
+cd /etc/wireguard/
+umask 077; wg genkey | tee privatekey | wg pubkey > publickey
+</code>
+
+
+==== wg0.conf ====
+
+
+=== Interface ===
+
+Copy and paste the private key under ''PrivateKey = ''.
+
+<code>
+cat privatekey
+</code>
+
+<code>
+nano wg0.conf
+</code>
+
+<code>
+[Interface]
+PrivateKey = <Private Key>
+Address = 10.0.0.1/24
+ListenPort = 51820
+</code>
+
+
+=== Peer ===
+
+  - [[#clients|Go to clients]] first and follow the instructions.
+  - Copy the **publickey** and **presharedkey** of your client.
+
+<code>
+cat /etc/wireguard/clients/phones/pinephone/publickey
+cat /etc/wireguard/clients/phones/pinephone/presharedkey
+</code>
+
+  - Add the peer
+
+<code>
+nano /etc/wireguard/wg0.conf
+</code>
+
+<code>
+[Peer]
+# pinephone
+PublicKey = <client public key>
+PresharedKey = <preshared key>
+AllowedIPs = 10.0.0.2/32
+</code>
+
+
+===== Clients =====
+
+Create clients for //laptop//, //desktop//, //phone// and so on. Wherever you need it for.
+
+<code>
+mkdir -p /etc/wireguard/clients/phones/pinephone/
+</code>
+
+<alert type="danger" icon="fa fa-warning">\\
+It is better to store them somewhere else. On a USB stick or so. Or just delete it after the configuration.</alert>
+==== Keys ====
+
+<code>
+cd /etc/wireguard/clients/phones/pinephone/
+umask 077; wg genkey | tee privatekey | wg pubkey > publickey | wg genpsk > presharedkey
+</code>
+
+<code>
+cat privatekey && cat /etc/wireguard/publickey && cat presharedkey
+</code>
+
+<code>
+nano pinephone.conf
+</code>
+
+<code>
+[Interface]
+PrivateKey = <pinephones-privatekey>
+Address = 10.0.0.2/24
+
+[Peer]
+PublicKey = <server public key>
+PresharedKey = <preshared key>
+Endpoint = <server public IP or domain>:51820
+AllowedIPs = 0.0.0.0/0
+</code>
+
+<alert type="info" icon="fa fa-info-circle">**Optional:**\\
+Add another DNS server under ''[Interface]'' in the configuration of your client, e.g. if you do not want to use the DNS server of your provider.
+\\
+''DNS = `dns server`''</alert>
+
+
+==== Permissions ====
+
+Set the right permissions.
+
+<code>
+chmod -R 600 /etc/wireguard/clients/
+</code>
+
+
+==== Copy file ====
+
+Copy your ''%%.conf%%'' file to your device.
+
+<code>
+scp pinephone.conf USER@IP:~/
+</code>
+
+
+=== Generate QR Code ===
+
+You can also create an QR code.
+
+<code>
+pacman -S qrencode
+</code>
+
+<code>
+qrencode -t ansiutf8 < pinephone.conf
+</code>
+
+
+==== Back to peer ====
+
+[[#peer|Click]]
+ 
+
+==== More clients ====
+
+If you need more clients, just follow the [[#clients|clients]] process again and add the [[#peer|peer]] to your server among your other clients.
+
+<alert type="info" icon="fa fa-info-circle">Stop the Wireguard interface when adding new clients/peers.\\
+''systemctl stop wg-quick@wg0.service''</alert>
+ 
+
+
+===== Start =====
+
+<code>
+systemctl enable --now wg-quick@wg0.service
+</code>
+
+
+===== Firewall =====
+
+Based on [[firewalld]].
+
+  - create a new [[firewalld#zone|zone]] (name it: ''wireguard'')
+  - add "''wg0'' [[firewalld#interface|interface]]" to your new //**wireguard zone**//
+  - add/open [[firewalld#service|wireguards service]] (port 51820) to your //**home zone**//
+  - add/open [[firewalld#service|https service]] (port 443) to your //**wireguard zone**// (to reach your services, which should be based on [[security:ssl]])
+  - add [[firewalld#masquerade|masquerade]] to your //**home zone**//
+  - and create a [[firewalld#new_policy|new policy]] for internet and services access
+
+
+===== Checks =====
+
+You can check your clients connections via the command ''wg'' on your wireguard server. You should see:
+<code>
+  latest handshake: 1 minute, 52 seconds ago
+  transfer: 1.22 MiB received, 3.80 MiB sent
+</code>
+
+Also check the IP address of your clients, for example with https://dnsleaktest.com, which should be the IP address of your home, and click the **//Extended test//** button for the DNS server you are using which can be different on your Android device if DNS isn't set on [[#clients|clients]] side.
