@@ -220,7 +220,7 @@ Based on [[firewalld]].
   - create a new [[firewalld#zone|zone]] (name it: ''wireguard'')
   - add "''wg0'' [[firewalld#interface|interface]]" to your new //**wireguard zone**//
   - add/open [[firewalld#service|wireguards service]] (port 51820) to your //**home zone**//
-  - add/open [[firewalld#service|https service]] (port 443) to your //**wireguard zone**// (to reach your services, which should be based on [[security:ssl]])
+  - add/open [[firewalld#service|https service]] (port 443) to your //**wireguard zone**// (to reach your services, which should be based on [[ssl]])
   - add [[firewalld#masquerade|masquerade]] to your //**home zone**//
   - and create a [[firewalld#new_policy|new policy]] for internet and services access
 
