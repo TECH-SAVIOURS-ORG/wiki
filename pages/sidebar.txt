@@ -16,7 +16,7 @@
       * [[:en:desktop:operating_systems:arch_linux|Arch Linux]]
     * [[:en:desktop:services|Services]]
         * [[:en:desktop:services:dnscrypt|DNSCrypt]]
-        * [[:en:desktop:services:searx|Searx]]
+        * [[en:desktop:services:searxng|Searx]]
   * [[:en:backup|Backup]]
     * [[:en:backup:server|Server]]
     * [[:en:backup:phone|Phone]]
