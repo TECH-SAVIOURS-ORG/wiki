@@ -57,7 +57,7 @@
         * [[:en:desktop:services:nextcloud|nextcloud]]
         * [[:en:desktop:services:dnscrypt|DNSCrypt]]
         * [[:en:desktop:services:torsocks|torsocks]]
-        * [[:en:desktop:services:searx|Searx]]
+        * [[en:desktop:services:searxng|Searx]]
         * [[:en:desktop:services:aur-helper|AUR-Helper]]
         * [[:en:desktop:services:browser|Browser (Firefox, Librewolf, Tor & Pale Moon)]]
         * [[:en:desktop:services:wireguard|WireGuard]]
