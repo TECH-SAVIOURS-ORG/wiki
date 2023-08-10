@@ -1,1 +1,1 @@
-{{page>en:server:services:searx}}
+{{page>en:server:services:searxng}}
