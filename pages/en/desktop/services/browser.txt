@@ -34,7 +34,7 @@ You can also create your own user.js file at https://ffprofile.com/.
 
 The following example is based on session recovery being enabled again. If you have pinned tabs or working on something, this can be very helpful. Every time you close your browser and start it again, it is back the way you left it.
 
-If you use searx on your own [[en:desktop:services:searx|computer]]/[[en:server:services:searx|server]], you can also enable keywords for the URL bar to search for something instead of the search bar. This also saves more space.
+If you use searx on your own [[en:desktop:services:searx|computer]]/[[en:server:services:searxng|server]], you can also enable keywords for the URL bar to search for something instead of the search bar. This also saves more space.
 
   - Close firefox
   - Create a ''user-overrides.js'' file in ''~/.mozilla/firefox/xxxxxxxx.hardened/'' with the following content:
