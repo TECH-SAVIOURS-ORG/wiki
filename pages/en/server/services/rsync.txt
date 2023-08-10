@@ -1,6 +1,6 @@
 ====== rsync ======
 
-rsync is an [[https://www.opensource.org/|open source]] utility that provides fast incremental file transfer. rsync is freely available under the [[https://rsync.samba.org/GPL.html|GNU General Public License]]. 
+[[https://rsync.samba.org/|rsync]] is an [[https://www.opensource.org/|open source]] utility that provides fast incremental file transfer. rsync is freely available under the [[https://rsync.samba.org/GPL.html|GNU General Public License]]. 
 
 
 ===== Package =====
