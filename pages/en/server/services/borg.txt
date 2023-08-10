@@ -1,6 +1,6 @@
 ====== Borg ======
 
-Deduplicating archiver with compression and encryption BorgBackup (short: Borg) gives you:
+Deduplicating archiver with compression and encryption [[https://www.borgbackup.org/|BorgBackup]] (short: Borg) gives you:
 
   * Space efficient storage of backups.
   * Secure, authenticated encryption.
