@@ -1,0 +1,90 @@
+====== SearXNG ======
+
+[[https://docs.searxng.org/|SearXNG]] is a free internet metasearch engine which aggregates results from more than 70 search services. Users are neither tracked nor profiled. Additionally, SearXNG can be used over Tor for online anonymity.
+
+
+===== Packages =====
+
+<code>
+sudo -H pacman -S --noconfirm \
+python python-pip python-lxml python-babel \
+uwsgi uwsgi-plugin-python \
+git base-devel libxml2
+</code>
+
+
+==== AUR ====
+
+If you would like to use AUR, you can do the following:
+<code>
+pikaur -S searxng-git
+</code>
+<code>
+sudo systemctl enable --now uwsgi@searxng.service
+</code>
+
+You no longer need to follow the guide below, just go to:
+
+http://127.0.0.1:8888/
+
+Check also [[/en/server/services/nginx]] and [[/en/server/services/ssl|ssl]].
+
+
+===== Create User =====
+
+<code>
+sudo -H useradd --shell /bin/bash --system \
+--home-dir "/usr/local/searxng" \
+--comment 'Privacy-respecting metasearch engine' \
+searxng
+
+sudo -H mkdir "/usr/local/searxng"
+sudo -H chown -R "searxng:searxng" "/usr/local/searxng"
+</code>
+
+
+===== SearXNG Dependencies (searxng user/terminal) =====
+
+<code>
+sudo -H -u searxng -i
+git clone "https://github.com/searxng/searxng" \
+"/usr/local/searxng/searxng-src"
+</code>
+
+
+===== Create Virtual Environment (searxng user/terminal) =====
+
+<code>
+sudo -H -u searxng -i
+python3 -m venv "/usr/local/searxng/searx-pyenv"
+echo ". /usr/local/searxng/searx-pyenv/bin/activate" \
+>>  "/usr/local/searxng/.profile"
+</code>
+
+
+===== Start another Terminal (update) =====
+
+<code>
+pip install -U pip
+pip install -U setuptools
+pip install -U wheel
+pip install -U pyyaml
+</code>
+
+
+===== Install SearXNG into Virtual Environment (back to searxng user/terminal) =====
+
+<code>
+sudo -H -u searxng -i
+cd "/usr/local/searxng/searxng-src"
+pip install -e .
+</code>
+
+
+===== Configuration =====
+
+<code>
+sudo -H mkdir -p "/etc/searxng"
+sudo -H cp "/usr/local/searxng/searxng-src/utils/templates/etc/searxng/settings.yml" \
+"/etc/searxng/settings.yml"
+</code>
