@@ -16,7 +16,7 @@
         * [[:en:server:services:unbound|unbound]]
         * [[:en:server:services:dnscrypt|DNSCrypt]]
         * [[:en:server:services:torsocks|torsocks]]
-        * [[:en:server:services:searx|Searx]]
+        * [[en:server:services:searxng|Searx]]
         * [[:en:server:services:aur-helper|AUR-Helper]]
         * [[:en:server:services:nginx|nginx]]
         * [[:en:server:services:ssl|ssl]]
