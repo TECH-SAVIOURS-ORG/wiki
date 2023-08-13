@@ -11,7 +11,7 @@ So here are all the donation links (if available) of everything we have here (ap
 ===== Operating Systems =====
 
   * Arch Linux - https://archlinux.org/donate/
-  * LineageOS - https://paypal.me/LineageOS and https://patreon.com/LineageOS =====
+  * LineageOS - https://paypal.me/LineageOS and https://patreon.com/LineageOS
 
 
 ===== Environments =====
