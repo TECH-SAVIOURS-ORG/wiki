@@ -46,6 +46,7 @@ So here are all the donation links (if available) of everything we have here (ap
   * unbound (NLnet Labs) - https://nlnetlabs.nl/funding/
   * DNSCrypt - https://opencollective.com/dnscrypt
   * torsocks - https://donate.torproject.org/
+  * SearXNG - https://github.com/searxng/searxng/pull/2435
   * pikaur (AUR-Helper) - https://www.paypal.com/paypalme/actionless
   * nginx - https://nginx.org/en/donation.html
   * nss - https://donate.mozilla.org/en-US/
