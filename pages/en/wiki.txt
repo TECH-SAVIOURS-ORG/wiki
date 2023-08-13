@@ -2,7 +2,8 @@
 Also read how to import the configuration file to your [[/en/phone/apps/wireguard|phone]] and [[/en/desktop/services/wireguard|desktop]].</alert>
 
 <alert type="info" icon="fa fa-info">
-The wiki is now fully usable as the last missing service - [[en/server/services/wireguard|WireGuard]] has joined the wiki to finally access your entire server.</alert>
+The wiki is now fully usable as the last missing service - [[en/server/services/wireguard|WireGuard]] has joined the wiki to finally access your entire server.\\
+Check the new [[/en/extras/donation_list|Donation list]] to support your favourite free and open source software.</alert>
 
 ====== Welcome to TECH SAVIOURS Wiki ======
 We would like to give you the opportunity here to achieve your digital privacy goals as a DIY solution. We cover the most important devices we use every day.
