@@ -257,7 +257,7 @@ options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2):root root=/dev/vg0/
 echo "title Arch Linux (fallback initramfs)
 linux /vmlinuz-linux-hardened
 initrd  /initramfs-linux-hardened-fallback.img
-options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2)=root root=/dev/vg0/root rw" >> /boot/loader/entries/arch-fallback.conf
+options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2):root root=/dev/vg0/root rw" >> /boot/loader/entries/arch-fallback.conf
 </code>
 
 ==== Microcode ====
