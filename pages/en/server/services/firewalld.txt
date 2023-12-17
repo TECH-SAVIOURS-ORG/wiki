@@ -194,6 +194,10 @@ Only if you are running a desktop environment on your server or for your desktop
 The GUI can also be useful if you need to quickly change zones at specific network locations.
 
 <code>
+python-pyqt6
+</code>
+
+<code>
 firewall-applet
 </code>
 
