@@ -1,7 +1,7 @@
 ====== KDE ======
 
 <code>
-pacman -S plasma xorg
+pacman -S plasma
 </code>
 
 <code>
@@ -11,8 +11,6 @@ systemctl enable --now sddm
 That's actually it.
 
 Check out all the [[https://archlinux.org/groups/x86_64/kde-applications/|KDE software]] and suggested packages below and install whatever you like.
-
-<alert type="danger" icon="fa fa-exclamation-triangle">Using xorg (enable SDDM) as root can be a security risk! You can use xinit instead.</alert>
 
 ===== xinit =====
 
