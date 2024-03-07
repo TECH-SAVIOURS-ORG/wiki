@@ -233,7 +233,7 @@ nano /etc/mkinitcpio.conf
 </code>
 
 <code>
-HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)
+HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems fsck encrypt lvm2)
 </code>
 
 <code>
