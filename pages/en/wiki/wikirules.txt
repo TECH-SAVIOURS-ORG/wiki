@@ -8,9 +8,9 @@ Like any open source project, it lives from the efforts of its users.
 
 The documentation can always be improved, or you can create more tutorials. But they must be easy to read and generally understandable to a complete newcomer who want more digital privacy but don't know how to achieve it.
 
-===== GitHub or registration =====
+===== Git or registration =====
 
-The normal procedure fork/pull requests on [[https://github.com/TECH-SAVIOURS-ORG/wiki/|GitHub]] or send us an email to [[wiki@techsaviours.org?Subject=Registration%20Request|wiki@techsaviours.org]]  if you prefer to register on the [[https://wiki.techsaviours.org|wiki website]] itself, as we do not have registration enabled.
+The normal procedure fork/pull requests on [[https://git.techsaviours.org/.ORG/wiki|Forgejo instance]] or send us an email to [[wiki@techsaviours.org?Subject=Registration%20Request|wiki@techsaviours.org]]  if you prefer to register on the [[https://wiki.techsaviours.org|wiki website]] itself, as we do not have registration enabled.
 
 ===== Syntax =====
 
